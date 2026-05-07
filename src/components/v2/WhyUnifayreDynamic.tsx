@@ -1,11 +1,12 @@
 "use client";
 
 /**
- * WhyUnifayreDynamic — V3 split layout (no image gradient).
+ * WhyUnifayreDynamic — V3 full-banner layout (back from split).
  *
- * Solid navy section background. Rotating factory imagery sits in a
- * contained rounded-rectangle frame on the right (clean, no overlay).
- * Headline + capability pointer cards sit on the navy bg on the left.
+ * Full-bleed rotating factory imagery (no full-image gradient). Headline +
+ * capability pointer cards sit on top of the image, each grounded in its
+ * own translucent navy patch (bg-royal-blue-deep/55 backdrop-blur) so text
+ * reads cleanly without darkening the whole image.
  */
 
 import Image from "next/image";
@@ -72,15 +73,38 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative overflow-hidden bg-[color:var(--royal-blue-deep)] py-20 text-white md:py-28"
+      className="relative isolate overflow-hidden bg-[color:var(--royal-blue-deep)] text-white"
     >
-      <div
-        aria-hidden
-        className="gold-blob pointer-events-none absolute -bottom-20 left-10 h-[420px] w-[420px] rounded-full opacity-40"
-      />
+      {/* Full-bleed rotating background images — no overlay gradient */}
+      <div className="absolute inset-0">
+        {SLIDES.map((s, i) => (
+          <motion.div
+            key={s.src}
+            initial={false}
+            animate={{
+              opacity: i === idx ? 1 : 0,
+              scale: i === idx ? 1 : 1.06,
+            }}
+            transition={{
+              opacity: { duration: 1.4, ease: "easeInOut" },
+              scale: { duration: 7, ease: "easeOut" },
+            }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={s.src}
+              alt={s.alt}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </motion.div>
+        ))}
+      </div>
 
-      <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-5 md:grid-cols-[1.05fr_0.95fr] md:gap-14 md:px-10">
-        {/* Left — heading & capability pointers */}
+      {/* Content */}
+      <div className="relative mx-auto grid min-h-[88svh] max-w-[1320px] items-center gap-12 px-5 py-24 md:grid-cols-[1fr_1.05fr] md:gap-14 md:px-10 md:py-28">
+        {/* Left — heading inside a translucent navy patch */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -89,7 +113,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             hidden: {},
             show: { transition: { staggerChildren: 0.1 } },
           }}
-          className="flex flex-col"
+          className="rounded-2xl border border-[color:var(--accent-gold)]/15 bg-[color:var(--royal-blue-deep)]/55 p-6 backdrop-blur-md md:rounded-3xl md:p-8"
         >
           <motion.div
             variants={{
@@ -112,7 +136,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.7, ease: EASE },
               },
             }}
-            className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold)]"
+            className="mt-6 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold)]"
           >
             Why Unifayre
           </motion.span>
@@ -140,13 +164,12 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.8, ease: EASE },
               },
             }}
-            className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/85 md:text-lg"
+            className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/90 md:text-lg"
           >
             Over 30 years of precision manufacturing, BRC-certified lines, and
             an R&amp;D team that builds to your menu, region, and palate.
           </motion.p>
 
-          {/* Capability pointer cards */}
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 14 },
@@ -156,25 +179,34 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.8, ease: EASE, delay: 0.15 },
               },
             }}
-            className="mt-8 grid grid-cols-2 gap-3 md:gap-4"
+            className="mt-7 flex items-center gap-4"
           >
-            {POINTERS.map((p) => (
-              <div
-                key={p.label}
-                className="group flex flex-col gap-2 rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue)]/35 p-4 backdrop-blur-sm transition-all hover:border-[color:var(--accent-gold)]/55 md:p-5"
-              >
-                <p.icon
-                  className="h-5 w-5 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
-                  strokeWidth={1.6}
+            <div className="flex items-center gap-1.5">
+              {SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIdx(i)}
+                  aria-label={`Show slide ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === idx
+                      ? "w-6 bg-[color:var(--accent-gold)]"
+                      : "w-1.5 bg-white/40 hover:bg-white/70"
+                  }`}
                 />
-                <span className="font-display text-xl font-light leading-none tracking-tight text-white md:text-2xl">
-                  {p.metric}
-                </span>
-                <span className="text-[0.72rem] font-medium leading-snug text-white/75">
-                  {p.label}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={`cap-${idx}`}
+                initial={{ opacity: 0, x: -6 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -6 }}
+                transition={{ duration: 0.4 }}
+                className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold)]"
+              >
+                {slide.caption}
+              </motion.span>
+            </AnimatePresence>
           </motion.div>
 
           <motion.div
@@ -186,7 +218,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.8, ease: EASE, delay: 0.25 },
               },
             }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            className="mt-7 flex flex-wrap items-center gap-3"
           >
             <a
               href="#contact"
@@ -197,77 +229,51 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             </a>
             <a
               href="#pillars"
-              className="btn-gold-outline inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.86rem] font-semibold"
+              className="btn-gold-outline inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.86rem] font-semibold backdrop-blur"
             >
               See our pillars
             </a>
           </motion.div>
         </motion.div>
 
-        {/* Right — contained rotating image (no gradient overlay) */}
+        {/* Right — capability pointer cards, each on its own translucent
+            navy patch so they read against any image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.95, ease: EASE }}
-          className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-[color:var(--accent-gold)]/25 bg-[color:var(--royal-blue)]/25 md:aspect-square"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
+          }}
+          className="grid grid-cols-2 gap-3 md:gap-4"
         >
-          {SLIDES.map((s, i) => (
+          {POINTERS.map((p) => (
             <motion.div
-              key={s.src}
-              initial={false}
-              animate={{
-                opacity: i === idx ? 1 : 0,
-                scale: i === idx ? 1.02 : 1.06,
+              key={p.label}
+              variants={{
+                hidden: { opacity: 0, y: 18 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.7, ease: EASE },
+                },
               }}
-              transition={{
-                opacity: { duration: 1.2, ease: "easeInOut" },
-                scale: { duration: 7, ease: "easeOut" },
-              }}
-              className="absolute inset-0"
+              whileHover={{ y: -3 }}
+              className="group flex flex-col gap-2 rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue-deep)]/65 p-4 backdrop-blur-md transition-all hover:border-[color:var(--accent-gold)]/55 md:p-5"
             >
-              <Image
-                src={s.src}
-                alt={s.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+              <p.icon
+                className="h-5 w-5 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
+                strokeWidth={1.6}
               />
+              <span className="font-display text-xl font-light leading-none tracking-tight text-white md:text-2xl">
+                {p.metric}
+              </span>
+              <span className="text-[0.72rem] font-medium leading-snug text-white/80">
+                {p.label}
+              </span>
             </motion.div>
           ))}
-
-          {/* Caption pill — contained, sits over the image, not a full-image gradient */}
-          <div className="absolute bottom-4 left-4 z-10 md:bottom-6 md:left-6">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={`cap-${idx}`}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.4 }}
-                className="inline-flex items-center gap-2 rounded-full border border-[color:var(--accent-gold)]/35 bg-[color:var(--royal-blue-deep)]/85 px-3 py-1.5 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold)] backdrop-blur"
-              >
-                <span className="h-1 w-1 rounded-full bg-[color:var(--accent-gold)]" />
-                {slide.caption}
-              </motion.span>
-            </AnimatePresence>
-          </div>
-
-          {/* Slide indicator dots — bottom right */}
-          <div className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 md:bottom-6 md:right-6">
-            {SLIDES.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setIdx(i)}
-                aria-label={`Show slide ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === idx
-                    ? "w-6 bg-[color:var(--accent-gold)]"
-                    : "w-1.5 bg-white/40 hover:bg-white/70"
-                }`}
-              />
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>

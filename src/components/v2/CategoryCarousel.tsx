@@ -97,10 +97,12 @@ export default function CategoryCarousel({
             navy card instead, keeping the banner image fully visible. */}
 
         {/* Top indicator strip — numbered category list, active highlighted.
-            Sits inside a contained pill so it stays legible without an
-            image-wide gradient. */}
+            Floats directly over the image, no background patch. */}
         <div className="absolute inset-x-0 top-0 z-10 flex justify-center px-5 pt-5 md:px-10 md:pt-7">
-          <div className="scrollbar-none flex items-center gap-3 overflow-x-auto whitespace-nowrap rounded-full border border-[color:var(--accent-gold)]/25 bg-[color:var(--royal-blue-deep)]/85 px-4 py-2 backdrop-blur-md md:gap-5 md:px-6">
+          <div
+            className="scrollbar-none flex items-center gap-3 overflow-x-auto whitespace-nowrap md:gap-5"
+            style={{ textShadow: "0 1px 10px rgba(20,32,64,0.5)" }}
+          >
             {slides.map((s, i) => {
               const active = i === idx;
               return (
@@ -177,19 +179,23 @@ export default function CategoryCarousel({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.55, ease: EASE }}
-                className="max-w-md rounded-2xl border border-[color:var(--accent-gold)]/25 bg-[color:var(--royal-blue-deep)]/85 p-5 backdrop-blur-md md:max-w-[520px] md:rounded-3xl md:p-7"
+                className="max-w-md md:max-w-[520px]"
+                style={{ textShadow: "0 2px 18px rgba(20,32,64,0.4)" }}
               >
                 <div className="gold-line w-16 md:w-24" />
-                <div className="mt-4 font-display text-4xl md:text-5xl font-light leading-none tracking-tighter text-[color:var(--accent-gold)]">
+                <div className="mt-5 font-display text-5xl md:text-6xl font-light leading-none tracking-tighter text-[color:var(--accent-gold)]">
                   {slide.number}
                 </div>
-                <h3 className="mt-3 font-display text-2xl md:text-3xl font-light leading-tight tracking-tight text-white">
+                <h3 className="mt-3 font-display text-2xl md:text-3xl lg:text-4xl font-light leading-tight tracking-tight text-white">
                   {slide.title}
                 </h3>
-                <p className="mt-3 max-w-md text-sm md:text-base font-light leading-relaxed text-white/85">
+                <p className="mt-3 max-w-md text-sm md:text-base lg:text-lg font-light leading-relaxed text-white/90">
                   {slide.description}
                 </p>
-                <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--accent-gold)]/45 bg-[color:var(--royal-blue)]/40 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-[color:var(--accent-gold)]">
+                <div
+                  className="mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--accent-gold)]/55 px-4 py-1.5 text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-[color:var(--accent-gold)]"
+                  style={{ textShadow: "none" }}
+                >
                   <span className="h-1 w-1 rounded-full bg-[color:var(--accent-gold)]" />
                   {slide.capacity}
                 </div>

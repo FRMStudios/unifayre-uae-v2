@@ -132,15 +132,21 @@ export default function HeroCarousel({
                   className="object-cover object-center"
                 />
 
-                {/* Slide content — sits in a contained navy card so the
-                    image stays visible and the text reads cleanly. */}
+                {/* Slide content — text floats directly on the image's
+                    empty space. No background patch. */}
                 <div className="relative z-10 flex h-full items-end px-5 pb-20 md:px-16 md:pb-24">
-                  <div className="max-w-md rounded-2xl border border-[color:var(--accent-gold)]/25 bg-[color:var(--royal-blue-deep)]/85 p-5 backdrop-blur-md md:max-w-xl md:rounded-3xl md:p-8">
+                  <div className="max-w-md md:max-w-xl">
                     <div className="mb-4 h-px w-12 bg-[color:var(--accent-gold)] md:mb-5 md:w-16" />
-                    <h1 className="mb-3 text-2xl font-light leading-tight tracking-tight text-white md:mb-4 md:text-4xl lg:text-5xl">
+                    <h1
+                      className="mb-3 text-2xl font-light leading-tight tracking-tight text-white md:mb-4 md:text-4xl lg:text-5xl"
+                      style={{ textShadow: "0 2px 18px rgba(20,32,64,0.35)" }}
+                    >
                       {slide.headline}
                     </h1>
-                    <p className="mb-5 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/85 md:mb-7 md:text-lg lg:text-xl">
+                    <p
+                      className="mb-6 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/90 md:mb-8 md:text-lg lg:text-xl"
+                      style={{ textShadow: "0 2px 14px rgba(20,32,64,0.35)" }}
+                    >
                       {slide.subheadline}
                     </p>
                     <Link

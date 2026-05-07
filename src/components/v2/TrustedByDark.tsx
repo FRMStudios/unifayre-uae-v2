@@ -1,10 +1,11 @@
 "use client";
 
 /**
- * TrustedByDark — V3 off-white variant.
- * Logos render in greyscale at 60% opacity by default; full colour on hover.
- * Two opposing rows run at slightly different speeds; pause on hover; edge
- * fade masks fade chips into the off-white bg.
+ * TrustedBy — V3 off-white section with white capsule chips.
+ *
+ * Each logo sits on a white pill chip so brand colours render natively
+ * against the off-white section. Two opposing rows; pause on hover; edge
+ * fade masks fade chips into the bg.
  */
 
 import Image from "next/image";
@@ -24,7 +25,7 @@ function LogoChip({
 }) {
   return (
     <div
-      className="group relative flex h-16 w-32 shrink-0 items-center justify-center px-4 py-3 transition-all duration-300 hover:-translate-y-1 md:h-20 md:w-40"
+      className="group relative flex h-16 w-32 shrink-0 items-center justify-center rounded-2xl border border-[color:var(--royal-blue)]/10 bg-white px-4 py-3 shadow-[0_6px_20px_-12px_rgba(20,32,64,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent-gold)]/45 hover:shadow-[0_18px_32px_-14px_rgba(201,169,97,0.3)] md:h-20 md:w-40"
       title={logo.name}
       aria-hidden={hideAria}
     >
@@ -33,7 +34,7 @@ function LogoChip({
         alt={hideAria ? "" : logo.name}
         fill
         sizes="(max-width: 768px) 128px, 160px"
-        className="object-contain p-3 opacity-60 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+        className="object-contain p-3"
       />
     </div>
   );
