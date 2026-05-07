@@ -90,10 +90,6 @@ export default function LifestyleStrip({
                   sizes="(max-width: 768px) 78vw, (max-width: 1024px) 55vw, 18vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                 />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-[color:var(--bg-deep)]/55 via-transparent to-transparent"
-                />
               </div>
               <figcaption className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold)]">
                 {frame.caption}

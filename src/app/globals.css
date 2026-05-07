@@ -6,10 +6,10 @@
 
 @theme inline {
   /* V3 — royal blue + off-white + gold */
-  --color-royal-blue: #1E40AF;
-  --color-royal-blue-deep: #1E3A8A;
-  --color-royal-blue-rich: #1D4ED8;
-  --color-royal-blue-light: #3B5BDB;
+  --color-royal-blue: #1B2A4E;
+  --color-royal-blue-deep: #142040;
+  --color-royal-blue-rich: #243558;
+  --color-royal-blue-light: #2E3F66;
 
   --color-off-white: #FAF7F0;
   --color-off-white-deep: #F5F2EA;
@@ -21,7 +21,7 @@
 
   --color-text-on-blue: #FFFFFF;
   --color-text-on-blue-muted: #DBE4FF;
-  --color-text-on-light: #1E3A8A;
+  --color-text-on-light: #142040;
   --color-text-on-light-muted: #4B5563;
   --color-text-gold-on-light: #B89653;
 
@@ -83,10 +83,10 @@
 }
 
 :root {
-  --royal-blue: #1E40AF;
-  --royal-blue-deep: #1E3A8A;
-  --royal-blue-rich: #1D4ED8;
-  --royal-blue-light: #3B5BDB;
+  --royal-blue: #1B2A4E;
+  --royal-blue-deep: #142040;
+  --royal-blue-rich: #243558;
+  --royal-blue-light: #2E3F66;
 
   --off-white: #FAF7F0;
   --off-white-deep: #F5F2EA;
@@ -98,15 +98,15 @@
 
   --text-on-blue: #FFFFFF;
   --text-on-blue-muted: #DBE4FF;
-  --text-on-light: #1E3A8A;
+  --text-on-light: #142040;
   --text-on-light-muted: #4B5563;
   --text-gold-on-light: #B89653;
 
   /* Backwards-compat aliases */
-  --bg-deep: #1E40AF;
-  --bg-warm-shadow: #1E3A8A;
-  --bg-slate: #1E40AF;
-  --bg-charcoal: #1E3A8A;
+  --bg-deep: #1B2A4E;
+  --bg-warm-shadow: #142040;
+  --bg-slate: #1B2A4E;
+  --bg-charcoal: #142040;
   --text-primary: #FFFFFF;
   --text-secondary: #DBE4FF;
   --text-muted: #DBE4FF;
@@ -114,35 +114,35 @@
   --border-gold: rgba(201, 169, 97, 0.45);
 
   --background: #FAF7F0;
-  --foreground: #1E3A8A;
+  --foreground: #142040;
   --card: #FFFFFF;
-  --card-foreground: #1E3A8A;
+  --card-foreground: #142040;
   --popover: #FFFFFF;
-  --popover-foreground: #1E3A8A;
-  --primary: #1E40AF;
+  --popover-foreground: #142040;
+  --primary: #1B2A4E;
   --primary-foreground: #FAF7F0;
   --secondary: #F5F2EA;
-  --secondary-foreground: #1E3A8A;
+  --secondary-foreground: #142040;
   --muted: #F5F2EA;
   --muted-foreground: #4B5563;
   --accent: #C9A961;
-  --accent-foreground: #1E3A8A;
+  --accent-foreground: #142040;
   --destructive: oklch(0.577 0.245 27.325);
   --border: rgba(201, 169, 97, 0.2);
   --input: rgba(201, 169, 97, 0.2);
   --ring: #C9A961;
   --chart-1: #C9A961;
-  --chart-2: #1E40AF;
+  --chart-2: #1B2A4E;
   --chart-3: #4B5563;
   --chart-4: #D4B876;
   --chart-5: #F5F2EA;
   --radius: 0.75rem;
   --sidebar: #FAF7F0;
-  --sidebar-foreground: #1E3A8A;
-  --sidebar-primary: #1E40AF;
+  --sidebar-foreground: #142040;
+  --sidebar-primary: #1B2A4E;
   --sidebar-primary-foreground: #FAF7F0;
   --sidebar-accent: #F5F2EA;
-  --sidebar-accent-foreground: #1E3A8A;
+  --sidebar-accent-foreground: #142040;
   --sidebar-border: rgba(201, 169, 97, 0.2);
   --sidebar-ring: #C9A961;
 }
@@ -187,25 +187,8 @@
     background: linear-gradient(180deg, var(--royal-blue) 0%, var(--royal-blue-deep) 100%);
   }
 
-  /* Hero carousel overlay — heavier on left for headline legibility */
-  .hero-overlay-blue {
-    background: linear-gradient(
-      to right,
-      rgba(30, 58, 138, 0.85) 0%,
-      rgba(30, 64, 175, 0.45) 35%,
-      rgba(30, 64, 175, 0.15) 60%,
-      transparent 80%
-    );
-  }
-  .hero-overlay-blue-mobile {
-    background: linear-gradient(
-      to top,
-      rgba(30, 58, 138, 0.92) 0%,
-      rgba(30, 64, 175, 0.55) 40%,
-      rgba(30, 64, 175, 0.15) 75%,
-      transparent 100%
-    );
-  }
+  /* Image overlays removed by design — text overlays now sit in
+     contained navy/cream cards over a clean image, no image gradients. */
 
   /* Ken Burns */
   @keyframes ken-burns {

@@ -202,39 +202,38 @@ function PillarTile({ pillar, delay }: { pillar: Pillar; delay: number }) {
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.7, ease: EASE, delay }}
       whileHover={{ y: -4 }}
-      className="group relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[24px] border border-[color:var(--border-subtle)] p-7 text-[color:var(--text-primary)] transition-all hover:border-[color:var(--accent-gold)] sm:aspect-[5/4] md:p-8"
+      className="group relative flex aspect-[4/5] flex-col overflow-hidden rounded-[24px] border border-[color:var(--royal-blue)]/15 bg-white text-[color:var(--royal-blue)] transition-all hover:border-[color:var(--accent-gold)]/60 sm:aspect-[5/4]"
     >
-      <Image
-        src={pillar.image}
-        alt=""
-        fill
-        sizes="(max-width: 640px) 100vw, 50vw"
-        className="object-cover opacity-65 transition-transform duration-700 group-hover:scale-[1.05]"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(30,58,138,0.55) 0%, rgba(30,58,138,0.25) 30%, rgba(30,58,138,0.55) 65%, rgba(30,58,138,0.95) 100%)",
-        }}
-      />
-
-      <div className="relative flex items-start justify-between">
-        <span className="inline-flex items-center rounded-full border border-[color:var(--accent-gold)]/45 bg-[color:var(--royal-blue-deep)]/65 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[color:var(--accent-gold)] backdrop-blur">
-          {pillar.number}
-        </span>
-        <Icon
-          className="h-6 w-6 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
-          strokeWidth={1.6}
+      {/* Image fills the upper portion of the tile — clean, no gradient */}
+      <div className="relative h-[58%] overflow-hidden">
+        <Image
+          src={pillar.image}
+          alt=""
+          fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
         />
+        {/* Number + icon float over the image as small contained chips */}
+        <div className="absolute inset-x-0 top-0 flex items-start justify-between p-4 md:p-5">
+          <span className="inline-flex items-center rounded-full border border-[color:var(--accent-gold)]/45 bg-[color:var(--royal-blue-deep)]/85 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[color:var(--accent-gold)] backdrop-blur">
+            {pillar.number}
+          </span>
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--accent-gold)]/45 bg-[color:var(--royal-blue-deep)]/85 backdrop-blur transition-transform duration-300 group-hover:scale-110">
+            <Icon
+              className="h-4 w-4 text-[color:var(--accent-gold)]"
+              strokeWidth={1.6}
+            />
+          </span>
+        </div>
       </div>
 
-      <div className="relative">
-        <h3 className="font-display text-[1.4rem] md:text-[1.6rem] font-light leading-tight tracking-tight text-[color:var(--text-primary)]">
+      {/* Solid navy panel hosting the title + body — clean separation, no
+          image-wide gradient required for text legibility. */}
+      <div className="flex flex-1 flex-col justify-end bg-[color:var(--royal-blue-deep)] p-6 text-white md:p-7">
+        <h3 className="font-display text-[1.3rem] md:text-[1.5rem] font-light leading-tight tracking-tight">
           {pillar.title}
         </h3>
-        <p className="mt-3 text-[0.92rem] font-light leading-relaxed text-[color:var(--text-primary)]/85">
+        <p className="mt-3 text-[0.9rem] font-light leading-relaxed text-white/85">
           {pillar.body}
         </p>
       </div>

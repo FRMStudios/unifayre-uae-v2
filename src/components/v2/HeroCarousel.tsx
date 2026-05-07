@@ -121,7 +121,7 @@ export default function HeroCarousel({
               key={slide.image + i}
               className="relative w-full shrink-0 grow-0 basis-full"
             >
-              {/* Slide image */}
+              {/* Slide image — clean, no overlay gradient */}
               <div className="relative h-[70svh] w-full md:h-[85svh]">
                 <Image
                   src={slide.image}
@@ -132,30 +132,15 @@ export default function HeroCarousel({
                   className="object-cover object-center"
                 />
 
-                {/* Royal blue gradient overlay */}
-                <div
-                  aria-hidden
-                  className="hero-overlay-blue absolute inset-0 hidden md:block"
-                />
-                <div
-                  aria-hidden
-                  className="hero-overlay-blue-mobile absolute inset-0 md:hidden"
-                />
-
-                {/* Bottom fade so the next section blends in */}
-                <div
-                  aria-hidden
-                  className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[color:var(--royal-blue-deep)]/60 to-transparent"
-                />
-
-                {/* Slide content — bottom-left aligned */}
+                {/* Slide content — sits in a contained navy card so the
+                    image stays visible and the text reads cleanly. */}
                 <div className="relative z-10 flex h-full items-end px-5 pb-20 md:px-16 md:pb-24">
-                  <div className="max-w-xl">
-                    <div className="mb-5 h-px w-12 bg-[color:var(--accent-gold)] md:w-16" />
+                  <div className="max-w-md rounded-2xl border border-[color:var(--accent-gold)]/25 bg-[color:var(--royal-blue-deep)]/85 p-5 backdrop-blur-md md:max-w-xl md:rounded-3xl md:p-8">
+                    <div className="mb-4 h-px w-12 bg-[color:var(--accent-gold)] md:mb-5 md:w-16" />
                     <h1 className="mb-3 text-2xl font-light leading-tight tracking-tight text-white md:mb-4 md:text-4xl lg:text-5xl">
                       {slide.headline}
                     </h1>
-                    <p className="mb-6 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/85 md:mb-8 md:text-lg lg:text-xl">
+                    <p className="mb-5 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/85 md:mb-7 md:text-lg lg:text-xl">
                       {slide.subheadline}
                     </p>
                     <Link

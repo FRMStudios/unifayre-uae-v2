@@ -1,12 +1,11 @@
 "use client";
 
 /**
- * WhyUnifayreDynamic — V2 dynamic Why Unifayre section.
+ * WhyUnifayreDynamic — V3 split layout (no image gradient).
  *
- * Replaces the previous static plant CinematicHero. Background image rotates
- * through 4 plant / operations shots with crossfade and Ken Burns. On the
- * left sits the headline; on the right, six animated capability pointer
- * cards stagger in with subtle hover lift.
+ * Solid navy section background. Rotating factory imagery sits in a
+ * contained rounded-rectangle frame on the right (clean, no overlay).
+ * Headline + capability pointer cards sit on the navy bg on the left.
  */
 
 import Image from "next/image";
@@ -39,17 +38,7 @@ const SLIDES: Slide[] = [
   {
     src: "/plant/plant-house.jpg",
     alt: "Plant interior with production line",
-    caption: "Production line",
-  },
-  {
-    src: "/images/veg/lifestyle/cloud-kitchen.png",
-    alt: "Cloud kitchen plating operations",
-    caption: "Operations · Cloud kitchen pass",
-  },
-  {
-    src: "/images/veg/lifestyle/sizzle-closeup.png",
-    alt: "R&D test kitchen sizzle close-up",
-    caption: "R&D · Test kitchen",
+    caption: "Production line · Interior",
   },
 ];
 
@@ -60,36 +49,12 @@ type Pointer = {
 };
 
 const POINTERS: Pointer[] = [
-  {
-    icon: Factory,
-    metric: "18,000 MT",
-    label: "Annual veg capacity",
-  },
-  {
-    icon: Award,
-    metric: "BRC + FSSC",
-    label: "Certified lines",
-  },
-  {
-    icon: History,
-    metric: "30+ years",
-    label: "Manufacturing heritage",
-  },
-  {
-    icon: Store,
-    metric: "5,000+",
-    label: "Outlets served",
-  },
-  {
-    icon: FlaskConical,
-    metric: "R&D-led",
-    label: "Custom builds, your menu",
-  },
-  {
-    icon: ShieldCheck,
-    metric: "Halal-line",
-    label: "Ready, every SKU",
-  },
+  { icon: Factory, metric: "18,000 MT", label: "Annual veg capacity" },
+  { icon: Award, metric: "BRC + FSSC", label: "Certified lines" },
+  { icon: History, metric: "30+ years", label: "Manufacturing heritage" },
+  { icon: Store, metric: "5,000+", label: "Outlets served" },
+  { icon: FlaskConical, metric: "R&D-led", label: "Custom builds, your menu" },
+  { icon: ShieldCheck, metric: "Halal-line", label: "Ready, every SKU" },
 ];
 
 export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
@@ -107,67 +72,22 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative isolate overflow-hidden bg-[color:var(--bg-deep)] text-[color:var(--text-primary)]"
+      className="relative overflow-hidden bg-[color:var(--royal-blue-deep)] py-20 text-white md:py-28"
     >
-      {/* Rotating background images with Ken Burns — much more visible now */}
-      <div className="absolute inset-0">
-        {SLIDES.map((s, i) => (
-          <motion.div
-            key={s.src}
-            initial={false}
-            animate={{
-              opacity: i === idx ? 0.92 : 0,
-              scale: i === idx ? 1 : 1.06,
-            }}
-            transition={{
-              opacity: { duration: 1.4, ease: "easeInOut" },
-              scale: { duration: 7, ease: "easeOut" },
-            }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={s.src}
-              alt={s.alt}
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </motion.div>
-        ))}
-
-        {/* Localised left-sweep gradient — keeps headline readable but lets
-            most of the image breathe through. */}
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(95deg, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.7) 22%, rgba(10,22,40,0.35) 42%, rgba(10,22,40,0.15) 58%, rgba(10,22,40,0.4) 100%)",
-          }}
-        />
-        {/* Soft bottom fade so section blends into next */}
-        <div
-          aria-hidden
-          className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[color:var(--bg-deep)] to-transparent"
-        />
-      </div>
-
-      {/* Subtle gold blob accent */}
       <div
         aria-hidden
-        className="gold-blob pointer-events-none absolute -bottom-20 left-10 h-[420px] w-[420px] rounded-full opacity-50"
+        className="gold-blob pointer-events-none absolute -bottom-20 left-10 h-[420px] w-[420px] rounded-full opacity-40"
       />
 
-      {/* Content */}
-      <div className="relative mx-auto grid min-h-[88svh] max-w-[1320px] items-center gap-12 px-5 py-24 md:grid-cols-[1fr_1.05fr] md:gap-14 md:px-10 md:py-28">
-        {/* Left — heading & sub */}
+      <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-5 md:grid-cols-[1.05fr_0.95fr] md:gap-14 md:px-10">
+        {/* Left — heading & capability pointers */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.12 } },
+            show: { transition: { staggerChildren: 0.1 } },
           }}
           className="flex flex-col"
         >
@@ -205,13 +125,11 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.95, ease: EASE },
               },
             }}
-            className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--text-primary)]"
+            className="mt-5 font-display text-3xl font-light leading-tight tracking-tight md:text-4xl lg:text-5xl"
           >
             Built To Deliver,
             <br />
-            <em className="italic text-[color:var(--accent-gold)]">
-              Always.
-            </em>
+            <em className="italic text-[color:var(--accent-gold)]">Always.</em>
           </motion.h2>
           <motion.p
             variants={{
@@ -222,50 +140,41 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.8, ease: EASE },
               },
             }}
-            className="mt-5 max-w-[34rem] text-base md:text-lg font-light leading-relaxed text-[color:var(--text-primary)]/85"
+            className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/85 md:text-lg"
           >
             Over 30 years of precision manufacturing, BRC-certified lines, and
             an R&amp;D team that builds to your menu, region, and palate.
           </motion.p>
 
-          {/* Slide caption + dots — anchors the rotating imagery to context */}
+          {/* Capability pointer cards */}
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 14 },
               show: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 0.8, ease: EASE, delay: 0.2 },
+                transition: { duration: 0.8, ease: EASE, delay: 0.15 },
               },
             }}
-            className="mt-8 flex items-center gap-4"
+            className="mt-8 grid grid-cols-2 gap-3 md:gap-4"
           >
-            <div className="flex items-center gap-1.5">
-              {SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setIdx(i)}
-                  aria-label={`Show slide ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${
-                    i === idx
-                      ? "w-6 bg-[color:var(--accent-gold)]"
-                      : "w-1.5 bg-[color:var(--text-secondary)]/40 hover:bg-[color:var(--text-secondary)]/70"
-                  }`}
-                />
-              ))}
-            </div>
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={`cap-${idx}`}
-                initial={{ opacity: 0, x: -6 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -6 }}
-                transition={{ duration: 0.4 }}
-                className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold)]"
+            {POINTERS.map((p) => (
+              <div
+                key={p.label}
+                className="group flex flex-col gap-2 rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue)]/35 p-4 backdrop-blur-sm transition-all hover:border-[color:var(--accent-gold)]/55 md:p-5"
               >
-                {slide.caption}
-              </motion.span>
-            </AnimatePresence>
+                <p.icon
+                  className="h-5 w-5 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
+                  strokeWidth={1.6}
+                />
+                <span className="font-display text-xl font-light leading-none tracking-tight text-white md:text-2xl">
+                  {p.metric}
+                </span>
+                <span className="text-[0.72rem] font-medium leading-snug text-white/75">
+                  {p.label}
+                </span>
+              </div>
+            ))}
           </motion.div>
 
           <motion.div
@@ -274,7 +183,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
               show: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 0.8, ease: EASE, delay: 0.3 },
+                transition: { duration: 0.8, ease: EASE, delay: 0.25 },
               },
             }}
             className="mt-8 flex flex-wrap items-center gap-3"
@@ -288,50 +197,77 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             </a>
             <a
               href="#pillars"
-              className="btn-gold-outline inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.86rem] font-semibold backdrop-blur"
+              className="btn-gold-outline inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.86rem] font-semibold"
             >
               See our pillars
             </a>
           </motion.div>
         </motion.div>
 
-        {/* Right — capability pointer cards */}
+        {/* Right — contained rotating image (no gradient overlay) */}
         <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
-          }}
-          className="grid grid-cols-2 gap-3 md:gap-4"
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.95, ease: EASE }}
+          className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-[color:var(--accent-gold)]/25 bg-[color:var(--royal-blue)]/25 md:aspect-square"
         >
-          {POINTERS.map((p) => (
+          {SLIDES.map((s, i) => (
             <motion.div
-              key={p.label}
-              variants={{
-                hidden: { opacity: 0, y: 18 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.7, ease: EASE },
-                },
+              key={s.src}
+              initial={false}
+              animate={{
+                opacity: i === idx ? 1 : 0,
+                scale: i === idx ? 1.02 : 1.06,
               }}
-              whileHover={{ y: -3 }}
-              className="group flex flex-col gap-2 rounded-2xl border border-[color:var(--border-subtle)] bg-[color:var(--bg-warm-shadow)]/85 p-4 backdrop-blur-md transition-all hover:border-[color:var(--accent-gold)] md:p-5"
+              transition={{
+                opacity: { duration: 1.2, ease: "easeInOut" },
+                scale: { duration: 7, ease: "easeOut" },
+              }}
+              className="absolute inset-0"
             >
-              <p.icon
-                className="h-5 w-5 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
-                strokeWidth={1.6}
+              <Image
+                src={s.src}
+                alt={s.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
-              <span className="font-display text-xl md:text-2xl font-light leading-none tracking-tight text-[color:var(--text-primary)]">
-                {p.metric}
-              </span>
-              <span className="text-[0.72rem] font-medium leading-snug text-[color:var(--text-primary)]/75">
-                {p.label}
-              </span>
             </motion.div>
           ))}
+
+          {/* Caption pill — contained, sits over the image, not a full-image gradient */}
+          <div className="absolute bottom-4 left-4 z-10 md:bottom-6 md:left-6">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={`cap-${idx}`}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.4 }}
+                className="inline-flex items-center gap-2 rounded-full border border-[color:var(--accent-gold)]/35 bg-[color:var(--royal-blue-deep)]/85 px-3 py-1.5 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold)] backdrop-blur"
+              >
+                <span className="h-1 w-1 rounded-full bg-[color:var(--accent-gold)]" />
+                {slide.caption}
+              </motion.span>
+            </AnimatePresence>
+          </div>
+
+          {/* Slide indicator dots — bottom right */}
+          <div className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 md:bottom-6 md:right-6">
+            {SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                aria-label={`Show slide ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === idx
+                    ? "w-6 bg-[color:var(--accent-gold)]"
+                    : "w-1.5 bg-white/40 hover:bg-white/70"
+                }`}
+              />
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
