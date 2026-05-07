@@ -7,6 +7,7 @@ import LeadFormDark from "@/components/v2/LeadFormDark";
 import CategoryCarousel from "@/components/v2/CategoryCarousel";
 import HeroCarousel from "@/components/v2/HeroCarousel";
 import ImageFeatureSection from "@/components/v2/ImageFeatureSection";
+import OurRange from "@/components/v2/OurRange";
 import WhyUnifayreDynamic from "@/components/v2/WhyUnifayreDynamic";
 import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
 import ScrollProgress from "@/components/ui/ScrollProgress";
@@ -38,7 +39,7 @@ export default function VegetarianLandingPage() {
             {
               image: "/images/veg/categories/flatbreads-banner.png",
               alt: "Malabari Paratha layers cinematic banner",
-              headline: "The Only Roti Canai.",
+              headline: "Food you can trust, always.",
               subheadline: "India's QSR-grade flatbread specialist.",
               cta: { label: "See Flatbreads", href: "#products" },
             },
@@ -179,7 +180,10 @@ export default function VegetarianLandingPage() {
           ]}
         />
 
-        {/* S6 — BUILT TO DELIVER, ALWAYS (royal blue, no structural change) */}
+        {/* S6 — OUR RANGE (off-white, editorial menu layout, rounded-square plates) */}
+        <OurRange id="range" />
+
+        {/* S7 — BUILT TO DELIVER, ALWAYS (royal blue, no structural change) */}
         <WhyUnifayreDynamic id="why" />
 
         {/* S7 — FOUR NON-NEGOTIABLES (off-white) */}

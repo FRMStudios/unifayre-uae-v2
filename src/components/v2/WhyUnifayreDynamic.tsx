@@ -246,7 +246,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             hidden: {},
             show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
           }}
-          className="grid grid-cols-2 gap-3 md:gap-4"
+          className="grid grid-cols-2 gap-x-5 gap-y-4 md:gap-x-7 md:gap-y-5 lg:gap-x-9"
         >
           {POINTERS.map((p) => (
             <motion.div
@@ -260,16 +260,16 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 },
               }}
               whileHover={{ y: -3 }}
-              className="group flex flex-col gap-2 rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue-deep)]/65 p-4 backdrop-blur-md transition-all hover:border-[color:var(--accent-gold)]/55 md:p-5"
+              className="group flex min-h-[150px] flex-col rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue-deep)]/65 p-5 backdrop-blur-md transition-all hover:border-[color:var(--accent-gold)]/55 md:min-h-[170px] md:p-6"
             >
               <p.icon
                 className="h-5 w-5 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
                 strokeWidth={1.6}
               />
-              <span className="font-display text-xl font-light leading-none tracking-tight text-white md:text-2xl">
+              <span className="mt-auto block font-display text-[1.6rem] font-light leading-none tracking-tight text-white md:text-[1.9rem]">
                 {p.metric}
               </span>
-              <span className="text-[0.72rem] font-medium leading-snug text-white/80">
+              <span className="mt-2 block text-[0.72rem] font-medium leading-snug text-white/80">
                 {p.label}
               </span>
             </motion.div>
