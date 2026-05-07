@@ -104,7 +104,7 @@ export default function PillarsDark({ id = "pillars" }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative bg-[color:var(--bg-deep)] py-20 md:py-28"
+      className="relative bg-[color:var(--off-white)] py-20 md:py-28"
     >
       <div className="mx-auto max-w-[1320px] px-5 md:px-10">
         <motion.div
@@ -115,18 +115,18 @@ export default function PillarsDark({ id = "pillars" }: { id?: string }) {
           className="mb-12 flex flex-col items-start justify-between gap-5 md:mb-16 md:flex-row md:items-end"
         >
           <div>
-            <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold)]">
+            <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold-deep)]">
               Why Unifayre
             </span>
-            <h2 className="mt-3 max-w-[20ch] font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--text-primary)]">
+            <h2 className="mt-3 max-w-[20ch] font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
               Four{" "}
-              <em className="italic text-[color:var(--accent-gold)]">
+              <em className="italic text-[color:var(--accent-gold-deep)]">
                 non-negotiables.
               </em>
             </h2>
           </div>
           <div className="flex items-end gap-5">
-            <p className="max-w-[26rem] text-base font-light leading-relaxed text-[color:var(--text-primary)]/85">
+            <p className="max-w-[26rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)]">
               Built for partners who can&rsquo;t afford inconsistency. Built
               for menus that scale.
             </p>
@@ -162,7 +162,7 @@ export default function PillarsDark({ id = "pillars" }: { id?: string }) {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-[color:var(--text-secondary)]/60 md:hidden">
+        <p className="mt-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-[color:var(--text-on-light-muted)]/60 md:hidden">
           Swipe to see more →
         </p>
       </div>
@@ -186,7 +186,7 @@ function ScrollButton({
       onClick={onClick}
       disabled={disabled}
       aria-label={ariaLabel}
-      className="flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--border-subtle)] bg-[color:var(--bg-warm-shadow)]/60 text-[color:var(--text-primary)] backdrop-blur-md transition-all hover:border-[color:var(--accent-gold)] hover:text-[color:var(--accent-gold)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-[color:var(--border-subtle)] disabled:hover:text-[color:var(--text-primary)]"
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--royal-blue)]/20 bg-[color:var(--pure-white)]/80 text-[color:var(--royal-blue)] backdrop-blur-md transition-all hover:border-[color:var(--accent-gold-deep)] hover:text-[color:var(--accent-gold-deep)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-[color:var(--royal-blue)]/20 disabled:hover:text-[color:var(--royal-blue)]"
     >
       {children}
     </button>
@@ -216,12 +216,12 @@ function PillarTile({ pillar, delay }: { pillar: Pillar; delay: number }) {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(10,22,40,0.55) 0%, rgba(10,22,40,0.25) 30%, rgba(10,22,40,0.55) 65%, rgba(10,22,40,0.95) 100%)",
+            "linear-gradient(180deg, rgba(30,58,138,0.55) 0%, rgba(30,58,138,0.25) 30%, rgba(30,58,138,0.55) 65%, rgba(30,58,138,0.95) 100%)",
         }}
       />
 
       <div className="relative flex items-start justify-between">
-        <span className="inline-flex items-center rounded-full border border-[color:var(--border-gold)] bg-[color:var(--bg-deep)]/65 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[color:var(--accent-gold)] backdrop-blur">
+        <span className="inline-flex items-center rounded-full border border-[color:var(--accent-gold)]/45 bg-[color:var(--royal-blue-deep)]/65 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[color:var(--accent-gold)] backdrop-blur">
           {pillar.number}
         </span>
         <Icon

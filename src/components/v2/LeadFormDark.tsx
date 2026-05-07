@@ -62,8 +62,12 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
   return (
     <section
       id={id}
-      className="bg-[color:var(--bg-warm-shadow)] py-20 md:py-28"
+      className="relative bg-white py-24"
     >
+      {/* Thin gold lines framing the section */}
+      <div className="gold-line absolute inset-x-0 top-0" aria-hidden />
+      <div className="gold-line absolute inset-x-0 bottom-0" aria-hidden />
+
       <div className="relative mx-auto max-w-[860px] px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,17 +76,17 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
           transition={{ duration: 0.7, ease: EASE }}
           className="mb-10 text-center md:mb-12"
         >
-          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold)]">
+          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold-deep)]">
             Partnership desk
           </span>
-          <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--text-primary)]">
+          <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
             Request your{" "}
-            <em className="italic text-[color:var(--accent-gold)]">
+            <em className="italic text-[color:var(--accent-gold-deep)]">
               Partnership Kit
             </em>
             .
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-base font-light leading-relaxed text-[color:var(--text-primary)]/85">
+          <p className="mx-auto mt-4 max-w-md text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)]">
             Our UAE desk responds within 1 working day.
           </p>
         </motion.div>
@@ -92,7 +96,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
-          className="relative overflow-hidden rounded-[24px] border border-[color:var(--border-subtle)] bg-[color:var(--bg-deep)] p-6 shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)] md:p-10"
+          className="relative overflow-hidden rounded-[24px] border border-[color:var(--royal-blue)]/15 bg-white p-6 shadow-[0_24px_60px_-30px_rgba(30,58,138,0.18)] md:p-10"
         >
           <AnimatePresence mode="wait">
             {status === "success" ? (
@@ -114,10 +118,10 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                     strokeWidth={2.5}
                   />
                 </motion.div>
-                <h3 className="font-display text-2xl md:text-3xl font-light tracking-tight text-[color:var(--text-primary)]">
+                <h3 className="font-display text-2xl md:text-3xl font-light tracking-tight text-[color:var(--royal-blue)]">
                   Thank you. Received.
                 </h3>
-                <p className="max-w-sm text-base font-light text-[color:var(--text-primary)]/80">
+                <p className="max-w-sm text-base font-light text-[color:var(--text-on-light-muted)]">
                   Our UAE desk will be in touch within 1 working day. For urgent
                   inquiries, WhatsApp us directly.
                 </p>
@@ -125,7 +129,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-2 text-[0.9rem] font-semibold text-[color:var(--accent-gold)] hover:underline"
+                  className="mt-2 inline-flex items-center gap-2 text-[0.9rem] font-semibold text-[color:var(--accent-gold-deep)] hover:underline"
                 >
                   <MessageCircle className="h-4 w-4" />
                   Continue on WhatsApp
@@ -181,7 +185,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                 />
 
                 <div className="md:col-span-2">
-                  <label className="mb-3 block text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold)]">
+                  <label className="mb-3 block text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold-deep)]">
                     Interested in (select any)
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -200,8 +204,8 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                           }}
                           className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[0.82rem] font-medium transition-all ${
                             active
-                              ? "border-[color:var(--accent-gold)] bg-[color:var(--accent-gold)] text-[color:var(--bg-deep)]"
-                              : "border-[color:var(--border-subtle)] bg-[color:var(--bg-warm-shadow)] text-[color:var(--text-primary)]/80 hover:border-[color:var(--accent-gold)] hover:text-[color:var(--text-primary)]"
+                              ? "border-[color:var(--accent-gold)] bg-[color:var(--accent-gold)] text-[color:var(--royal-blue-deep)]"
+                              : "border-[color:var(--royal-blue)]/15 bg-[color:var(--off-white)] text-[color:var(--text-on-light-muted)] hover:border-[color:var(--accent-gold)] hover:text-[color:var(--royal-blue)]"
                           }`}
                         >
                           {active && (
@@ -249,7 +253,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[0.92rem] font-medium text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--accent-gold)]"
+            className="inline-flex items-center gap-2 text-[0.92rem] font-medium text-[color:var(--text-on-light-muted)] transition-colors hover:text-[color:var(--accent-gold-deep)]"
           >
             <MessageCircle className="h-4 w-4" />
             Prefer to chat? WhatsApp our UAE desk
@@ -278,10 +282,10 @@ function Field({
     <div className="flex flex-col gap-2">
       <label
         htmlFor={name}
-        className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold)]"
+        className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--royal-blue)]"
       >
         {label}
-        {required && <span className="text-[color:var(--accent-gold)]"> *</span>}
+        {required && <span className="text-[color:var(--accent-gold-deep)]"> *</span>}
       </label>
       <input
         id={name}
@@ -289,7 +293,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="h-12 rounded-xl border border-[color:var(--border-subtle)] bg-[color:var(--bg-warm-shadow)] px-4 text-[0.95rem] text-[color:var(--text-primary)] placeholder:text-[color:var(--text-secondary)] transition-colors focus:border-[color:var(--accent-gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-gold)]/30"
+        className="h-12 rounded-xl border border-[color:var(--royal-blue)]/15 bg-transparent px-4 text-[0.95rem] text-[color:var(--royal-blue)] placeholder:text-[color:var(--text-on-light-muted)] transition-colors focus:border-[color:var(--accent-gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-gold)]/25"
       />
     </div>
   );
@@ -310,23 +314,23 @@ function SelectField({
     <div className="flex flex-col gap-2">
       <label
         htmlFor={name}
-        className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold)]"
+        className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--royal-blue)]"
       >
         {label}
-        {required && <span className="text-[color:var(--accent-gold)]"> *</span>}
+        {required && <span className="text-[color:var(--accent-gold-deep)]"> *</span>}
       </label>
       <select
         id={name}
         name={name}
         required={required}
         defaultValue=""
-        className="h-12 appearance-none rounded-xl border border-[color:var(--border-subtle)] bg-[color:var(--bg-warm-shadow)] bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 fill=%22%23C9A961%22><path fill-rule=%22evenodd%22 d=%22M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z%22 clip-rule=%22evenodd%22/></svg>')] bg-[length:1.1rem_1.1rem] bg-[right_1rem_center] bg-no-repeat px-4 pr-10 text-[0.95rem] text-[color:var(--text-primary)] transition-colors focus:border-[color:var(--accent-gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-gold)]/30"
+        className="h-12 appearance-none rounded-xl border border-[color:var(--royal-blue)]/15 bg-transparent bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 fill=%22%23B89653%22><path fill-rule=%22evenodd%22 d=%22M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z%22 clip-rule=%22evenodd%22/></svg>')] bg-[length:1.1rem_1.1rem] bg-[right_1rem_center] bg-no-repeat px-4 pr-10 text-[0.95rem] text-[color:var(--royal-blue)] transition-colors focus:border-[color:var(--accent-gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-gold)]/25"
       >
-        <option value="" disabled className="bg-[color:var(--bg-deep)]">
+        <option value="" disabled className="bg-white">
           Select...
         </option>
         {options.map((o) => (
-          <option key={o} value={o} className="bg-[color:var(--bg-deep)]">
+          <option key={o} value={o} className="bg-white">
             {o}
           </option>
         ))}

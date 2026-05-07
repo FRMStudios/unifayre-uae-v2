@@ -5,41 +5,43 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* V2 brand palette — cinematic premium B2B */
-  --color-bg-deep: #0A1628;
-  --color-bg-warm-shadow: #1A1F2E;
-  --color-bg-slate: #14181F;
-  --color-bg-charcoal: #0E1018;
+  /* V3 — royal blue + off-white + gold */
+  --color-royal-blue: #1E40AF;
+  --color-royal-blue-deep: #1E3A8A;
+  --color-royal-blue-rich: #1D4ED8;
+  --color-royal-blue-light: #3B5BDB;
+
+  --color-off-white: #FAF7F0;
+  --color-off-white-deep: #F5F2EA;
+  --color-pure-white: #FFFFFF;
+
   --color-accent-gold: #C9A961;
   --color-accent-gold-soft: #D4B876;
-  --color-accent-gold-deep: #A88A47;
-  --color-text-primary: #F5F1EA;
-  --color-text-secondary: #A8AFB8;
-  --color-text-muted: #6B7280;
+  --color-accent-gold-deep: #B89653;
+
+  --color-text-on-blue: #FFFFFF;
+  --color-text-on-blue-muted: #DBE4FF;
+  --color-text-on-light: #1E3A8A;
+  --color-text-on-light-muted: #4B5563;
+  --color-text-gold-on-light: #B89653;
+
+  /* Backwards-compat aliases for V2 dark navy tokens still referenced
+     in legacy components — they now map to royal-blue equivalents. */
+  --color-bg-deep: var(--color-royal-blue);
+  --color-bg-warm-shadow: var(--color-royal-blue-deep);
+  --color-bg-slate: var(--color-royal-blue);
+  --color-bg-charcoal: var(--color-royal-blue-deep);
+  --color-text-primary: var(--color-text-on-blue);
+  --color-text-secondary: var(--color-text-on-blue-muted);
+  --color-text-muted: var(--color-text-on-blue-muted);
   --color-border-subtle: rgba(201, 169, 97, 0.2);
   --color-border-gold: rgba(201, 169, 97, 0.45);
 
-  /* Legacy V1 tokens kept during migration — sections not yet rebuilt still
-     use these. Will be removed once V2 sweep is complete. */
-  --color-bg: #FFFFFF;
-  --color-bg-soft: #F7F7F5;
-  --color-bg-muted: #F2F1ED;
-  --color-ink: #0F0F10;
-  --color-ink-soft: #4A4A4F;
-  --color-ink-muted: #9A9A9E;
-  --color-line: #EAEAEA;
-  --color-line-soft: #F2F2F2;
-  --color-orange: #FF6A2C;
-  --color-orange-soft: #FFF1EA;
-  --color-orange-bright: #FF8550;
-
-  /* Fonts */
   --font-sans: var(--font-inter);
   --font-display: var(--font-cormorant);
   --font-heading: var(--font-cormorant);
   --font-mono: var(--font-inter);
 
-  /* Shadcn tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -81,64 +83,66 @@
 }
 
 :root {
-  /* V2 raw tokens for inline use */
-  --bg-deep: #0A1628;
-  --bg-warm-shadow: #1A1F2E;
-  --bg-slate: #14181F;
-  --bg-charcoal: #0E1018;
+  --royal-blue: #1E40AF;
+  --royal-blue-deep: #1E3A8A;
+  --royal-blue-rich: #1D4ED8;
+  --royal-blue-light: #3B5BDB;
+
+  --off-white: #FAF7F0;
+  --off-white-deep: #F5F2EA;
+  --pure-white: #FFFFFF;
+
   --accent-gold: #C9A961;
   --accent-gold-soft: #D4B876;
-  --accent-gold-deep: #A88A47;
-  --text-primary: #F5F1EA;
-  --text-secondary: #A8AFB8;
-  --text-muted: #6B7280;
+  --accent-gold-deep: #B89653;
+
+  --text-on-blue: #FFFFFF;
+  --text-on-blue-muted: #DBE4FF;
+  --text-on-light: #1E3A8A;
+  --text-on-light-muted: #4B5563;
+  --text-gold-on-light: #B89653;
+
+  /* Backwards-compat aliases */
+  --bg-deep: #1E40AF;
+  --bg-warm-shadow: #1E3A8A;
+  --bg-slate: #1E40AF;
+  --bg-charcoal: #1E3A8A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #DBE4FF;
+  --text-muted: #DBE4FF;
   --border-subtle: rgba(201, 169, 97, 0.2);
   --border-gold: rgba(201, 169, 97, 0.45);
 
-  /* V1 legacy raw tokens (kept during migration) */
-  --bg: #FFFFFF;
-  --bg-soft: #F7F7F5;
-  --bg-muted: #F2F1ED;
-  --ink: #0F0F10;
-  --ink-soft: #4A4A4F;
-  --ink-muted: #9A9A9E;
-  --line: #EAEAEA;
-  --line-soft: #F2F2F2;
-  --orange: #FF6A2C;
-  --orange-soft: #FFF1EA;
-  --orange-bright: #FF8550;
-
-  /* Shadcn / Radix theme — switched to dark V2 base */
-  --background: #0A1628;
-  --foreground: #F5F1EA;
-  --card: #14181F;
-  --card-foreground: #F5F1EA;
-  --popover: #14181F;
-  --popover-foreground: #F5F1EA;
-  --primary: #C9A961;
-  --primary-foreground: #0A1628;
-  --secondary: #1A1F2E;
-  --secondary-foreground: #F5F1EA;
-  --muted: #1A1F2E;
-  --muted-foreground: #A8AFB8;
+  --background: #FAF7F0;
+  --foreground: #1E3A8A;
+  --card: #FFFFFF;
+  --card-foreground: #1E3A8A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1E3A8A;
+  --primary: #1E40AF;
+  --primary-foreground: #FAF7F0;
+  --secondary: #F5F2EA;
+  --secondary-foreground: #1E3A8A;
+  --muted: #F5F2EA;
+  --muted-foreground: #4B5563;
   --accent: #C9A961;
-  --accent-foreground: #0A1628;
-  --destructive: oklch(0.704 0.191 22.216);
+  --accent-foreground: #1E3A8A;
+  --destructive: oklch(0.577 0.245 27.325);
   --border: rgba(201, 169, 97, 0.2);
-  --input: rgba(201, 169, 97, 0.18);
+  --input: rgba(201, 169, 97, 0.2);
   --ring: #C9A961;
   --chart-1: #C9A961;
-  --chart-2: #F5F1EA;
-  --chart-3: #A8AFB8;
+  --chart-2: #1E40AF;
+  --chart-3: #4B5563;
   --chart-4: #D4B876;
-  --chart-5: #1A1F2E;
+  --chart-5: #F5F2EA;
   --radius: 0.75rem;
-  --sidebar: #0A1628;
-  --sidebar-foreground: #F5F1EA;
-  --sidebar-primary: #C9A961;
-  --sidebar-primary-foreground: #0A1628;
-  --sidebar-accent: #1A1F2E;
-  --sidebar-accent-foreground: #F5F1EA;
+  --sidebar: #FAF7F0;
+  --sidebar-foreground: #1E3A8A;
+  --sidebar-primary: #1E40AF;
+  --sidebar-primary-foreground: #FAF7F0;
+  --sidebar-accent: #F5F2EA;
+  --sidebar-accent-foreground: #1E3A8A;
   --sidebar-border: rgba(201, 169, 97, 0.2);
   --sidebar-ring: #C9A961;
 }
@@ -152,15 +156,15 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: var(--bg-deep);
-    color: var(--text-primary);
+    background-color: var(--off-white);
+    color: var(--text-on-light);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-cormorant), Georgia, serif;
     letter-spacing: -0.015em;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
@@ -171,79 +175,49 @@
   .font-body {
     font-family: var(--font-inter), system-ui, sans-serif;
   }
-  .text-muted-accent {
-    color: var(--text-secondary);
-  }
   .text-balance {
     text-wrap: balance;
   }
 
-  /* V2 — Ken Burns slow zoom for cinematic heroes */
+  /* Royal blue gradients */
+  .bg-royal-gradient {
+    background: linear-gradient(135deg, var(--royal-blue-deep) 0%, var(--royal-blue) 50%, var(--royal-blue-rich) 100%);
+  }
+  .bg-royal-gradient-v {
+    background: linear-gradient(180deg, var(--royal-blue) 0%, var(--royal-blue-deep) 100%);
+  }
+
+  /* Hero carousel overlay — heavier on left for headline legibility */
+  .hero-overlay-blue {
+    background: linear-gradient(
+      to right,
+      rgba(30, 58, 138, 0.85) 0%,
+      rgba(30, 64, 175, 0.45) 35%,
+      rgba(30, 64, 175, 0.15) 60%,
+      transparent 80%
+    );
+  }
+  .hero-overlay-blue-mobile {
+    background: linear-gradient(
+      to top,
+      rgba(30, 58, 138, 0.92) 0%,
+      rgba(30, 64, 175, 0.55) 40%,
+      rgba(30, 64, 175, 0.15) 75%,
+      transparent 100%
+    );
+  }
+
+  /* Ken Burns */
   @keyframes ken-burns {
-    0% { transform: scale(1.02); }
-    100% { transform: scale(1.08); }
+    0%, 100% { transform: scale(1.02); }
+    50% { transform: scale(1.08); }
   }
   .animate-ken-burns {
     animation: ken-burns 22s ease-in-out infinite alternate;
     will-change: transform;
   }
 
-  /* V2 — gold accent line with sheen */
-  .gold-line {
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--accent-gold) 30%,
-      var(--accent-gold-soft) 50%,
-      var(--accent-gold) 70%,
-      transparent
-    );
-  }
-
-  /* V2 — gold border glow */
-  .ring-gold {
-    box-shadow:
-      inset 0 0 0 1px rgba(201, 169, 97, 0.28),
-      0 18px 48px -22px rgba(201, 169, 97, 0.45);
-  }
-
-  /* V2 — cinematic vignette overlay (use absolutely positioned over hero images) */
-  .cinematic-overlay {
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      rgba(10, 22, 40, 0.25) 45%,
-      rgba(10, 22, 40, 0.85) 100%
-    );
-  }
-  .cinematic-overlay-strong {
-    background: linear-gradient(
-      180deg,
-      rgba(10, 22, 40, 0.35) 0%,
-      rgba(10, 22, 40, 0.55) 40%,
-      rgba(10, 22, 40, 0.92) 100%
-    );
-  }
-  .cinematic-side {
-    background: linear-gradient(
-      90deg,
-      rgba(10, 22, 40, 0.85) 0%,
-      rgba(10, 22, 40, 0.45) 35%,
-      transparent 70%
-    );
-  }
-
-  /* V2 — gold ticker pulse */
-  @keyframes gold-pulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-  }
-  .animate-gold-pulse {
-    animation: gold-pulse 2.4s ease-in-out infinite;
-  }
-
-  /* Existing — kept for compatibility */
+  /* Marquee */
   @keyframes marquee {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
@@ -273,38 +247,24 @@
     animation: soft-pulse 1.8s ease-in-out infinite;
   }
 
-  @keyframes scroll-bob {
-    0%, 100% { transform: translateY(0); opacity: 0.65; }
-    50%      { transform: translateY(6px); opacity: 1; }
-  }
-  .animate-scroll-bob {
-    animation: scroll-bob 2.2s ease-in-out infinite;
-  }
-
-  .orange-blob {
-    background: radial-gradient(
-      closest-side,
-      rgba(255, 106, 44, 0.28),
-      rgba(255, 133, 80, 0.16) 45%,
-      transparent 72%
+  /* Gold accent line */
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--accent-gold) 30%,
+      var(--accent-gold-soft) 50%,
+      var(--accent-gold) 70%,
+      transparent
     );
-    filter: blur(30px);
   }
 
-  .gold-blob {
-    background: radial-gradient(
-      closest-side,
-      rgba(201, 169, 97, 0.32),
-      rgba(212, 184, 118, 0.18) 45%,
-      transparent 72%
-    );
-    filter: blur(40px);
-  }
-
-  .card-soft {
+  /* Card softness on light bg */
+  .card-soft-light {
     box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.18),
-      0 8px 24px -12px rgba(0, 0, 0, 0.36);
+      0 1px 2px rgba(30, 58, 138, 0.04),
+      0 8px 24px -16px rgba(30, 58, 138, 0.1);
   }
   .card-hover {
     transition:
@@ -315,10 +275,11 @@
   .card-hover:hover {
     transform: translateY(-4px);
     box-shadow:
-      0 2px 4px rgba(0, 0, 0, 0.22),
-      0 24px 48px -20px rgba(0, 0, 0, 0.45);
+      0 2px 4px rgba(30, 58, 138, 0.08),
+      0 24px 48px -20px rgba(30, 58, 138, 0.2);
   }
 
+  /* Eyebrow */
   .eyebrow {
     font-family: var(--font-inter), system-ui, sans-serif;
     text-transform: uppercase;
@@ -327,9 +288,10 @@
     font-weight: 600;
   }
 
+  /* Buttons */
   .btn-gold {
     background-color: var(--accent-gold);
-    color: var(--bg-deep);
+    color: var(--royal-blue-deep);
     transition: background-color 0.2s ease, transform 0.2s ease;
   }
   .btn-gold:hover {
@@ -346,19 +308,15 @@
   }
   .btn-gold-outline:hover {
     background-color: var(--accent-gold);
-    color: var(--bg-deep);
+    color: var(--royal-blue-deep);
   }
-
-  .btn-orange {
-    background-color: var(--orange);
-    color: #FFFFFF;
+  .btn-royal {
+    background-color: var(--royal-blue);
+    color: var(--off-white);
     transition: background-color 0.2s ease, transform 0.2s ease;
   }
-  .btn-orange:hover {
-    background-color: var(--orange-bright);
-  }
-  .btn-orange:active {
-    transform: translateY(1px);
+  .btn-royal:hover {
+    background-color: var(--royal-blue-deep);
   }
 
   .scrollbar-none {
@@ -372,5 +330,5 @@
 
 ::selection {
   background-color: var(--accent-gold);
-  color: var(--bg-deep);
+  color: var(--royal-blue-deep);
 }
