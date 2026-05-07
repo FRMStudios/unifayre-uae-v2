@@ -11,7 +11,7 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "#products", label: "Categories" },
-  { href: "#portfolio", label: "Portfolio" },
+  { href: "#range", label: "Portfolio" },
   { href: "#why", label: "Why Unifayre" },
 ];
 
