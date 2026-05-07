@@ -46,11 +46,12 @@ const SLIDES: Slide[] = [
 type Pointer = {
   icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
   metric: string;
+  unit?: string;
   label: string;
 };
 
 const POINTERS: Pointer[] = [
-  { icon: Factory, metric: "18,000 MT", label: "Annual veg capacity" },
+  { icon: Factory, metric: "18,000", unit: "MT", label: "Annual veg capacity" },
   { icon: Award, metric: "BRC + FSSC", label: "Certified lines" },
   { icon: History, metric: "30+ years", label: "Manufacturing heritage" },
   { icon: Store, metric: "5,000+", label: "Outlets served" },
@@ -103,7 +104,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
       </div>
 
       {/* Content */}
-      <div className="relative mx-auto grid min-h-[88svh] max-w-[1320px] items-center gap-12 px-5 py-24 md:grid-cols-[1fr_1.05fr] md:gap-14 md:px-10 md:py-28">
+      <div className="relative mx-auto grid min-h-[88svh] max-w-[1320px] items-center gap-12 px-5 py-24 md:grid-cols-[1fr_1.05fr] md:items-stretch md:gap-14 md:px-10 md:py-28">
         {/* Left — heading inside a translucent navy patch */}
         <motion.div
           initial="hidden"
@@ -246,7 +247,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             hidden: {},
             show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
           }}
-          className="grid grid-cols-2 gap-x-5 gap-y-4 md:gap-x-7 md:gap-y-5 lg:gap-x-9"
+          className="grid grid-cols-2 gap-x-5 gap-y-4 md:h-full md:auto-rows-fr md:gap-x-7 md:gap-y-5 lg:gap-x-9"
         >
           {POINTERS.map((p) => (
             <motion.div
@@ -260,14 +261,19 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 },
               }}
               whileHover={{ y: -3 }}
-              className="group flex min-h-[150px] flex-col rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue-deep)]/65 p-5 backdrop-blur-md transition-all hover:border-[color:var(--accent-gold)]/55 md:min-h-[170px] md:p-6"
+              className="group flex h-full min-h-[120px] flex-col rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue-deep)]/65 p-4 backdrop-blur-md transition-all hover:border-[color:var(--accent-gold)]/55 md:min-h-0 md:p-5"
             >
               <p.icon
                 className="h-5 w-5 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
                 strokeWidth={1.6}
               />
-              <span className="mt-auto block font-display text-[1.6rem] font-light leading-none tracking-tight text-white md:text-[1.9rem]">
+              <span className="mt-auto block font-display text-[1.5rem] font-light leading-none tracking-tight text-white md:text-[1.7rem]">
                 {p.metric}
+                {p.unit && (
+                  <span className="ml-1.5 align-baseline text-[0.85rem] font-medium tracking-wide text-white/80 md:text-[0.95rem]">
+                    {p.unit}
+                  </span>
+                )}
               </span>
               <span className="mt-2 block text-[0.72rem] font-medium leading-snug text-white/80">
                 {p.label}

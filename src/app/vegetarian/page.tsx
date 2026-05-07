@@ -39,7 +39,7 @@ export default function VegetarianLandingPage() {
             {
               image: "/images/veg/categories/flatbreads-banner.png",
               alt: "Malabari Paratha layers cinematic banner",
-              headline: "Food you can trust, always.",
+              headline: "Food You Can Trust, Always.",
               subheadline: "India's QSR-grade flatbread specialist.",
               cta: { label: "See Flatbreads", href: "#products" },
             },
