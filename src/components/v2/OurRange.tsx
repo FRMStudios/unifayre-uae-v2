@@ -77,16 +77,16 @@ export default function OurRange({ id = "range" }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative overflow-hidden bg-[color:var(--off-white)] py-20 md:py-28"
+      className="relative overflow-hidden bg-[color:var(--off-white)] py-16 md:py-24"
     >
+      {/* Heading is contained; the 4 banners below break out full-bleed */}
       <div className="relative mx-auto max-w-[1320px] px-5 md:px-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="mb-10 text-center md:mb-16"
+          className="mb-10 text-center md:mb-14"
         >
           <div className="mx-auto mb-4 flex items-center justify-center gap-3">
             <span className="h-px w-12 bg-[color:var(--accent-gold)]" />
@@ -106,26 +106,29 @@ export default function OurRange({ id = "range" }: { id?: string }) {
             Every line builds-to-brief for your menu, format and palate.
           </p>
         </motion.div>
+      </div>
 
-        {/* 2x2 banner grid */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
-          {BANNERS.map((b, i) => (
-            <CategoryBannerCard
-              key={b.category}
-              banner={b}
-              index={i}
-              onSelect={setActiveProduct}
-            />
-          ))}
-        </div>
+      {/* 2x2 banner grid — FULL BLEED, no outer padding, no gaps. The
+          four images tile edge-to-edge to fill the entire section width. */}
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {BANNERS.map((b, i) => (
+          <CategoryBannerCard
+            key={b.category}
+            banner={b}
+            index={i}
+            onSelect={setActiveProduct}
+          />
+        ))}
+      </div>
 
-        {/* Bottom CTA */}
+      {/* Bottom CTA */}
+      <div className="mx-auto max-w-[1320px] px-5 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="mt-14 flex flex-col items-center gap-3 md:mt-20"
+          className="mt-12 flex flex-col items-center gap-3 md:mt-16"
         >
           <span className="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold-deep)]">
             Briefs to our R&amp;D team welcome on every line
@@ -166,7 +169,7 @@ function CategoryBannerCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.7, ease: EASE, delay: index * 0.08 }}
-      className="group relative overflow-hidden rounded-[24px] border border-[color:var(--royal-blue)]/10 bg-[color:var(--royal-blue-deep)] shadow-[0_24px_48px_-24px_rgba(20,32,64,0.25)]"
+      className="group relative overflow-hidden bg-[color:var(--royal-blue-deep)]"
     >
       {/* Background image */}
       <div className="absolute inset-0">
