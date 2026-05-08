@@ -169,7 +169,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                   name="phone"
                   type="tel"
                   required
-                  placeholder="+971..."
+                  placeholder="With country code"
                 />
                 <SelectField
                   label="Country"

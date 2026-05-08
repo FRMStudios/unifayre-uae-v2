@@ -12,10 +12,8 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Factory,
   Award,
   History,
-  Store,
   FlaskConical,
   ShieldCheck,
   ArrowRight,
@@ -50,13 +48,32 @@ type Pointer = {
   label: string;
 };
 
+/**
+ * The four non-negotiables — credentials, not promises. Promises live in
+ * the hero copy and the highlights band; this section is what's audited,
+ * documented and on the wall at the plant.
+ */
 const POINTERS: Pointer[] = [
-  { icon: Factory, metric: "18,000", unit: "MT", label: "Annual veg capacity" },
-  { icon: Award, metric: "BRC + FSSC", label: "Certified lines" },
-  { icon: History, metric: "30+ years", label: "Manufacturing heritage" },
-  { icon: Store, metric: "5,000+", label: "Outlets served" },
-  { icon: FlaskConical, metric: "R&D-led", label: "Custom builds, your menu" },
-  { icon: ShieldCheck, metric: "Halal-line", label: "Ready, every SKU" },
+  {
+    icon: Award,
+    metric: "BRC + FSSC 22000",
+    label: "Certified lines · audit-ready",
+  },
+  {
+    icon: History,
+    metric: "30+ years",
+    label: "Manufacturing heritage · est. 1990s",
+  },
+  {
+    icon: FlaskConical,
+    metric: "R&D-led",
+    label: "Custom builds for your menu",
+  },
+  {
+    icon: ShieldCheck,
+    metric: "Halal-line",
+    label: "Every SKU. Every shipment.",
+  },
 ];
 
 export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
@@ -152,9 +169,10 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-5 font-display text-3xl font-light leading-tight tracking-tight md:text-4xl lg:text-5xl"
           >
-            Built To Deliver,
-            <br />
-            <em className="italic text-[color:var(--accent-gold)]">Always.</em>
+            Four{" "}
+            <em className="italic text-[color:var(--accent-gold)]">
+              non-negotiables.
+            </em>
           </motion.h2>
           <motion.p
             variants={{
@@ -167,8 +185,10 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/90 md:text-lg"
           >
-            Over 30 years of precision manufacturing, BRC-certified lines, and
-            an R&amp;D team that builds to your menu, region, and palate.
+            Certifications on the wall. Heritage in the ledger. R&amp;D on the
+            floor. Halal in every line. The four credentials we&rsquo;ve earned
+            over decades &mdash; renewed every year, audited every quarter,
+            documented on every shipment.
           </motion.p>
 
           <motion.div

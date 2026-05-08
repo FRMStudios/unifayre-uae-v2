@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import VegLandingNav from "@/components/v2/VegLandingNav";
 import LandingFooter from "@/components/v2/LandingFooter";
-import PillarsDark from "@/components/v2/PillarsDark";
 import TrustedByDark from "@/components/v2/TrustedByDark";
 import LeadFormDark from "@/components/v2/LeadFormDark";
-import CategoryCarousel from "@/components/v2/CategoryCarousel";
 import HeroCarousel from "@/components/v2/HeroCarousel";
 import ImageFeatureSection from "@/components/v2/ImageFeatureSection";
 import OurRange from "@/components/v2/OurRange";
@@ -16,7 +14,7 @@ import LifestyleStrip from "@/components/ui/LifestyleStrip";
 export const metadata: Metadata = {
   title: "Unifayre Foods | Vegetarian Range for the UAE & Gulf",
   description:
-    "Vegetarian frozen food, manufactured at scale for the Gulf's best kitchens. Flatbreads, frozen-to-fry snacks, base gravies and retort rice. Halal-line ready, BRC certified, R&D-backed.",
+    "Vegetarian frozen food, manufactured at scale for the world's best kitchens. Flatbreads, frozen-to-fry snacks, base gravies and retort rice. Halal-line ready, BRC certified, R&D-backed.",
 };
 
 export default function VegetarianLandingPage() {
@@ -25,174 +23,99 @@ export default function VegetarianLandingPage() {
       <ScrollProgress />
       <VegLandingNav />
       <main className="flex-1">
-        {/* S1 — HERO IMAGE CAROUSEL (5 slides, royal blue overlay) */}
+        {/* S1 — HERO (single banner) */}
         <HeroCarousel
           intervalMs={6000}
           slides={[
             {
-              image: "/images/veg/heroes/home-hero.png",
-              alt: "Unifayre vegetarian range — chef's pass",
-              headline: "Built to Deliver, Always.",
-              subheadline: "From our kitchens to yours.",
-              cta: { label: "Explore the Range", href: "#products" },
-            },
-            {
               image: "/images/veg/categories/flatbreads-banner.png",
-              alt: "Malabari Paratha layers cinematic banner",
+              alt: "Malabari Paratha, gravy and rice — Unifayre cinematic banner",
               headline: "Food You Can Trust, Always.",
               subheadline: "India's QSR-grade flatbread specialist.",
-              cta: { label: "See Flatbreads", href: "#products" },
-            },
-            {
-              image: "/images/veg/categories/snacks-banner.png",
-              alt: "Falafel mid-fry frozen-to-fry snacks banner",
-              headline: "Frozen-to-Fry, Ready Always.",
-              subheadline: "Crisp on first bite.",
-              cta: { label: "See Snacks", href: "#products" },
-            },
-            {
-              image: "/images/veg/categories/gravies-banner.png",
-              alt: "Makhani gravy in copper pot banner",
-              headline: "Restaurant Flavour. Engineered.",
-              subheadline: "Built for kitchens that scale.",
-              cta: { label: "See Gravies", href: "#products" },
-            },
-            {
-              image: "/images/veg/categories/rice-banner.png",
-              alt: "Biryani in clay handi banner",
-              headline: "Shelf-Stable. Restaurant-Grade.",
-              subheadline: "Months on shelf. Minutes to plate.",
-              cta: { label: "See Rice", href: "#products" },
+              cta: { label: "Explore the Range", href: "#range" },
             },
           ]}
         />
 
-        {/* S2 — HIGHLIGHTS BAND (off-white, royal blue text, gold accents) */}
+        {/* S2 — HIGHLIGHTS BAND */}
         <section className="border-y border-[color:var(--accent-gold)]/20 bg-[color:var(--off-white)] py-20 md:py-28">
           <div className="mx-auto grid max-w-[1320px] grid-cols-2 gap-10 px-5 md:grid-cols-4 md:gap-14 md:px-10">
-            <CapabilityStat number="18,000" suffix=" MT" label="Veg Capacity" />
-            <CapabilityStat number="194+" suffix="" label="Active SKUs" />
-            <CapabilityStat number="5,000+" suffix="" label="Outlets Served" />
-            <CapabilityStat number="100%" suffix="" label="Halal-line ready" />
+            <CapabilityStat
+              number="100"
+              suffix=" MT"
+              label="Vegetarian Plant Capacity"
+            />
+            <CapabilityStat number="194+" suffix="" label="SKUs" />
+            <CapabilityStat
+              number="5,000"
+              suffix=""
+              label="Foodservice Outlets Served"
+            />
+            <CapabilityStat number="100%" suffix="" label="Halal Line" />
           </div>
         </section>
 
-        {/* S3 — CATEGORY CAROUSEL (royal blue, no structural change) */}
-        <CategoryCarousel
-          anchorId="products"
-          autoplayMs={6000}
-          slides={[
-            {
-              number: "01",
-              title: "Flatbreads & Tortillas",
-              shortLabel: "Flatbreads",
-              description:
-                "Malabar Paratha, Roti Canai, stuffed parathas and 4-grain tortillas. The flatbread engine for QSR wraps, breakfast platters, curry bases and dessert formats.",
-              capacity: "15,500+ pcs / hr",
-              bannerSrc: "/images/veg/categories/flatbreads-banner.png",
-              bannerAlt: "Malabari Paratha layers cinematic banner",
-              imageObjectPosition: "right center",
-            },
-            {
-              number: "02",
-              title: "Frozen-to-Fry Snacks",
-              shortLabel: "Snacks",
-              description:
-                "Samosas, kebabs, tikkis, kachoris, bhaji, pakoras and falafel. Frozen at peak so every fry comes out crisp, golden and consistent at scale.",
-              capacity: "1 lakh pcs / day",
-              bannerSrc: "/images/veg/categories/snacks-banner.png",
-              bannerAlt: "Falafel mid-fry frozen-to-fry snacks banner",
-              imageObjectPosition: "right center",
-            },
-            {
-              number: "03",
-              title: "Base Gravies & Pastes",
-              shortLabel: "Gravies",
-              description:
-                "Makhani, Manchurian, Thai red and green curry, biryani pastes and base sauces. The backbone of any restaurant menu, ready to plate or build on.",
-              capacity: "1,000 kg / hr",
-              bannerSrc: "/images/veg/categories/gravies-banner.png",
-              bannerAlt: "Makhani gravy in copper pot banner",
-              imageObjectPosition: "right center",
-            },
-            {
-              number: "04",
-              title: "Retort Rice",
-              shortLabel: "Rice",
-              description:
-                "Eight aromatic rice varieties from Basmati and Jeera to Saffron and Cilantro Lime. Shelf-stable at ambient temperature, ready in minutes.",
-              capacity: "Ambient shelf stable",
-              bannerSrc: "/images/veg/categories/rice-banner.png",
-              bannerAlt: "Biryani in clay handi banner",
-              imageObjectPosition: "right center",
-            },
-          ]}
-        />
-
-        {/* S4 — IMAGE FEATURE SECTION (off-white, rounded rectangles, NOT circles) */}
+        {/* S3 — OUR STORY (manufacturing-led, rounded rectangles) */}
         <ImageFeatureSection
           imageA={{
-            src: "/images/veg/lifestyle/hotel-buffet.png",
-            alt: "Five-star hotel buffet line plated with Unifayre flatbreads and gravies",
+            src: "/images/veg/plant/plant-hero.png",
+            alt: "Mohali manufacturing plant exterior",
           }}
           imageB={{
-            src: "/images/veg/plant/plant-hero.png",
-            alt: "Mohali manufacturing plant exterior at golden hour",
+            src: "/images/veg/lifestyle/chef-plating.png",
+            alt: "Chef plating from Unifayre's frozen range",
           }}
         />
 
-        {/* S5 — WHERE UNIFAYRE LANDS (royal blue, no structural change) */}
+        {/* S4 — WHERE WE FIT */}
         <LifestyleStrip
-          eyebrow="Where Unifayre lands"
+          eyebrow="Where We Fit"
           title={
             <>
-              From QSR pass to{" "}
-              <em className="italic">five-star buffet line.</em>
+              Wherever food is{" "}
+              <em className="italic">served at scale.</em>
             </>
           }
-          subline="The same SKU, plated across every Gulf restaurant context."
+          subline="The same SKUs, plated across every kitchen format we ship to."
           frames={[
             {
               src: "/images/veg/lifestyle/qsr-plate.png",
-              alt: "QSR menu — vegetarian burger build",
-              caption: "QSR Menu",
-            },
-            {
-              src: "/images/veg/lifestyle/cloud-kitchen.png",
-              alt: "Cloud kitchen plating",
-              caption: "Cloud Kitchen",
+              alt: "QSR plate — vegetarian burger build",
+              caption: "QSR",
             },
             {
               src: "/images/veg/lifestyle/hotel-buffet.png",
               alt: "Hotel buffet spread",
-              caption: "Hotel Buffet",
+              caption: "Hotels",
             },
             {
               src: "/images/veg/lifestyle/chef-plating.png",
-              alt: "Chef plating mid-action, fine-dining",
-              caption: "Fine-Dining Plating",
+              alt: "Catering chef plating mid-action",
+              caption: "Catering",
+            },
+            {
+              src: "/images/veg/lifestyle/cloud-kitchen.png",
+              alt: "Cloud kitchen plating line",
+              caption: "Cloud Kitchen",
             },
             {
               src: "/images/veg/lifestyle/sizzle-closeup.png",
-              alt: "Sizzle close-up — vegetarian snack on hot iron",
-              caption: "Sensory Sizzle",
+              alt: "Inflight tray-style plated meal close-up",
+              caption: "Airlines",
             },
           ]}
         />
 
-        {/* S6 — OUR RANGE (off-white, editorial menu layout, rounded-square plates) */}
+        {/* S5 — PRODUCT PORTFOLIO (formerly Our Range) */}
         <OurRange id="range" />
 
-        {/* S7 — BUILT TO DELIVER, ALWAYS (royal blue, no structural change) */}
+        {/* S6 — WHY UNIFAYRE (single section, four non-negotiables embedded) */}
         <WhyUnifayreDynamic id="why" />
 
-        {/* S7 — FOUR NON-NEGOTIABLES (off-white) */}
-        <PillarsDark id="pillars" />
-
-        {/* S8 — TRUSTED BY 30+ QSR BRANDS (off-white, greyscale logos) */}
+        {/* S7 — TRUSTED BY 30+ QSR BRANDS */}
         <TrustedByDark />
 
-        {/* S9 — LEAD FORM (pure white) */}
+        {/* S8 — LEAD FORM */}
         <LeadFormDark id="contact" />
       </main>
       <LandingFooter />

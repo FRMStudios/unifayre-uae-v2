@@ -38,42 +38,35 @@ export default function ImageFeatureSection({
           <div className="mb-4 flex items-center gap-3">
             <span className="h-px w-10 bg-[color:var(--accent-gold-deep)]" />
             <span className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-[color:var(--accent-gold-deep)]">
-              Our Story
+              Our Story · Manufacturing-led
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
-            Enjoy Every Meal with{" "}
-            <span className="inline-flex items-center gap-2 align-middle">
-              <span>Crisp</span>
+            A Mohali plant.{" "}
+            <em className="italic text-[color:var(--accent-gold-deep)]">
+              Three decades.
+            </em>{" "}
+            Built to feed the{" "}
+            <span className="inline-flex items-center align-middle">
               <span className="inline-flex items-center rounded-full bg-[color:var(--accent-gold)]/15 px-3 py-0.5 text-[0.7em] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold-deep)]">
-                Flatbreads
+                world&rsquo;s
               </span>
-            </span>
-            , Hearty{" "}
-            <span className="inline-flex items-center gap-2 align-middle">
-              <span className="inline-flex items-center rounded-full bg-[color:var(--royal-blue)]/12 px-3 py-0.5 text-[0.7em] font-semibold uppercase tracking-[0.18em] text-[color:var(--royal-blue)]">
-                Gravies
-              </span>
-              <span>&amp;</span>
-              <span className="inline-flex items-center rounded-full bg-[color:var(--accent-gold)]/15 px-3 py-0.5 text-[0.7em] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold-deep)]">
-                Snacks
-              </span>
-            </span>
-            .
+            </span>{" "}
+            kitchens.
           </h2>
           <p className="mt-6 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
-            Over thirty years of precision manufacturing, BRC-certified lines,
-            and an R&amp;D team that builds to your menu, region and palate.
-            Same spec, every shipment, every store. Across 5,000+ outlets
-            served.
+            Unifayre is the export brand of Chatha Foods Limited &mdash; a
+            BSE-listed manufacturer running BRC and FSSC&nbsp;22000 certified
+            lines out of Mohali, India. Multi-format freezing, in-house R&amp;D,
+            and a fully halal facility purpose-built for foodservice volume.
           </p>
           <div className="mt-8">
             <Link
-              href="#products"
+              href="#range"
               className="group inline-flex items-center gap-2 text-[0.92rem] font-semibold tracking-wide text-[color:var(--royal-blue)] transition-colors hover:text-[color:var(--accent-gold-deep)]"
             >
               <span className="border-b border-current pb-0.5">
-                Explore the Range
+                See the Product Portfolio
               </span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>

@@ -10,9 +10,9 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "#products", label: "Categories" },
-  { href: "#range", label: "Portfolio" },
-  { href: "#why", label: "Why Unifayre" },
+  { href: "#why", label: "Who We Are" },
+  { href: "#range", label: "Product Portfolio" },
+  { href: "#contact", label: "Contact Us" },
 ];
 
 export default function VegLandingNav() {
@@ -72,10 +72,10 @@ export default function VegLandingNav() {
           <a
             href="#contact"
             className={`btn-gold hidden items-center gap-2 rounded-full font-semibold transition-all duration-300 sm:inline-flex ${
-              scrolled ? "px-4 py-2 text-[0.8rem]" : "px-5 py-2.5 text-[0.84rem]"
+              scrolled ? "px-4 py-2 text-[0.78rem]" : "px-5 py-2.5 text-[0.82rem]"
             }`}
           >
-            Request Sample
+            Request Factory Visit / Sample
           </a>
 
           <button
@@ -106,7 +106,7 @@ export default function VegLandingNav() {
               onClick={() => setOpen(false)}
               className="btn-gold mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[0.86rem] font-semibold"
             >
-              Request Sample
+              Request Factory Visit / Sample
             </a>
           </nav>
         </div>

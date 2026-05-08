@@ -164,33 +164,37 @@ export default function HeroCarousel({
         </div>
       </div>
 
-      {/* Nav dots */}
-      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3">
-        {slideMap.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => scrollTo(i)}
-            aria-label={`Show slide ${i + 1}`}
-            aria-current={i === activeIndex}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === activeIndex
-                ? "w-8 bg-[color:var(--accent-gold)]"
-                : "w-2 bg-white/40 hover:bg-white/60"
-            }`}
-          />
-        ))}
-      </div>
+      {/* Nav dots — only show when more than one slide */}
+      {slideMap.length > 1 && (
+        <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3">
+          {slideMap.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              aria-label={`Show slide ${i + 1}`}
+              aria-current={i === activeIndex}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === activeIndex
+                  ? "w-8 bg-[color:var(--accent-gold)]"
+                  : "w-2 bg-white/40 hover:bg-white/60"
+              }`}
+            />
+          ))}
+        </div>
+      )}
 
-      {/* Progress bar */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 z-20 hidden h-0.5 bg-white/10 md:block"
-      >
+      {/* Progress bar — only show when more than one slide */}
+      {slideMap.length > 1 && (
         <div
-          className="h-full bg-[color:var(--accent-gold)] transition-[width] ease-linear"
-          style={{ width: `${progress}%`, transitionDuration: "100ms" }}
-        />
-      </div>
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 z-20 hidden h-0.5 bg-white/10 md:block"
+        >
+          <div
+            className="h-full bg-[color:var(--accent-gold)] transition-[width] ease-linear"
+            style={{ width: `${progress}%`, transitionDuration: "100ms" }}
+          />
+        </div>
+      )}
     </section>
   );
 }
