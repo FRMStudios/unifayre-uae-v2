@@ -173,29 +173,29 @@ function CategoryBannerCard({
       {/* Content sits directly on the image's empty left side — no panel,
           no gradient. Subtle text-shadow keeps copy readable. */}
       <div
-        className="relative flex min-h-[340px] flex-col gap-3 p-5 md:min-h-[360px] md:p-7 lg:min-h-[400px] lg:max-w-[58%]"
+        className="relative flex min-h-[240px] flex-col gap-2.5 p-4 md:min-h-[260px] md:p-5 lg:min-h-[280px] lg:max-w-[60%]"
         style={{ textShadow: "0 2px 14px rgba(20,32,64,0.55)" }}
       >
         <div>
-          <span className="inline-flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold)]">
-            <span className="font-display text-[0.78rem] font-light text-[color:var(--accent-gold)]">
+          <span className="inline-flex items-center gap-2 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold)]">
+            <span className="font-display text-[0.74rem] font-light text-[color:var(--accent-gold)]">
               {banner.number}
             </span>
             <span className="h-3 w-px bg-[color:var(--accent-gold)]/45" />
             {skuCount}&nbsp;SKUs
           </span>
-          <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight text-white md:text-[1.85rem] lg:text-[2.1rem]">
+          <h3 className="mt-2 font-display text-xl font-light leading-tight tracking-tight text-white md:text-[1.55rem] lg:text-[1.75rem]">
             {banner.title}
           </h3>
         </div>
 
-        <ul className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-x-3 gap-y-0.5 sm:grid-cols-2">
           {items.map((p) => (
             <li key={p.name}>
               <button
                 type="button"
                 onClick={() => onSelect(p)}
-                className="group/item flex w-full items-center gap-2 rounded-md px-1 py-0.5 text-left text-[0.82rem] font-light leading-snug text-white/90 transition-colors hover:text-[color:var(--accent-gold)]"
+                className="group/item flex w-full items-center gap-2 rounded-md py-0.5 text-left text-[0.78rem] font-light leading-tight text-white/90 transition-colors hover:text-[color:var(--accent-gold)]"
               >
                 <span
                   aria-hidden
@@ -204,7 +204,7 @@ function CategoryBannerCard({
                 <span className="flex-1 truncate">{p.name}</span>
                 {p.tag && (
                   <span
-                    className="shrink-0 rounded-full bg-[color:var(--accent-gold)]/25 px-1.5 py-0.5 text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[color:var(--accent-gold)]"
+                    className="shrink-0 rounded-full bg-[color:var(--accent-gold)]/25 px-1.5 py-0.5 text-[0.52rem] font-bold uppercase tracking-[0.14em] text-[color:var(--accent-gold)]"
                     style={{ textShadow: "none" }}
                   >
                     {p.tag}
