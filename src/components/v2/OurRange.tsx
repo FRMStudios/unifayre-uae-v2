@@ -170,46 +170,50 @@ function CategoryBannerCard({
           }}
         />
       </div>
-      {/* Content panel — single translucent navy card on the left, image
-          stays clean to the right. No gradient overlay. */}
-      <div className="relative flex min-h-[440px] items-end p-4 md:min-h-[480px] md:p-6 lg:min-h-[520px]">
-        <div className="w-full rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue-deep)]/72 p-5 backdrop-blur-md md:max-w-[58%] md:p-6">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--accent-gold)]/40 bg-[color:var(--royal-blue-deep)]/55 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold)] backdrop-blur-md">
-              <span className="font-display text-[0.78rem] font-light text-[color:var(--accent-gold)]">
-                {banner.number}
-              </span>
-              <span className="h-3 w-px bg-[color:var(--accent-gold)]/45" />
-              {skuCount}&nbsp;SKUs
+      {/* Content sits directly on the image's empty left side — no panel,
+          no gradient. Subtle text-shadow keeps copy readable. */}
+      <div
+        className="relative flex min-h-[440px] flex-col gap-4 p-6 md:min-h-[480px] md:p-8 lg:min-h-[520px] lg:max-w-[58%]"
+        style={{ textShadow: "0 2px 14px rgba(20,32,64,0.55)" }}
+      >
+        <div>
+          <span className="inline-flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold)]">
+            <span className="font-display text-[0.78rem] font-light text-[color:var(--accent-gold)]">
+              {banner.number}
             </span>
-            <h3 className="mt-4 font-display text-2xl font-light leading-tight tracking-tight text-white md:text-[1.85rem] lg:text-[2.1rem]">
-              {banner.title}
-            </h3>
-          </div>
-
-          <ul className="mt-4 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
-            {items.map((p) => (
-              <li key={p.name}>
-                <button
-                  type="button"
-                  onClick={() => onSelect(p)}
-                  className="group/item flex w-full items-center gap-2 rounded-md px-1 py-0.5 text-left text-[0.82rem] font-light leading-snug text-white/85 transition-colors hover:text-[color:var(--accent-gold)]"
-                >
-                  <span
-                    aria-hidden
-                    className="block h-1 w-1 shrink-0 rounded-full bg-[color:var(--accent-gold)]/55 transition-colors group-hover/item:bg-[color:var(--accent-gold)]"
-                  />
-                  <span className="flex-1 truncate">{p.name}</span>
-                  {p.tag && (
-                    <span className="shrink-0 rounded-full bg-[color:var(--accent-gold)]/20 px-1.5 py-0.5 text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[color:var(--accent-gold)]">
-                      {p.tag}
-                    </span>
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
+            <span className="h-3 w-px bg-[color:var(--accent-gold)]/45" />
+            {skuCount}&nbsp;SKUs
+          </span>
+          <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight text-white md:text-[1.85rem] lg:text-[2.1rem]">
+            {banner.title}
+          </h3>
         </div>
+
+        <ul className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+          {items.map((p) => (
+            <li key={p.name}>
+              <button
+                type="button"
+                onClick={() => onSelect(p)}
+                className="group/item flex w-full items-center gap-2 rounded-md px-1 py-0.5 text-left text-[0.82rem] font-light leading-snug text-white/90 transition-colors hover:text-[color:var(--accent-gold)]"
+              >
+                <span
+                  aria-hidden
+                  className="block h-1 w-1 shrink-0 rounded-full bg-[color:var(--accent-gold)]/55 transition-colors group-hover/item:bg-[color:var(--accent-gold)]"
+                />
+                <span className="flex-1 truncate">{p.name}</span>
+                {p.tag && (
+                  <span
+                    className="shrink-0 rounded-full bg-[color:var(--accent-gold)]/25 px-1.5 py-0.5 text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[color:var(--accent-gold)]"
+                    style={{ textShadow: "none" }}
+                  >
+                    {p.tag}
+                  </span>
+                )}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </motion.div>
   );
