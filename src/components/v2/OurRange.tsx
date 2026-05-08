@@ -173,7 +173,7 @@ function CategoryBannerCard({
       {/* Content sits directly on the image's empty left side — no panel,
           no gradient. Subtle text-shadow keeps copy readable. */}
       <div
-        className="relative flex min-h-[440px] flex-col gap-4 p-6 md:min-h-[480px] md:p-8 lg:min-h-[520px] lg:max-w-[58%]"
+        className="relative flex min-h-[340px] flex-col gap-3 p-5 md:min-h-[360px] md:p-7 lg:min-h-[400px] lg:max-w-[58%]"
         style={{ textShadow: "0 2px 14px rgba(20,32,64,0.55)" }}
       >
         <div>
