@@ -148,11 +148,8 @@ export default function WhereWeFit() {
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
               />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--royal-blue-deep)]/85 via-transparent to-transparent"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 px-3 pb-2.5 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold)] md:px-4 md:pb-3">
+              {/* Caption sits on a small solid pill instead of a full image gradient. */}
+              <figcaption className="absolute bottom-3 left-3 inline-flex rounded-full bg-[color:var(--royal-blue-deep)]/80 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold)] backdrop-blur-md md:bottom-4 md:left-4">
                 {f.caption}
               </figcaption>
             </motion.figure>

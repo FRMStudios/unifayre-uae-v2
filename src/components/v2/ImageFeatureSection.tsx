@@ -26,7 +26,7 @@ export default function ImageFeatureSection({
   imageB,
 }: ImageFeatureProps) {
   return (
-    <section className="relative overflow-hidden bg-[color:var(--off-white)] py-20 md:py-28">
+    <section className="relative overflow-hidden bg-[color:var(--off-white)] pb-20 pt-12 md:pb-24 md:pt-16">
       <div className="relative mx-auto grid max-w-[1320px] items-center gap-10 px-5 md:grid-cols-[1.05fr_0.95fr] md:gap-16 md:px-10 lg:gap-20">
         {/* Left — copy */}
         <motion.div

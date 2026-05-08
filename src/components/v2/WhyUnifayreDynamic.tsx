@@ -1,19 +1,19 @@
 "use client";
 
 /**
- * WhyUnifayreDynamic — V3 full-banner layout (back from split).
+ * WhyUnifayreDynamic — Why Unifayre.
  *
- * Full-bleed rotating factory imagery (no full-image gradient). Headline +
- * capability pointer cards sit on top of the image, each grounded in its
- * own translucent navy patch (bg-royal-blue-deep/55 backdrop-blur) so text
- * reads cleanly without darkening the whole image.
+ * Full-bleed rotating plant imagery as background. ONE single translucent
+ * navy panel on the left holds the eyebrow, headline, body copy and a
+ * compact 2x2 grid of the four pillars. Right side stays clean image —
+ * no separate pointer cards covering the photo.
  */
 
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  Award,
-  History,
+  Clock,
+  LayoutGrid,
   FlaskConical,
   ShieldCheck,
   ArrowRight,
@@ -22,57 +22,45 @@ import { useEffect, useState } from "react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-type Slide = {
-  src: string;
-  alt: string;
-  caption: string;
-};
+type Slide = { src: string; alt: string };
 
 const SLIDES: Slide[] = [
   {
     src: "/images/veg/plant/plant-hero.png",
     alt: "Mohali plant exterior at golden hour",
-    caption: "Mohali · Manufacturing",
   },
   {
     src: "/plant/plant-house.jpg",
     alt: "Plant interior with production line",
-    caption: "Production line · Interior",
   },
 ];
 
-type Pointer = {
+type Pillar = {
   icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  metric: string;
-  unit?: string;
-  label: string;
+  title: string;
+  body: string;
 };
 
-/**
- * The four non-negotiables — credentials, not promises. Promises live in
- * the hero copy and the highlights band; this section is what's audited,
- * documented and on the wall at the plant.
- */
-const POINTERS: Pointer[] = [
+const PILLARS: Pillar[] = [
   {
-    icon: Award,
-    metric: "BRC + FSSC 22000",
-    label: "Certified lines · audit-ready",
+    icon: Clock,
+    title: "Reliability",
+    body: "Predictable lead times. On-time shipments, every consignment.",
   },
   {
-    icon: History,
-    metric: "30+ years",
-    label: "Manufacturing heritage · est. 1990s",
+    icon: LayoutGrid,
+    title: "Consistency at scale",
+    body: "Same spec, every shipment. Across 5,000+ outlets served.",
   },
   {
     icon: FlaskConical,
-    metric: "R&D-led",
-    label: "Custom builds for your menu",
+    title: "Customisation",
+    body: "R&D-led builds. Your menu, region and palate.",
   },
   {
     icon: ShieldCheck,
-    metric: "Halal-line",
-    label: "Every SKU. Every shipment.",
+    title: "Compliance & safety",
+    body: "BRC · FSSC 22000 · Halal · FDA. Audited, documented.",
   },
 ];
 
@@ -80,13 +68,12 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
+    if (SLIDES.length < 2) return;
     const t = setInterval(() => {
       setIdx((i) => (i + 1) % SLIDES.length);
     }, 5000);
     return () => clearInterval(t);
   }, []);
-
-  const slide = SLIDES[idx];
 
   return (
     <section
@@ -120,18 +107,17 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative mx-auto grid min-h-[88svh] max-w-[1320px] items-center gap-12 px-5 py-24 md:grid-cols-[1fr_1.05fr] md:items-stretch md:gap-14 md:px-10 md:py-28">
-        {/* Left — heading inside a translucent navy patch */}
+      {/* Single content panel — left column, image stays clean to the right */}
+      <div className="relative mx-auto grid min-h-[80svh] max-w-[1320px] items-center px-5 py-20 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-10 md:px-10 md:py-24">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.1 } },
+            show: { transition: { staggerChildren: 0.08 } },
           }}
-          className="rounded-2xl border border-[color:var(--accent-gold)]/15 bg-[color:var(--royal-blue-deep)]/55 p-6 backdrop-blur-md md:rounded-3xl md:p-8"
+          className="rounded-2xl border border-[color:var(--accent-gold)]/15 bg-[color:var(--royal-blue-deep)]/72 p-6 backdrop-blur-md md:rounded-3xl md:p-9 lg:p-10"
         >
           <motion.div
             variants={{
@@ -143,7 +129,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
               },
             }}
             style={{ transformOrigin: "0 50%" }}
-            className="gold-line w-24 md:w-32"
+            className="gold-line w-20 md:w-28"
           />
           <motion.span
             variants={{
@@ -154,7 +140,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.7, ease: EASE },
               },
             }}
-            className="mt-6 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold)]"
+            className="mt-5 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold)]"
           >
             Why Unifayre
           </motion.span>
@@ -167,12 +153,11 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.95, ease: EASE },
               },
             }}
-            className="mt-5 font-display text-3xl font-light leading-tight tracking-tight md:text-4xl lg:text-5xl"
+            className="mt-4 font-display text-3xl font-light leading-tight tracking-tight md:text-4xl lg:text-5xl"
           >
             Four{" "}
-            <em className="italic text-[color:var(--accent-gold)]">
-              non-negotiables.
-            </em>
+            <em className="italic text-[color:var(--accent-gold)]">pillars.</em>{" "}
+            Held to, every shipment.
           </motion.h2>
           <motion.p
             variants={{
@@ -183,52 +168,52 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.8, ease: EASE },
               },
             }}
-            className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/90 md:text-lg"
+            className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/85 md:text-[1.05rem]"
           >
-            Certifications on the wall. Heritage in the ledger. R&amp;D on the
-            floor. Halal in every line. The four credentials we&rsquo;ve earned
-            over decades &mdash; renewed every year, audited every quarter,
-            documented on every shipment.
+            When volume scales and audits land, these are the four things our
+            partners count on &mdash; and the four things we never compromise.
           </motion.p>
 
-          <motion.div
+          {/* 2x2 pillar grid inside the SAME panel — no separate cards. */}
+          <motion.ul
             variants={{
-              hidden: { opacity: 0, y: 14 },
+              hidden: {},
               show: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, ease: EASE, delay: 0.15 },
+                transition: { staggerChildren: 0.08, delayChildren: 0.15 },
               },
             }}
-            className="mt-7 flex items-center gap-4"
+            className="mt-7 grid grid-cols-1 gap-5 border-t border-[color:var(--accent-gold)]/15 pt-6 sm:grid-cols-2 md:gap-6"
           >
-            <div className="flex items-center gap-1.5">
-              {SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setIdx(i)}
-                  aria-label={`Show slide ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${
-                    i === idx
-                      ? "w-6 bg-[color:var(--accent-gold)]"
-                      : "w-1.5 bg-white/40 hover:bg-white/70"
-                  }`}
-                />
-              ))}
-            </div>
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={`cap-${idx}`}
-                initial={{ opacity: 0, x: -6 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -6 }}
-                transition={{ duration: 0.4 }}
-                className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold)]"
+            {PILLARS.map((p) => (
+              <motion.li
+                key={p.title}
+                variants={{
+                  hidden: { opacity: 0, y: 12 },
+                  show: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: EASE },
+                  },
+                }}
+                className="flex gap-3"
               >
-                {slide.caption}
-              </motion.span>
-            </AnimatePresence>
-          </motion.div>
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[color:var(--accent-gold)]/35 bg-[color:var(--royal-blue-deep)]/45">
+                  <p.icon
+                    className="h-4 w-4 text-[color:var(--accent-gold)]"
+                    strokeWidth={1.7}
+                  />
+                </span>
+                <div>
+                  <span className="block font-display text-[1.05rem] font-light leading-tight tracking-tight text-white md:text-[1.15rem]">
+                    {p.title}
+                  </span>
+                  <span className="mt-1 block text-[0.78rem] font-light leading-snug text-white/75">
+                    {p.body}
+                  </span>
+                </div>
+              </motion.li>
+            ))}
+          </motion.ul>
 
           <motion.div
             variants={{
@@ -236,70 +221,19 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
               show: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 0.8, ease: EASE, delay: 0.25 },
+                transition: { duration: 0.8, ease: EASE, delay: 0.2 },
               },
             }}
-            className="mt-7 flex flex-wrap items-center gap-3"
+            className="mt-8 flex flex-wrap items-center gap-3"
           >
             <a
               href="#contact"
               className="group btn-gold inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.86rem] font-semibold shadow-[0_14px_36px_-12px_rgba(201,169,97,0.5)]"
             >
-              Request Sample
+              Request Factory Visit / Sample
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
-            <a
-              href="#pillars"
-              className="btn-gold-outline inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.86rem] font-semibold backdrop-blur"
-            >
-              See our pillars
-            </a>
           </motion.div>
-        </motion.div>
-
-        {/* Right — capability pointer cards, each on its own translucent
-            navy patch so they read against any image */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
-          }}
-          className="grid grid-cols-2 gap-x-5 gap-y-4 md:h-full md:auto-rows-fr md:gap-x-7 md:gap-y-5 lg:gap-x-9"
-        >
-          {POINTERS.map((p) => (
-            <motion.div
-              key={p.label}
-              variants={{
-                hidden: { opacity: 0, y: 18 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.7, ease: EASE },
-                },
-              }}
-              whileHover={{ y: -3 }}
-              className="group flex h-full min-h-[120px] flex-col rounded-2xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--royal-blue-deep)]/65 p-4 backdrop-blur-md transition-all hover:border-[color:var(--accent-gold)]/55 md:min-h-0 md:p-5"
-            >
-              <p.icon
-                className="h-5 w-5 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
-                strokeWidth={1.6}
-              />
-              <span className="mt-auto block font-display text-[1.5rem] font-light leading-none tracking-tight text-white md:text-[1.7rem]">
-                {p.metric}
-                {p.unit && (
-                  <span className="ml-1.5 align-baseline text-[0.85rem] font-medium tracking-wide text-white/80 md:text-[0.95rem]">
-                    {p.unit}
-                  </span>
-                )}
-              </span>
-              <span className="mt-2 block text-[0.72rem] font-medium leading-snug text-white/80">
-                {p.label}
-              </span>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>
