@@ -116,9 +116,6 @@ export default function OurRange({ id = "range" }: { id?: string }) {
           transition={{ duration: 0.7, ease: EASE }}
           className="mt-8 flex flex-col items-center gap-3 md:mt-10"
         >
-          <span className="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold-deep)]">
-            Briefs to our R&amp;D team welcome on every line
-          </span>
           <Link
             href="#contact"
             className="group btn-gold inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[0.86rem] font-semibold tracking-wide shadow-[0_14px_36px_-12px_rgba(201,169,97,0.5)]"
@@ -173,7 +170,7 @@ function CategoryBannerCard({
       {/* Content sits directly on the image's empty left side - no panel,
           no gradient. Subtle text-shadow keeps copy readable. */}
       <div
-        className="relative flex min-h-[240px] flex-col gap-2.5 p-4 md:min-h-[260px] md:p-5 lg:min-h-[280px] lg:max-w-[60%]"
+        className="relative flex min-h-[320px] flex-col gap-3 p-5 md:min-h-[340px] md:p-6 lg:min-h-[380px] lg:max-w-[60%]"
         style={{ textShadow: "0 2px 14px rgba(20,32,64,0.55)" }}
       >
         <div>

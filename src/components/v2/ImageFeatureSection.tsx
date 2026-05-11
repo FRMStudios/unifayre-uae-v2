@@ -38,27 +38,23 @@ export default function ImageFeatureSection({
           <div className="mb-4 flex items-center gap-3">
             <span className="h-px w-10 bg-[color:var(--accent-gold-deep)]" />
             <span className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-[color:var(--accent-gold-deep)]">
-              Our Story · Manufacturing-led
+              Our Story
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
-            A Mohali plant.{" "}
+            A new plant in Mohali.{" "}
             <em className="italic text-[color:var(--accent-gold-deep)]">
-              Three decades.
-            </em>{" "}
-            Built to feed the{" "}
-            <span className="inline-flex items-center align-middle">
-              <span className="inline-flex items-center rounded-full bg-[color:var(--accent-gold)]/15 px-3 py-0.5 text-[0.7em] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold-deep)]">
-                world&rsquo;s
-              </span>
-            </span>{" "}
-            kitchens.
+              Built for the world&rsquo;s kitchens.
+            </em>
           </h2>
           <p className="mt-6 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
-            Unifayre is the export brand of Chatha Foods Limited - a
-            BSE-listed manufacturer running BRC and FSSC&nbsp;22000 certified
-            lines out of Mohali, India. Multi-format freezing, in-house R&amp;D,
-            and a fully halal facility purpose-built for foodservice volume.
+            Unifayre is a brand-new frozen-foods manufacturing facility in
+            Mohali, India - purpose-built, foodservice-first, and engineered
+            for international volumes from day one. BRC and FSSC&nbsp;22000
+            certified lines, multi-format freezing, in-house R&amp;D and a
+            fully halal-line plant. The team behind it brings decades of
+            food manufacturing experience; the facility itself is launching
+            now.
           </p>
           <div className="mt-8">
             <Link

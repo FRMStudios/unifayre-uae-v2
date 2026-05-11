@@ -26,12 +26,12 @@ type Slide = { src: string; alt: string };
 
 const SLIDES: Slide[] = [
   {
-    src: "/images/veg/plant/plant-hero.png",
-    alt: "Mohali plant exterior at golden hour",
+    src: "/plant/plant.png",
+    alt: "Mohali plant exterior",
   },
   {
-    src: "/plant/plant-house.jpg",
-    alt: "Plant interior with production line",
+    src: "/plant/hygenic.png",
+    alt: "Hygienic production line interior",
   },
 ];
 
@@ -155,9 +155,10 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-4 font-display text-3xl font-light leading-tight tracking-tight md:text-4xl lg:text-5xl"
           >
-            Four{" "}
-            <em className="italic text-[color:var(--accent-gold)]">pillars.</em>{" "}
-            Held to, every shipment.
+            Four Pillars.{" "}
+            <em className="italic text-[color:var(--accent-gold)]">
+              Delivered, Every Time.
+            </em>
           </motion.h2>
           <motion.p
             variants={{

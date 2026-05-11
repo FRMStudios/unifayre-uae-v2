@@ -6,6 +6,7 @@ import LeadFormDark from "@/components/v2/LeadFormDark";
 import HeroCarousel from "@/components/v2/HeroCarousel";
 import ImageFeatureSection from "@/components/v2/ImageFeatureSection";
 import OurRange from "@/components/v2/OurRange";
+import CategoryDefinitions from "@/components/v2/CategoryDefinitions";
 import WhereWeFit from "@/components/v2/WhereWeFit";
 import WhyUnifayreDynamic from "@/components/v2/WhyUnifayreDynamic";
 import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
@@ -58,15 +59,18 @@ export default function Home() {
         {/* S3 - PRODUCT PORTFOLIO (full-bleed 2x2 banner grid) */}
         <OurRange id="range" />
 
-        {/* S4 - OUR STORY (manufacturing-led, rounded rectangles) */}
+        {/* S3b - CATEGORIES DEFINED (glossary block) */}
+        <CategoryDefinitions />
+
+        {/* S4 - OUR STORY (new plant in Mohali) */}
         <ImageFeatureSection
           imageA={{
-            src: "/images/veg/plant/plant-hero.png",
-            alt: "Mohali manufacturing plant exterior",
+            src: "/plant/plant.png",
+            alt: "Unifayre's new Mohali frozen-foods plant",
           }}
           imageB={{
-            src: "/images/veg/lifestyle/chef-plating.png",
-            alt: "Chef plating from Unifayre's frozen range",
+            src: "/plant/hygenic.png",
+            alt: "Hygienic production line interior",
           }}
         />
 

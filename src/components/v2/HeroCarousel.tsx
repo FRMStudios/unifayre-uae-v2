@@ -21,6 +21,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export type HeroSlide = {
   image: string;
+  /** Optional looping MP4/WEBM. When present, renders the video in place
+   *  of the still image (image stays as poster for first-paint). */
+  video?: string;
   alt: string;
   headline: string;
   subheadline: string;
@@ -121,22 +124,34 @@ export default function HeroCarousel({
               key={slide.image + i}
               className="relative w-full shrink-0 grow-0 basis-full"
             >
-              {/* Slide image - clean, no overlay gradient */}
-              <div className="relative h-[70svh] w-full md:h-[85svh]">
-                <Image
-                  src={slide.image}
-                  alt={slide.alt}
-                  fill
-                  priority={i === 0}
-                  sizes="100vw"
-                  className="object-cover object-center"
-                />
+              {/* Slide media - video preferred when supplied, otherwise still image */}
+              <div className="relative h-[56svh] w-full md:h-[68svh]">
+                {slide.video ? (
+                  <video
+                    src={slide.video}
+                    poster={slide.image}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                  />
+                ) : (
+                  <Image
+                    src={slide.image}
+                    alt={slide.alt}
+                    fill
+                    priority={i === 0}
+                    sizes="100vw"
+                    className="object-cover object-center"
+                  />
+                )}
 
-                {/* Slide content - text floats directly on the image's
-                    empty space. No background patch. */}
-                <div className="relative z-10 flex h-full items-end px-5 pb-20 md:px-16 md:pb-24">
+                {/* Slide content - vertically centred so there's no empty
+                    void above the headline. */}
+                <div className="relative z-10 flex h-full items-center px-5 md:px-16">
                   <div className="max-w-md md:max-w-xl">
-                    <div className="mb-4 h-px w-12 bg-[color:var(--accent-gold)] md:mb-5 md:w-16" />
+                    <div className="mb-3 h-px w-12 bg-[color:var(--accent-gold)] md:mb-4 md:w-16" />
                     <h1
                       className="mb-3 text-2xl font-light leading-tight tracking-tight text-white md:mb-4 md:text-4xl lg:text-5xl"
                       style={{ textShadow: "0 2px 18px rgba(20,32,64,0.35)" }}
@@ -144,7 +159,7 @@ export default function HeroCarousel({
                       {slide.headline}
                     </h1>
                     <p
-                      className="mb-6 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/90 md:mb-8 md:text-lg lg:text-xl"
+                      className="mb-5 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/90 md:mb-7 md:text-lg lg:text-xl"
                       style={{ textShadow: "0 2px 14px rgba(20,32,64,0.35)" }}
                     >
                       {slide.subheadline}

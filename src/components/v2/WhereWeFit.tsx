@@ -11,11 +11,9 @@ import { motion } from "framer-motion";
 import {
   Utensils,
   Hotel,
-  ChefHat,
   Cloud,
   Plane,
-  GlassWater,
-  Coffee,
+  Tag,
   ShoppingBag,
 } from "lucide-react";
 
@@ -27,13 +25,11 @@ type Industry = {
 };
 
 const INDUSTRIES: Industry[] = [
-  { icon: Utensils, label: "QSR" },
-  { icon: Hotel, label: "Hotels" },
-  { icon: ChefHat, label: "Catering" },
+  { icon: Utensils, label: "QSR & Casual Dining" },
+  { icon: Hotel, label: "Hotels & Catering" },
   { icon: Cloud, label: "Cloud Kitchens" },
   { icon: Plane, label: "Airlines" },
-  { icon: GlassWater, label: "Casual Dining" },
-  { icon: Coffee, label: "Cafes & Coffee Chains" },
+  { icon: Tag, label: "Private Label" },
   { icon: ShoppingBag, label: "Modern Trade & Retail" },
 ];
 
@@ -80,15 +76,15 @@ export default function WhereWeFit() {
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-[2.8rem] font-light leading-[1.08] tracking-tight text-white">
-            Wherever food is{" "}
+            Six channels.{" "}
             <em className="italic text-[color:var(--accent-gold)]">
-              served at scale.
+              One spec, every shipment.
             </em>
           </h2>
           <p className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/80 md:text-lg">
-            One spec, eight kinds of kitchens. The same SKUs ship to QSR
-            chains, hotel buffets and inflight trays - and to the cloud
-            kitchens, cafes and modern-trade freezers in between.
+            We supply across six foodservice channels - from QSR chains and
+            hotel kitchens to private-label programmes and modern-trade
+            freezers. Same product, same quality, every order.
           </p>
 
           {/* Industry list - 2-col grid of pills with icons */}
