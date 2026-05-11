@@ -46,7 +46,7 @@ export default function NonVegetarianPage() {
       <main className="flex-1">
         <CinematicHero
           imageSrc="/images/v2/hero/nonveg-hero.png"
-          imageAlt="Non-Vegetarian range — Tandoori Kebab on grill"
+          imageAlt="Non-Vegetarian range - Tandoori Kebab on grill"
           variant="page"
           eyebrow="Non-Vegetarian range"
           headline={
@@ -91,7 +91,7 @@ export default function NonVegetarianPage() {
           anchorId="snacks-nonveg"
           number="02"
           title="Frozen-to-Fry Snacks"
-          description="Patties, tenders, schnitzel — non-veg formats that fry from frozen for crisp, consistent results across every shift."
+          description="Patties, tenders, schnitzel - non-veg formats that fry from frozen for crisp, consistent results across every shift."
           capacity="Spiral freezer −40°C"
           bannerSrc="/images/v2/categories/snacks-nonveg-banner.png"
           bannerAlt="Frozen-to-Fry Snacks Non-Veg Shami Kebab banner"

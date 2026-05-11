@@ -1,11 +1,11 @@
 "use client";
 
 /**
- * WhyUnifayreDynamic — Why Unifayre.
+ * WhyUnifayreDynamic - Why Unifayre.
  *
  * Full-bleed rotating plant imagery as background. ONE single translucent
  * navy panel on the left holds the eyebrow, headline, body copy and a
- * compact 2x2 grid of the four pillars. Right side stays clean image —
+ * compact 2x2 grid of the four pillars. Right side stays clean image -
  * no separate pointer cards covering the photo.
  */
 
@@ -80,7 +80,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
       id={id}
       className="relative isolate overflow-hidden bg-[color:var(--royal-blue-deep)] text-white"
     >
-      {/* Full-bleed rotating background images — no overlay gradient */}
+      {/* Full-bleed rotating background images - no overlay gradient */}
       <div className="absolute inset-0">
         {SLIDES.map((s, i) => (
           <motion.div
@@ -107,7 +107,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
         ))}
       </div>
 
-      {/* Single content panel — left column, image stays clean to the right */}
+      {/* Single content panel - left column, image stays clean to the right */}
       <div className="relative mx-auto grid min-h-[80svh] max-w-[1320px] items-center px-5 py-20 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-10 md:px-10 md:py-24">
         <motion.div
           initial="hidden"
@@ -171,10 +171,10 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/85 md:text-[1.05rem]"
           >
             When volume scales and audits land, these are the four things our
-            partners count on &mdash; and the four things we never compromise.
+            partners count on - and the four things we never compromise.
           </motion.p>
 
-          {/* 2x2 pillar grid inside the SAME panel — no separate cards. */}
+          {/* 2x2 pillar grid inside the SAME panel - no separate cards. */}
           <motion.ul
             variants={{
               hidden: {},

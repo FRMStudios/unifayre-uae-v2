@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * LeadFormDark — V2 dark-theme partnership lead form.
+ * LeadFormDark - V2 dark-theme partnership lead form.
  * Same fields and POST endpoint as the V1 LeadForm but restyled for the
  * navy + gold landing page.
  */

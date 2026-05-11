@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * HeroCarousel — V3 image scroller hero.
+ * HeroCarousel - V3 image scroller hero.
  *
  * Auto-advancing crossfade carousel built on Embla. Each slide: cinematic
  * image with royal blue gradient overlay, gold accent line + minimal copy
@@ -9,7 +9,7 @@
  * bottom-left. Pause on hover/touch. Manual nav via dots. Thin gold progress
  * bar fills as the slide advances.
  *
- * Reusable across veg/non-veg landing pages — pass slides via prop.
+ * Reusable across veg/non-veg landing pages - pass slides via prop.
  */
 
 import Image from "next/image";
@@ -72,7 +72,7 @@ export default function HeroCarousel({
     };
   }, [emblaApi, onSelect]);
 
-  // Progress bar — animated via requestAnimationFrame, resets on slide change
+  // Progress bar - animated via requestAnimationFrame, resets on slide change
   useEffect(() => {
     let start = performance.now();
     const tick = (now: number) => {
@@ -112,7 +112,7 @@ export default function HeroCarousel({
         className="overflow-hidden"
         ref={emblaRef}
         style={{
-          // Embla flex container — slide transitions are crossfade via opacity below
+          // Embla flex container - slide transitions are crossfade via opacity below
         }}
       >
         <div className="flex">
@@ -121,7 +121,7 @@ export default function HeroCarousel({
               key={slide.image + i}
               className="relative w-full shrink-0 grow-0 basis-full"
             >
-              {/* Slide image — clean, no overlay gradient */}
+              {/* Slide image - clean, no overlay gradient */}
               <div className="relative h-[70svh] w-full md:h-[85svh]">
                 <Image
                   src={slide.image}
@@ -132,7 +132,7 @@ export default function HeroCarousel({
                   className="object-cover object-center"
                 />
 
-                {/* Slide content — text floats directly on the image's
+                {/* Slide content - text floats directly on the image's
                     empty space. No background patch. */}
                 <div className="relative z-10 flex h-full items-end px-5 pb-20 md:px-16 md:pb-24">
                   <div className="max-w-md md:max-w-xl">
@@ -164,7 +164,7 @@ export default function HeroCarousel({
         </div>
       </div>
 
-      {/* Nav dots — only show when more than one slide */}
+      {/* Nav dots - only show when more than one slide */}
       {slideMap.length > 1 && (
         <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3">
           {slideMap.map((_, i) => (
@@ -183,7 +183,7 @@ export default function HeroCarousel({
         </div>
       )}
 
-      {/* Progress bar — only show when more than one slide */}
+      {/* Progress bar - only show when more than one slide */}
       {slideMap.length > 1 && (
         <div
           aria-hidden

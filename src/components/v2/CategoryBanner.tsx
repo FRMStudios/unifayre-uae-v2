@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CategoryBanner — V2 cinematic category banner without a product grid.
+ * CategoryBanner - V2 cinematic category banner without a product grid.
  *
  * Replaces the old CategorySection on the /vegetarian one-pager. Banner only.
  * The full product portfolio lives in a single ProductPortfolioDark section
@@ -50,7 +50,7 @@ export default function CategoryBanner({
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
   // Ken-Burns-like scale tied to scroll for subtle motion at all scroll positions
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.04, 1.08, 1.04]);
-  // Content opacity nudge — clearer at the centre of the section
+  // Content opacity nudge - clearer at the centre of the section
   const contentOpacity = useTransform(
     scrollYProgress,
     [0, 0.25, 0.75, 1],
@@ -79,13 +79,13 @@ export default function CategoryBanner({
           />
         </motion.div>
 
-        {/* Mobile overlay — full darken so left content reads */}
+        {/* Mobile overlay - full darken so left content reads */}
         <div
           aria-hidden
           className="absolute inset-0 bg-gradient-to-t from-[color:var(--bg-deep)] via-[color:var(--bg-deep)]/55 to-[color:var(--bg-deep)]/15 md:hidden"
         />
 
-        {/* Desktop overlay — left sweep so headline reads against image */}
+        {/* Desktop overlay - left sweep so headline reads against image */}
         <div
           aria-hidden
           className="absolute inset-0 hidden md:block"
@@ -101,7 +101,7 @@ export default function CategoryBanner({
           className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[color:var(--bg-deep)] to-transparent"
         />
 
-        {/* Content panel — bottom-aligned mobile, left-centered desktop */}
+        {/* Content panel - bottom-aligned mobile, left-centered desktop */}
         <div className="absolute inset-0 flex items-end md:items-center">
           <motion.div
             style={{ opacity: contentOpacity }}

@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* V3 — royal blue + off-white + gold */
+  /* V3 - royal blue + off-white + gold */
   --color-royal-blue: #1B2A4E;
   --color-royal-blue-deep: #142040;
   --color-royal-blue-rich: #243558;
@@ -26,7 +26,7 @@
   --color-text-gold-on-light: #B89653;
 
   /* Backwards-compat aliases for V2 dark navy tokens still referenced
-     in legacy components — they now map to royal-blue equivalents. */
+     in legacy components - they now map to royal-blue equivalents. */
   --color-bg-deep: var(--color-royal-blue);
   --color-bg-warm-shadow: var(--color-royal-blue-deep);
   --color-bg-slate: var(--color-royal-blue);
@@ -187,7 +187,7 @@
     background: linear-gradient(180deg, var(--royal-blue) 0%, var(--royal-blue-deep) 100%);
   }
 
-  /* Image overlays removed by design — text overlays now sit in
+  /* Image overlays removed by design - text overlays now sit in
      contained navy/cream cards over a clean image, no image gradients. */
 
   /* Ken Burns */

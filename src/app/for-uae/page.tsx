@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * /for-uae — Phase 1A scaffold.
+ * /for-uae - Phase 1A scaffold.
  * Phase 2 will add: Halal-first compliance story, logistics + port imagery,
  * white-label capability with packaging mockups.
  */

@@ -108,7 +108,7 @@ export const TILES: Tile[] = [
 ];
 
 export const PRODUCTS: Product[] = [
-  /* Flatbreads & Tortillas — veg */
+  /* Flatbreads & Tortillas - veg */
   { name: "Roti Canai", image: "/products/flatbreads/roti-canai.jpg", category: "flatbreads", scope: "veg", tag: "Signature" },
   { name: "Malabar Paratha", image: "/products/flatbreads/malabar-paratha.jpg", category: "flatbreads", scope: "veg" },
   { name: "Malabar Paratha · Garlic Coriander", image: "/products/flatbreads/malabar-garlic.jpg", category: "flatbreads", scope: "veg" },
@@ -121,7 +121,7 @@ export const PRODUCTS: Product[] = [
   { name: "Beetroot Tortilla", image: "/products/flatbreads/tortilla-beetroot.jpg", category: "flatbreads", scope: "veg" },
   { name: "Refined Flour Tortilla", image: "/products/flatbreads/tortilla-refined.jpg", category: "flatbreads", scope: "veg" },
 
-  /* Snacks — veg */
+  /* Snacks - veg */
   { name: "Bombay Vada", image: "/products/snacks/bombay-vada.jpg", category: "snacks", scope: "veg" },
   { name: "Beetroot Tikki", image: "/products/snacks/beetroot-tikki.jpg", category: "snacks", scope: "veg" },
   { name: "Harabhara Kabab", image: "/products/snacks/harabhara-kabab.jpg", category: "snacks", scope: "veg" },
@@ -137,7 +137,7 @@ export const PRODUCTS: Product[] = [
   { name: "Pizza Cheese Samosa", image: "/products/snacks/samosa-pizza-cheese.jpg", category: "snacks", scope: "veg" },
   { name: "Jalapeno Cheese Samosa", image: "/products/snacks/samosa-jalapeno-cheese.jpg", category: "snacks", scope: "veg" },
 
-  /* Rice — veg */
+  /* Rice - veg */
   { name: "Basmati Rice", image: "/products/rice/basmati.jpg", category: "rice", scope: "veg" },
   { name: "Jeera (Cumin) Rice", image: "/products/rice/jeera.jpg", category: "rice", scope: "veg" },
   { name: "Lemon Rice", image: "/products/rice/lemon.jpg", category: "rice", scope: "veg" },
@@ -147,7 +147,7 @@ export const PRODUCTS: Product[] = [
   { name: "Cilantro Lime Rice", image: "/products/rice/cilantro-lime.jpg", category: "rice", scope: "veg" },
   { name: "Aromat Rice", image: "/products/rice/aromat.jpg", category: "rice", scope: "veg" },
 
-  /* Gravies & Pastes — veg */
+  /* Gravies & Pastes - veg */
   { name: "Makhani Base Gravy", image: "/products/gravies/makhani.jpg", category: "gravies", scope: "veg" },
   { name: "Cashew Onion Gravy", image: "/products/gravies/cashew-onion.jpg", category: "gravies", scope: "veg" },
   { name: "Onion Tomato Base", image: "/products/gravies/onion-tomato.jpg", category: "gravies", scope: "veg" },
@@ -160,7 +160,7 @@ export const PRODUCTS: Product[] = [
   { name: "Lucknowi Biryani Paste", image: "/products/gravies/lucknowi-biryani.jpg", category: "gravies", scope: "veg" },
   { name: "Kolkata Biryani Paste", image: "/products/gravies/kolkata-biryani.jpg", category: "gravies", scope: "veg" },
 
-  /* Appetizers — non-veg */
+  /* Appetizers - non-veg */
   { name: "Chicken Fries", image: "/products/meat/chicken-fries.jpg", category: "appetizers", scope: "non-veg" },
   { name: "Spicy Chicken Tenders", image: "/products/meat/chicken-tenders-spicy.jpg", category: "appetizers", scope: "non-veg" },
   { name: "Chicken Nuggets", image: "/products/meat/chicken-nuggets.jpg", category: "appetizers", scope: "non-veg" },
@@ -168,32 +168,32 @@ export const PRODUCTS: Product[] = [
   { name: "Chicken Appetizer Assortment", image: "/products/meat/chicken-appetizers.jpg", category: "appetizers", scope: "non-veg" },
   { name: "Chicken Schnitzel", image: "/products/meat/schnitzel.jpg", category: "appetizers", scope: "non-veg" },
 
-  /* Wings — non-veg */
+  /* Wings - non-veg */
   { name: "BBQ Wings", image: "/products/meat/wings-bbq.jpg", category: "wings", scope: "non-veg" },
   { name: "Peri-Peri Wings", image: "/products/meat/wings-peri-peri.jpg", category: "wings", scope: "non-veg" },
   { name: "Schezwan Wings", image: "/products/meat/wings-schezwan.jpg", category: "wings", scope: "non-veg" },
   { name: "Smoked Wings", image: "/products/meat/wings-smoked.jpg", category: "wings", scope: "non-veg" },
   { name: "Crispy Wings", image: "/products/meat/wings-crispy.jpg", category: "wings", scope: "non-veg" },
 
-  /* Kebabs — non-veg */
+  /* Kebabs - non-veg */
   { name: "Malai Kebab", image: "/products/meat/kebab-malai.jpg", category: "kebabs", scope: "non-veg" },
   { name: "Tandoori Kebab", image: "/products/meat/kebab-tandoori.jpg", category: "kebabs", scope: "non-veg" },
   { name: "Reshmi Kebab", image: "/products/meat/kebab-reshmi.jpg", category: "kebabs", scope: "non-veg" },
 
-  /* Patties — non-veg */
+  /* Patties - non-veg */
   { name: "Chicken Patty", image: "/products/meat/patty-chicken.jpg", category: "patties", scope: "non-veg" },
   { name: "Paprika Patty", image: "/products/meat/patty-paprika.jpg", category: "patties", scope: "non-veg" },
   { name: "Tikka Patty", image: "/products/meat/patty-tikka.jpg", category: "patties", scope: "non-veg" },
   { name: "Burger Patty", image: "/products/meat/patty-burger.jpg", category: "patties", scope: "non-veg" },
 
-  /* Sausages — non-veg */
+  /* Sausages - non-veg */
   { name: "Smoked Franks", image: "/products/meat/sausage-franks.jpg", category: "sausages", scope: "non-veg" },
   { name: "Classic Sausage", image: "/products/meat/sausage-classic.jpg", category: "sausages", scope: "non-veg" },
   { name: "Zesty Pepper Sausage", image: "/products/meat/sausage-pepper.jpg", category: "sausages", scope: "non-veg" },
   { name: "Hot Italian Sausage", image: "/products/meat/sausage-italian.jpg", category: "sausages", scope: "non-veg" },
   { name: "Smoked Viennas", image: "/products/meat/sausage-vienna.jpg", category: "sausages", scope: "non-veg" },
 
-  /* Cold Cuts — non-veg */
+  /* Cold Cuts - non-veg */
   { name: "Chicken Rashers", image: "/products/meat/coldcuts-rashers.jpg", category: "coldcuts", scope: "non-veg" },
   { name: "Chicken Ham", image: "/products/meat/coldcuts-ham.jpg", category: "coldcuts", scope: "non-veg" },
   { name: "Chicken Salami", image: "/products/meat/coldcuts-salami.jpg", category: "coldcuts", scope: "non-veg" },

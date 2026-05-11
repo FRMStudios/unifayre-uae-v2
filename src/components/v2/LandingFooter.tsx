@@ -1,5 +1,5 @@
 /**
- * LandingFooter — minimal footer for the standalone /vegetarian one-pager.
+ * LandingFooter - minimal footer for the standalone /vegetarian one-pager.
  * No route-out links. Brand mark, tagline, UAE desk contact, copyright only.
  */
 

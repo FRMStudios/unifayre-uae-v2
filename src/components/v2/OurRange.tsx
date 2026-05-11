@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * OurRange — Product Portfolio (combined banner + range listing).
+ * OurRange - Product Portfolio (combined banner + range listing).
  *
  * Each of the 4 categories renders as a wide cinematic banner card. The
  * category image fills the card; a translucent panel on the left lists the
@@ -94,7 +94,7 @@ export default function OurRange({ id = "range" }: { id?: string }) {
         </motion.div>
       </div>
 
-      {/* 2x2 banner grid — FULL BLEED, no outer padding, no gaps. The
+      {/* 2x2 banner grid - FULL BLEED, no outer padding, no gaps. The
           four images tile edge-to-edge to fill the entire section width. */}
       <div className="grid grid-cols-1 md:grid-cols-2">
         {BANNERS.map((b, i) => (
@@ -170,7 +170,7 @@ function CategoryBannerCard({
           }}
         />
       </div>
-      {/* Content sits directly on the image's empty left side — no panel,
+      {/* Content sits directly on the image's empty left side - no panel,
           no gradient. Subtle text-shadow keeps copy readable. */}
       <div
         className="relative flex min-h-[240px] flex-col gap-2.5 p-4 md:min-h-[260px] md:p-5 lg:min-h-[280px] lg:max-w-[60%]"

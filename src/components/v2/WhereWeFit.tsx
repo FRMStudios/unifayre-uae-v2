@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * WhereWeFit — left-side editorial copy with the foodservice formats listed
+ * WhereWeFit - left-side editorial copy with the foodservice formats listed
  * inline, right-side 2x2 image collage covering the entire right half of
  * the section so the imagery has real presence on the page.
  */
@@ -42,7 +42,7 @@ type Frame = { src: string; alt: string; caption: string };
 const FRAMES: Frame[] = [
   {
     src: "/images/veg/lifestyle/qsr-plate.png",
-    alt: "QSR plate — vegetarian burger build",
+    alt: "QSR plate - vegetarian burger build",
     caption: "QSR",
   },
   {
@@ -66,7 +66,7 @@ export default function WhereWeFit() {
   return (
     <section className="relative overflow-hidden bg-[color:var(--bg-deep)] py-20 md:py-28">
       <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-5 md:grid-cols-2 md:gap-14 md:px-10 lg:gap-20">
-        {/* LEFT — copy + industry list */}
+        {/* LEFT - copy + industry list */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,11 +87,11 @@ export default function WhereWeFit() {
           </h2>
           <p className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/80 md:text-lg">
             One spec, eight kinds of kitchens. The same SKUs ship to QSR
-            chains, hotel buffets and inflight trays — and to the cloud
+            chains, hotel buffets and inflight trays - and to the cloud
             kitchens, cafes and modern-trade freezers in between.
           </p>
 
-          {/* Industry list — 2-col grid of pills with icons */}
+          {/* Industry list - 2-col grid of pills with icons */}
           <ul className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {INDUSTRIES.map((ind, i) => (
               <motion.li
@@ -120,7 +120,7 @@ export default function WhereWeFit() {
           </ul>
         </motion.div>
 
-        {/* RIGHT — 2x2 image collage filling the right half */}
+        {/* RIGHT - 2x2 image collage filling the right half */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}

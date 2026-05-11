@@ -66,7 +66,7 @@ export default function LifestyleStrip({
         )}
       </div>
 
-      {/* Horizontal frames — scrollable on mobile, grid on desktop */}
+      {/* Horizontal frames - scrollable on mobile, grid on desktop */}
       <div className="scrollbar-none overflow-x-auto md:overflow-visible">
         <div className="mx-auto flex w-max max-w-[1320px] gap-4 px-5 md:w-full md:grid md:grid-cols-5 md:gap-4 md:px-10">
           {frames.map((frame, i) => (

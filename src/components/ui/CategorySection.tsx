@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CategorySection — V2 Phase 1B (refined sizing pass)
+ * CategorySection - V2 Phase 1B (refined sizing pass)
  *
  * Full-bleed cinematic banner (16:9) with diagonal navy overlay panel on left.
  * Banner content: gold accent line, large gold section number, title,
@@ -85,13 +85,13 @@ export default function CategorySection({
           style={{ objectPosition: imageObjectPosition }}
         />
 
-        {/* Mobile overlay — full darken so left content reads */}
+        {/* Mobile overlay - full darken so left content reads */}
         <div
           aria-hidden
           className="absolute inset-0 bg-gradient-to-t from-[color:var(--bg-deep)] via-[color:var(--bg-deep)]/55 to-[color:var(--bg-deep)]/15 md:hidden"
         />
 
-        {/* Desktop overlay — left sweep so headline reads against image */}
+        {/* Desktop overlay - left sweep so headline reads against image */}
         <div
           aria-hidden
           className="absolute inset-0 hidden md:block"
@@ -107,7 +107,7 @@ export default function CategorySection({
           className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[color:var(--bg-deep)] to-transparent"
         />
 
-        {/* Content panel — bottom-aligned mobile, left-centered desktop */}
+        {/* Content panel - bottom-aligned mobile, left-centered desktop */}
         <div className="absolute inset-0 flex items-end md:items-center">
           <div className="mx-auto w-full max-w-[1320px] px-5 pb-12 md:px-10 md:pb-0">
             <motion.div

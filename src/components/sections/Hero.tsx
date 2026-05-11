@@ -6,7 +6,7 @@ import CinematicHero from "@/components/ui/CinematicHero";
  * Home cinematic hero (V2).
  *
  * Image placeholder: /products/flatbreads/roti-canai.jpg used as a temporary
- * hero shot. The brief calls for a true cinematic close-up — Roti Canai pulled
+ * hero shot. The brief calls for a true cinematic close-up - Roti Canai pulled
  * apart with steam rising on dark slate. See public/images/v2/hero/home-hero-BRIEF.md
  * (to be written) for the photographer brief.
  */

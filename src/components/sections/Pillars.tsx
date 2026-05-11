@@ -42,7 +42,7 @@ export default function Pillars() {
 
         {/* Bento grid */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:grid-rows-2 md:gap-5">
-          {/* Tile 1 — Large dark featured with factory bg */}
+          {/* Tile 1 - Large dark featured with factory bg */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ export default function Pillars() {
             </div>
           </motion.div>
 
-          {/* Tile 2 — Reliability (top right) */}
+          {/* Tile 2 - Reliability (top right) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function Pillars() {
             </div>
           </motion.div>
 
-          {/* Tile 3 — Customisation */}
+          {/* Tile 3 - Customisation */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -145,7 +145,7 @@ export default function Pillars() {
             </div>
           </motion.div>
 
-          {/* Tile 4 — Compliance */}
+          {/* Tile 4 - Compliance */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

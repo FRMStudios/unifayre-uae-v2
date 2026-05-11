@@ -1,13 +1,13 @@
 "use client";
 
 /**
- * ProductPortfolioDark — V2 dark-theme product gallery for the veg one-pager.
+ * ProductPortfolioDark - V2 dark-theme product gallery for the veg one-pager.
  *
  * Single section housing all veg SKUs with sub-category filter tabs.
  * Click a card → ProductLightbox.
  *
  * Interactions:
- * - Sticky sub-tab bar — stays in view while you scan
+ * - Sticky sub-tab bar - stays in view while you scan
  * - Tab switch animates the grid in/out
  * - Each card hover: gold border glow, image zoom, expand-icon overlay
  */

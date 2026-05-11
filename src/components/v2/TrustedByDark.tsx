@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * TrustedBy — V3 off-white section with white capsule chips.
+ * TrustedBy - V3 off-white section with white capsule chips.
  *
  * Each logo sits on a white pill chip so brand colours render natively
  * against the off-white section. Two opposing rows; pause on hover; edge

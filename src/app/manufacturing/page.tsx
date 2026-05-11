@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * /manufacturing — Phase 1A scaffold.
+ * /manufacturing - Phase 1A scaffold.
  * Phase 2 will add: per-line capability deep-dive with cinematic line photos,
  * capacity table, R&D section, cold chain & logistics imagery.
  */

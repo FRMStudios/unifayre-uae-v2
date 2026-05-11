@@ -1,10 +1,10 @@
 "use client";
 
 /**
- * ImageFeatureSection — V3 Section 4.
+ * ImageFeatureSection - V3 Section 4.
  *
  * Off-white bg. Editorial multi-image split (structure borrowed from
- * Option 2's WelcomeStatement) — but explicitly rounded rectangles, NOT
+ * Option 2's WelcomeStatement) - but explicitly rounded rectangles, NOT
  * circles. Headline left with key category words highlighted as gold +
  * royal-blue pill badges; two offset rounded-rect photos right.
  */
@@ -28,7 +28,7 @@ export default function ImageFeatureSection({
   return (
     <section className="relative overflow-hidden bg-[color:var(--off-white)] pb-20 pt-12 md:pb-24 md:pt-16">
       <div className="relative mx-auto grid max-w-[1320px] items-center gap-10 px-5 md:grid-cols-[1.05fr_0.95fr] md:gap-16 md:px-10 lg:gap-20">
-        {/* Left — copy */}
+        {/* Left - copy */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function ImageFeatureSection({
             kitchens.
           </h2>
           <p className="mt-6 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
-            Unifayre is the export brand of Chatha Foods Limited &mdash; a
+            Unifayre is the export brand of Chatha Foods Limited - a
             BSE-listed manufacturer running BRC and FSSC&nbsp;22000 certified
             lines out of Mohali, India. Multi-format freezing, in-house R&amp;D,
             and a fully halal facility purpose-built for foodservice volume.
@@ -73,7 +73,7 @@ export default function ImageFeatureSection({
           </div>
         </motion.div>
 
-        {/* Right — two offset rounded-RECTANGLE photos */}
+        {/* Right - two offset rounded-RECTANGLE photos */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export default function ImageFeatureSection({
           transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
           className="relative h-[440px] md:h-[520px]"
         >
-          {/* Larger image — top right (rounded rectangle, NOT circle) */}
+          {/* Larger image - top right (rounded rectangle, NOT circle) */}
           <div className="absolute right-0 top-0 h-[60%] w-[68%] overflow-hidden rounded-3xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--off-white-deep)] shadow-[0_18px_36px_-18px_rgba(30,58,138,0.18)]">
             <Image
               src={imageA.src}
@@ -91,7 +91,7 @@ export default function ImageFeatureSection({
               className="object-cover transition-transform duration-700 hover:scale-105"
             />
           </div>
-          {/* Smaller image — bottom left, overlapping (rounded rectangle) */}
+          {/* Smaller image - bottom left, overlapping (rounded rectangle) */}
           <div className="absolute bottom-0 left-0 h-[58%] w-[60%] overflow-hidden rounded-3xl border border-[color:var(--accent-gold)]/25 bg-[color:var(--off-white-deep)] shadow-[0_24px_44px_-22px_rgba(30,58,138,0.22)]">
             <Image
               src={imageB.src}

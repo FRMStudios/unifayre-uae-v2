@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * /why-unifayre — Phase 1A scaffold.
+ * /why-unifayre - Phase 1A scaffold.
  * Phase 2 will add: 4 expanded pillars with cinematic supporting imagery,
  * 30+ year timeline, Allana Group context.
  */

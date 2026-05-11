@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * PillarsDark — V2 four uniform pillar tiles in a horizontal scroller.
+ * PillarsDark - V2 four uniform pillar tiles in a horizontal scroller.
  *
  * Each tile is identical in size and treatment. Strip scrolls horizontally
  * to keep the page short. Prev / next arrow buttons hover over the strip
@@ -204,7 +204,7 @@ function PillarTile({ pillar, delay }: { pillar: Pillar; delay: number }) {
       whileHover={{ y: -4 }}
       className="group flex flex-col"
     >
-      {/* Clean image card — no overlay, no gradient on the image */}
+      {/* Clean image card - no overlay, no gradient on the image */}
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[20px] border border-[color:var(--royal-blue)]/10 sm:aspect-[5/4]">
         <Image
           src={pillar.image}

@@ -1,9 +1,9 @@
 "use client";
 
 /**
- * CategoryCarousel — V2 single-section auto-rotating category showcase.
+ * CategoryCarousel - V2 single-section auto-rotating category showcase.
  *
- * No external section header or tab strip — all controls live ON the banner:
+ * No external section header or tab strip - all controls live ON the banner:
  *   - Top-left: category indicator strip (numbers + short labels, active in gold)
  *   - Side left/right: arrow buttons for manual prev/next
  *   - Top-right: pause/play
@@ -93,10 +93,10 @@ export default function CategoryCarousel({
           </motion.div>
         ))}
 
-        {/* Image gradients removed by design — content lives in a contained
+        {/* Image gradients removed by design - content lives in a contained
             navy card instead, keeping the banner image fully visible. */}
 
-        {/* Top indicator strip — numbered category list, active highlighted.
+        {/* Top indicator strip - numbered category list, active highlighted.
             Floats directly over the image, no background patch. */}
         <div className="absolute inset-x-0 top-0 z-10 flex justify-center px-5 pt-5 md:px-10 md:pt-7">
           <div
@@ -138,7 +138,7 @@ export default function CategoryCarousel({
           </div>
         </div>
 
-        {/* Pause / play — top right */}
+        {/* Pause / play - top right */}
         <button
           onClick={() => setPaused((p) => !p)}
           aria-label={paused ? "Resume autoplay" : "Pause autoplay"}
@@ -169,7 +169,7 @@ export default function CategoryCarousel({
           <ChevronRight className="h-5 w-5" strokeWidth={1.8} />
         </button>
 
-        {/* Content panel — crossfades with idx */}
+        {/* Content panel - crossfades with idx */}
         <div className="absolute inset-0 flex items-end md:items-center">
           <div className="mx-auto w-full max-w-[1320px] px-5 pb-12 md:px-10 md:pb-0">
             <AnimatePresence mode="wait">

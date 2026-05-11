@@ -18,8 +18,8 @@
  *
  * `objectPosition` controls how the image is anchored when cropped.
  * `overlayStyle` switches the gradient direction:
- *   "bottom-left" — gradient rises from bottom-left (default; chef's pass / multi-food shots)
- *   "left"        — gradient sweeps from left (food-on-right shots)
+ *   "bottom-left" - gradient rises from bottom-left (default; chef's pass / multi-food shots)
+ *   "left"        - gradient sweeps from left (food-on-right shots)
  */
 
 import Image from "next/image";
@@ -44,7 +44,7 @@ export type CinematicHeroProps = {
   ticker?: string[];
   /** "center" (default) | "right" | "left" | any next/image objectPosition value */
   objectPosition?: string;
-  /** "bottom-left" (default) | "left" — direction the dark gradient sweeps from */
+  /** "bottom-left" (default) | "left" - direction the dark gradient sweeps from */
   overlayStyle?: "bottom-left" | "left";
   /** When true, use refined sizing/weight per the V2 elegant typography brief. */
   refined?: boolean;
@@ -97,15 +97,15 @@ export default function CinematicHero({
           />
         </div>
 
-        {/* Gradient overlays — direction depends on overlayStyle */}
+        {/* Gradient overlays - direction depends on overlayStyle */}
         {overlayStyle === "left" ? (
           <>
-            {/* Mobile — heavy bottom darken so bottom-anchored content reads */}
+            {/* Mobile - heavy bottom darken so bottom-anchored content reads */}
             <div
               aria-hidden
               className="absolute inset-0 bg-gradient-to-t from-[color:var(--bg-deep)] via-[color:var(--bg-deep)]/55 to-[color:var(--bg-deep)]/15 md:hidden"
             />
-            {/* Desktop — left sweep gradient */}
+            {/* Desktop - left sweep gradient */}
             <div
               aria-hidden
               className="absolute inset-0 hidden md:block"
@@ -153,7 +153,7 @@ export default function CinematicHero({
         </div>
       )}
 
-      {/* Content — bottom-left aligned */}
+      {/* Content - bottom-left aligned */}
       <div className="relative z-10 mx-auto flex h-full min-h-[inherit] max-w-[1320px] items-end px-5 pb-14 pt-28 md:px-10 md:pb-20 md:pt-32">
         <motion.div
           initial="hidden"

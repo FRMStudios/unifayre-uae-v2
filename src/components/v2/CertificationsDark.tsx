@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CertificationsDark — V2 5 circular cert badges on dark navy.
+ * CertificationsDark - V2 5 circular cert badges on dark navy.
  * Gold border, dark fill, gold check chip at bottom-right.
  */
 

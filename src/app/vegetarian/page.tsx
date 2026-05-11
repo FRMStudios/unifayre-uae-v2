@@ -23,13 +23,13 @@ export default function VegetarianLandingPage() {
       <ScrollProgress />
       <VegLandingNav />
       <main className="flex-1">
-        {/* S1 — HERO (single banner) */}
+        {/* S1 - HERO (single banner) */}
         <HeroCarousel
           intervalMs={6000}
           slides={[
             {
               image: "/images/veg/categories/flatbreads-banner.png",
-              alt: "Malabari Paratha, gravy and rice — Unifayre cinematic banner",
+              alt: "Malabari Paratha, gravy and rice - Unifayre cinematic banner",
               headline: "Food You Can Trust, Always.",
               subheadline: "India's QSR-grade flatbread specialist.",
               cta: { label: "Explore the Range", href: "#range" },
@@ -37,7 +37,7 @@ export default function VegetarianLandingPage() {
           ]}
         />
 
-        {/* S2 — HIGHLIGHTS BAND (compact) */}
+        {/* S2 - HIGHLIGHTS BAND (compact) */}
         <section className="border-y border-[color:var(--accent-gold)]/20 bg-[color:var(--off-white)] py-10 md:py-12">
           <div className="mx-auto grid max-w-[1320px] grid-cols-2 gap-6 px-5 md:grid-cols-4 md:gap-10 md:px-10">
             <CapabilityStat
@@ -55,10 +55,10 @@ export default function VegetarianLandingPage() {
           </div>
         </section>
 
-        {/* S3 — PRODUCT PORTFOLIO (full-bleed 2x2 banner grid, moved up) */}
+        {/* S3 - PRODUCT PORTFOLIO (full-bleed 2x2 banner grid, moved up) */}
         <OurRange id="range" />
 
-        {/* S4 — OUR STORY (manufacturing-led, rounded rectangles) */}
+        {/* S4 - OUR STORY (manufacturing-led, rounded rectangles) */}
         <ImageFeatureSection
           imageA={{
             src: "/images/veg/plant/plant-hero.png",
@@ -70,16 +70,16 @@ export default function VegetarianLandingPage() {
           }}
         />
 
-        {/* S5 — WHERE WE FIT (left text + industry list, right 2x2 image collage) */}
+        {/* S5 - WHERE WE FIT (left text + industry list, right 2x2 image collage) */}
         <WhereWeFit />
 
-        {/* S6 — WHY UNIFAYRE (single section, four non-negotiables embedded) */}
+        {/* S6 - WHY UNIFAYRE (single section, four non-negotiables embedded) */}
         <WhyUnifayreDynamic id="why" />
 
-        {/* S7 — TRUSTED BY 30+ QSR BRANDS */}
+        {/* S7 - TRUSTED BY 30+ QSR BRANDS */}
         <TrustedByDark />
 
-        {/* S8 — LEAD FORM */}
+        {/* S8 - LEAD FORM */}
         <LeadFormDark id="contact" />
       </main>
       <LandingFooter />

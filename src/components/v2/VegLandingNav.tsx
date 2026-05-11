@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * VegLandingNav — anchor-only navigation for the standalone /vegetarian
+ * VegLandingNav - anchor-only navigation for the standalone /vegetarian
  * one-pager. All links scroll within the page; no route-out links.
  */
 
