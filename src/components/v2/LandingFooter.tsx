@@ -25,12 +25,13 @@ export default function LandingFooter() {
                 Foods
               </span>
             </div>
-            <p className="max-w-sm font-display text-[1.2rem] font-light italic leading-snug tracking-tight text-[color:var(--text-primary)]">
-              Frozen food, built for the Gulf&rsquo;s best kitchens.
+            <p className="max-w-sm font-display text-[1.4rem] font-light italic leading-snug tracking-tight text-[color:var(--accent-gold)]">
+              Food Re-imagined.
             </p>
             <p className="max-w-sm text-[0.86rem] font-light leading-relaxed text-[color:var(--text-secondary)]">
-              Unifayre Foods is the export identity of Chatha Foods Limited.
-              Over 30 years of frozen food manufacturing from Mohali, India.
+              A new frozen-foods manufacturing facility in Mohali, India.
+              Foodservice-first, BRC + FSSC 22000 certified, halal-line.
+              Built for kitchens around the world.
             </p>
           </div>
 
@@ -100,9 +101,9 @@ export default function LandingFooter() {
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>&copy; 2026 Unifayre Foods</span>
             <span className="h-1 w-1 rounded-full bg-[color:var(--accent-gold)]/40" />
-            <span>A Chatha Foods Limited brand</span>
-            <span className="h-1 w-1 rounded-full bg-[color:var(--accent-gold)]/40" />
-            <span>BSE Listed</span>
+            <span className="font-medium tracking-wide text-[color:var(--accent-gold)]">
+              Food Re-imagined.
+            </span>
           </div>
           <div className="flex items-center gap-5">
             <a className="hover:text-[color:var(--text-primary)]" href="#">

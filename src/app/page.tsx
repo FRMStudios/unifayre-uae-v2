@@ -6,16 +6,15 @@ import LeadFormDark from "@/components/v2/LeadFormDark";
 import HeroCarousel from "@/components/v2/HeroCarousel";
 import ImageFeatureSection from "@/components/v2/ImageFeatureSection";
 import OurRange from "@/components/v2/OurRange";
-import CategoryDefinitions from "@/components/v2/CategoryDefinitions";
 import WhereWeFit from "@/components/v2/WhereWeFit";
 import WhyUnifayreDynamic from "@/components/v2/WhyUnifayreDynamic";
 import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export const metadata: Metadata = {
-  title: "Unifayre Foods | Frozen Food, Manufactured at Scale",
+  title: "Unifayre Foods | Food Re-imagined",
   description:
-    "Vegetarian frozen food manufactured at scale by Chatha Foods, Mohali. Flatbreads, frozen-to-fry snacks, base gravies and retort rice. Halal-line ready, BRC + FSSC 22000 certified, R&D-backed. Built for QSR, hotels, catering, cloud kitchens, airlines.",
+    "Food Re-imagined. A new frozen-foods manufacturing facility in Mohali - flatbreads, frozen-to-fry snacks, gravies and retort rice. BRC + FSSC 22000 certified, halal-line. Built for QSRs, hotels, catering, cloud kitchens, airlines, private label and modern trade.",
 };
 
 export default function Home() {
@@ -24,16 +23,41 @@ export default function Home() {
       <ScrollProgress />
       <VegLandingNav />
       <main className="flex-1">
-        {/* S1 - HERO (single banner) */}
+        {/* S1 - HERO (rotating images, static tagline overlay) */}
         <HeroCarousel
-          intervalMs={6000}
+          intervalMs={5500}
+          content={{
+            headline: (
+              <>
+                Food{" "}
+                <em className="italic text-[color:var(--accent-gold)]">
+                  Re-imagined.
+                </em>
+              </>
+            ),
+            subheadline: "Manufactured at scale. Built for the world's kitchens.",
+            cta: { label: "Explore the Range", href: "#range" },
+          }}
           slides={[
             {
+              image: "/images/veg/heroes/home-hero.png",
+              alt: "Unifayre vegetarian range - chef's pass compilation",
+            },
+            {
               image: "/images/veg/categories/flatbreads-banner.png",
-              alt: "Malabari Paratha, gravy and rice - Unifayre cinematic banner",
-              headline: "Food You Can Trust, Always.",
-              subheadline: "India's QSR-grade flatbread specialist.",
-              cta: { label: "Explore the Range", href: "#range" },
+              alt: "Layered Malabari paratha banner",
+            },
+            {
+              image: "/images/veg/categories/snacks-banner.png",
+              alt: "Falafel mid-fry frozen-to-fry snacks banner",
+            },
+            {
+              image: "/images/veg/categories/gravies-banner.png",
+              alt: "Makhani gravy banner",
+            },
+            {
+              image: "/images/veg/categories/rice-banner.png",
+              alt: "Saffron rice in clay handi banner",
             },
           ]}
         />
@@ -56,28 +80,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* S3 - PRODUCT PORTFOLIO (full-bleed 2x2 banner grid) */}
+        {/* S3 - PRODUCT PORTFOLIO (4 banners, single row, modal on click) */}
         <OurRange id="range" />
 
-        {/* S3b - CATEGORIES DEFINED (glossary block) */}
-        <CategoryDefinitions />
-
-        {/* S4 - OUR STORY (new plant in Mohali) */}
+        {/* S4 - OUR STORY (plant images) */}
         <ImageFeatureSection
           imageA={{
-            src: "/plant/plant.png",
-            alt: "Unifayre's new Mohali frozen-foods plant",
+            src: "/plant/plant-hero.png",
+            alt: "Unifayre Mohali plant - long factory banner",
           }}
           imageB={{
-            src: "/plant/hygenic.png",
-            alt: "Hygienic production line interior",
+            src: "/plant/plant-house.jpg",
+            alt: "Plant interior - production hall",
           }}
         />
 
         {/* S5 - WHERE WE FIT */}
         <WhereWeFit />
 
-        {/* S6 - WHY UNIFAYRE (single section, four pillars embedded) */}
+        {/* S6 - WHY UNIFAYRE (rotates plant interior shots) */}
         <WhyUnifayreDynamic id="why" />
 
         {/* S7 - TRUSTED BY 30+ QSR BRANDS */}

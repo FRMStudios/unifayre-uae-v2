@@ -1,74 +1,55 @@
 "use client";
 
 /**
- * OurRange - Product Portfolio (combined banner + range listing).
+ * OurRange - Product Portfolio.
  *
- * Each of the 4 categories renders as a wide cinematic banner card. The
- * category image fills the card; a translucent panel on the left lists the
- * full product range so you see WHAT we make and WHAT IT LOOKS LIKE in one
- * glance. Replaces the previous separate "carousel banner" + "menu range"
- * sections so the page reads tighter.
+ * Four category banners in a single horizontal row. Each banner shows
+ * only the category title centred on the image. Click the banner to open
+ * a CategoryRangeModal listing every SKU in that category; click a SKU
+ * to open the existing ProductLightbox with full detail.
  */
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import {
-  productsByCategory,
-  type CategoryId,
-  type Product,
-} from "@/lib/products";
+import type { Product } from "@/lib/products";
 import ProductLightbox from "@/components/ui/ProductLightbox";
+import CategoryRangeModal, {
+  type CategoryRangeCategory,
+} from "@/components/v2/CategoryRangeModal";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-type CategoryBanner = {
-  number: string;
-  category: CategoryId;
-  title: string;
-  bannerSrc: string;
-  bannerAlt: string;
-  imageObjectPosition?: string;
-};
-
-const BANNERS: CategoryBanner[] = [
+const BANNERS: CategoryRangeCategory[] = [
   {
-    number: "01",
     category: "flatbreads",
     title: "Flatbreads & Tortillas",
     bannerSrc: "/images/veg/categories/flatbreads-portfolio.png",
     bannerAlt: "Layered Malabari paratha banner",
-    imageObjectPosition: "right center",
   },
   {
-    number: "02",
     category: "snacks",
     title: "Frozen-to-Fry Snacks",
     bannerSrc: "/images/veg/categories/snacks-portfolio.png",
     bannerAlt: "Falafel mid-fry frozen-to-fry snacks banner",
-    imageObjectPosition: "right center",
   },
   {
-    number: "03",
     category: "gravies",
     title: "Gravies & Pastes",
     bannerSrc: "/images/veg/categories/gravies-portfolio.png",
     bannerAlt: "Makhani gravy banner",
-    imageObjectPosition: "right center",
   },
   {
-    number: "04",
     category: "rice",
     title: "Retort Rice",
     bannerSrc: "/images/veg/categories/rice-portfolio.png",
     bannerAlt: "Saffron rice in clay handi banner",
-    imageObjectPosition: "right center",
   },
 ];
 
 export default function OurRange({ id = "range" }: { id?: string }) {
+  const [openCategory, setOpenCategory] =
+    useState<CategoryRangeCategory | null>(null);
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
 
   return (
@@ -76,7 +57,6 @@ export default function OurRange({ id = "range" }: { id?: string }) {
       id={id}
       className="relative overflow-hidden bg-[color:var(--off-white)] pb-10 pt-12 md:pb-12 md:pt-16"
     >
-      {/* Heading is contained; the 4 banners below break out full-bleed */}
       <div className="relative mx-auto max-w-[1320px] px-5 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -94,38 +74,26 @@ export default function OurRange({ id = "range" }: { id?: string }) {
         </motion.div>
       </div>
 
-      {/* 2x2 banner grid - FULL BLEED, no outer padding, no gaps. The
-          four images tile edge-to-edge to fill the entire section width. */}
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      {/* 4 banners in a single row, full-bleed and edge-to-edge */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
         {BANNERS.map((b, i) => (
-          <CategoryBannerCard
+          <BannerTile
             key={b.category}
             banner={b}
             index={i}
-            onSelect={setActiveProduct}
+            onClick={() => setOpenCategory(b)}
           />
         ))}
       </div>
 
-      {/* Bottom CTA */}
-      <div className="mx-auto max-w-[1320px] px-5 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="mt-8 flex flex-col items-center gap-3 md:mt-10"
-        >
-          <Link
-            href="#contact"
-            className="group btn-gold inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[0.86rem] font-semibold tracking-wide shadow-[0_14px_36px_-12px_rgba(201,169,97,0.5)]"
-          >
-            Get the full catalogue
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </motion.div>
-      </div>
-
+      <CategoryRangeModal
+        category={openCategory}
+        onClose={() => setOpenCategory(null)}
+        onSelectProduct={(p) => {
+          setOpenCategory(null);
+          setActiveProduct(p);
+        }}
+      />
       <ProductLightbox
         product={activeProduct}
         onClose={() => setActiveProduct(null)}
@@ -134,84 +102,50 @@ export default function OurRange({ id = "range" }: { id?: string }) {
   );
 }
 
-function CategoryBannerCard({
+function BannerTile({
   banner,
   index,
-  onSelect,
+  onClick,
 }: {
-  banner: CategoryBanner;
+  banner: CategoryRangeCategory;
   index: number;
-  onSelect: (p: Product) => void;
+  onClick: () => void;
 }) {
-  const items = productsByCategory(banner.category);
-  const skuCount = items.length;
-
   return (
-    <motion.div
+    <motion.button
+      type="button"
+      onClick={onClick}
+      aria-label={`Open ${banner.title} range`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.7, ease: EASE, delay: index * 0.08 }}
-      className="group relative overflow-hidden bg-[color:var(--royal-blue-deep)]"
+      className="group relative h-[320px] w-full overflow-hidden bg-[color:var(--royal-blue-deep)] text-left md:h-[380px] lg:h-[420px]"
     >
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <Image
-          src={banner.bannerSrc}
-          alt={banner.bannerAlt}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
-          style={{
-            objectPosition: banner.imageObjectPosition ?? "right center",
-          }}
-        />
-      </div>
-      {/* Content sits directly on the image's empty left side - no panel,
-          no gradient. Subtle text-shadow keeps copy readable. */}
+      <Image
+        src={banner.bannerSrc}
+        alt={banner.bannerAlt}
+        fill
+        sizes="(max-width: 768px) 100vw, 25vw"
+        className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.06]"
+        style={{ objectPosition: "center" }}
+      />
+      {/* Soft bottom-up gradient so the title reads against any photo */}
       <div
-        className="relative flex min-h-[320px] flex-col gap-3 p-5 md:min-h-[340px] md:p-6 lg:min-h-[380px] lg:max-w-[60%]"
-        style={{ textShadow: "0 2px 14px rgba(20,32,64,0.55)" }}
-      >
-        <div>
-          <span className="inline-flex items-center gap-2 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold)]">
-            <span className="font-display text-[0.74rem] font-light text-[color:var(--accent-gold)]">
-              {banner.number}
-            </span>
-            <span className="h-3 w-px bg-[color:var(--accent-gold)]/45" />
-            {skuCount}&nbsp;SKUs
-          </span>
-          <h3 className="mt-2 font-display text-xl font-light leading-tight tracking-tight text-white md:text-[1.55rem] lg:text-[1.75rem]">
-            {banner.title}
-          </h3>
-        </div>
-
-        <ul className="grid grid-cols-1 gap-x-3 gap-y-0.5 sm:grid-cols-2">
-          {items.map((p) => (
-            <li key={p.name}>
-              <button
-                type="button"
-                onClick={() => onSelect(p)}
-                className="group/item flex w-full items-center gap-2 rounded-md py-0.5 text-left text-[0.78rem] font-light leading-tight text-white/90 transition-colors hover:text-[color:var(--accent-gold)]"
-              >
-                <span
-                  aria-hidden
-                  className="block h-1 w-1 shrink-0 rounded-full bg-[color:var(--accent-gold)]/55 transition-colors group-hover/item:bg-[color:var(--accent-gold)]"
-                />
-                <span className="flex-1 truncate">{p.name}</span>
-                {p.tag && (
-                  <span
-                    className="shrink-0 rounded-full bg-[color:var(--accent-gold)]/25 px-1.5 py-0.5 text-[0.52rem] font-bold uppercase tracking-[0.14em] text-[color:var(--accent-gold)]"
-                    style={{ textShadow: "none" }}
-                  >
-                    {p.tag}
-                  </span>
-                )}
-              </button>
-            </li>
-          ))}
-        </ul>
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-t from-[color:var(--royal-blue-deep)]/85 via-[color:var(--royal-blue-deep)]/15 to-transparent transition-opacity duration-500 group-hover:from-[color:var(--royal-blue-deep)]/90"
+      />
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 p-5 text-center md:p-7">
+        <h3
+          className="font-display text-[1.4rem] font-light leading-tight tracking-tight text-white md:text-[1.65rem] lg:text-[1.85rem]"
+          style={{ textShadow: "0 2px 14px rgba(20,32,64,0.45)" }}
+        >
+          {banner.title}
+        </h3>
+        <span className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--accent-gold)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          View Range &rarr;
+        </span>
       </div>
-    </motion.div>
+    </motion.button>
   );
 }

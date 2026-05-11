@@ -26,12 +26,12 @@ type Slide = { src: string; alt: string };
 
 const SLIDES: Slide[] = [
   {
-    src: "/plant/plant.png",
-    alt: "Mohali plant exterior",
+    src: "/plant/plant-house.jpg",
+    alt: "Plant interior - production hall",
   },
   {
     src: "/plant/hygenic.png",
-    alt: "Hygienic production line interior",
+    alt: "Hygienic clean-room interior",
   },
 ];
 
