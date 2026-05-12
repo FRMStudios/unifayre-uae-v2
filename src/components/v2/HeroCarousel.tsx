@@ -1,22 +1,22 @@
 "use client";
 
 /**
- * HeroCarousel - rotating-image hero with a single static content overlay.
+ * HeroCarousel - rotating-image hero with per-slide pillar copy.
  *
- * Images crossfade automatically; the headline, subline and CTA stay
- * fixed across all rotations so the brand message reads as one consistent
- * statement rather than a new pitch every 6 seconds.
+ * Transition is a Ken-Burns morph: the active image crossfades + scales
+ * subtly while the next image enters underneath. Text overlay crossfades
+ * in sync, so each slide carries its own headline / sub-line targeted at
+ * one of the four brand pillars (Reliability, Consistency, Customisation,
+ * Compliance).
  *
- * Each slide accepts an optional `video` for an MP4/WEBM dropped in
- * later; the image acts as the poster.
+ * No horizontal slide, no Embla - it's all CSS opacity + transform.
  */
 
 import Image from "next/image";
 import Link from "next/link";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export type HeroSlide = {
   image: string;
@@ -24,160 +24,142 @@ export type HeroSlide = {
    *  of the still image (image stays as poster for first-paint). */
   video?: string;
   alt: string;
-};
-
-export type HeroContent = {
+  /** Small uppercase eyebrow above the headline. Optional. */
+  eyebrow?: React.ReactNode;
   headline: React.ReactNode;
   subheadline?: React.ReactNode;
-  cta?: { label: string; href: string };
 };
 
 export type HeroCarouselProps = {
   slides: HeroSlide[];
-  content: HeroContent;
-  /** Slide duration in ms. Default 6000. */
+  /** Single CTA shared across all slides. */
+  cta?: { label: string; href: string };
+  /** Per-slide duration in ms. Default 5500. */
   intervalMs?: number;
 };
 
-const DEFAULT_INTERVAL = 6000;
+const EASE = [0.22, 1, 0.36, 1] as const;
+const DEFAULT_INTERVAL = 5500;
 
 export default function HeroCarousel({
   slides,
-  content,
+  cta,
   intervalMs = DEFAULT_INTERVAL,
 }: HeroCarouselProps) {
-  const autoplay = useRef(
-    Autoplay({
-      delay: intervalMs,
-      stopOnInteraction: false,
-      stopOnMouseEnter: true,
-    })
-  );
-
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, duration: 35 },
-    [autoplay.current]
-  );
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const progressFrame = useRef<number | null>(null);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setActiveIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi, onSelect]);
-
-  useEffect(() => {
-    let start = performance.now();
-    const tick = (now: number) => {
-      const elapsed = now - start;
-      const pct = Math.min(elapsed / intervalMs, 1) * 100;
-      setProgress(pct);
-      if (pct < 100) {
-        progressFrame.current = requestAnimationFrame(tick);
-      }
-    };
-    setProgress(0);
-    progressFrame.current = requestAnimationFrame(tick);
-    return () => {
-      if (progressFrame.current !== null) {
-        cancelAnimationFrame(progressFrame.current);
-      }
-    };
-  }, [activeIndex, intervalMs]);
-
-  const scrollTo = useCallback(
-    (i: number) => {
-      if (!emblaApi) return;
-      emblaApi.scrollTo(i);
-    },
-    [emblaApi]
-  );
-
+  const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
   const slideMap = useMemo(() => slides, [slides]);
+
+  useEffect(() => {
+    if (slideMap.length < 2 || paused) return;
+    const t = setInterval(() => {
+      setIdx((i) => (i + 1) % slideMap.length);
+    }, intervalMs);
+    return () => clearInterval(t);
+  }, [slideMap.length, paused, intervalMs]);
+
   if (slideMap.length === 0) return null;
+  const active = slideMap[idx];
 
   return (
     <section
       className="relative isolate overflow-hidden bg-[color:var(--royal-blue-deep)] text-white"
       aria-label="Hero"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
-      {/* Image carousel - images only, no per-slide text */}
+      {/* Image stack - Ken Burns crossfade morph */}
       <div className="relative h-[56svh] w-full md:h-[68svh]">
-        <div
-          className="absolute inset-0 overflow-hidden"
-          ref={emblaRef}
-        >
-          <div className="flex h-full">
-            {slideMap.map((slide, i) => (
-              <div
-                key={slide.image + i}
-                className="relative h-full w-full shrink-0 grow-0 basis-full"
-              >
-                {slide.video ? (
-                  <video
-                    src={slide.video}
-                    poster={slide.image}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="absolute inset-0 h-full w-full object-cover object-center"
-                  />
-                ) : (
-                  <Image
-                    src={slide.image}
-                    alt={slide.alt}
-                    fill
-                    priority={i === 0}
-                    sizes="100vw"
-                    className="object-cover object-center"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+        {slideMap.map((slide, i) => {
+          const isActive = i === idx;
+          return (
+            <motion.div
+              key={slide.image + i}
+              initial={false}
+              animate={{
+                opacity: isActive ? 1 : 0,
+                scale: isActive ? 1 : 1.08,
+                filter: isActive ? "blur(0px)" : "blur(8px)",
+              }}
+              transition={{
+                opacity: { duration: 1.4, ease: "easeInOut" },
+                scale: {
+                  duration: intervalMs / 1000 + 1.5,
+                  ease: "easeOut",
+                },
+                filter: { duration: 1.2, ease: "easeInOut" },
+              }}
+              className="absolute inset-0"
+            >
+              {slide.video ? (
+                <video
+                  src={slide.video}
+                  poster={slide.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                />
+              ) : (
+                <Image
+                  src={slide.image}
+                  alt={slide.alt}
+                  fill
+                  priority={i === 0}
+                  sizes="100vw"
+                  className="object-cover object-center"
+                />
+              )}
+            </motion.div>
+          );
+        })}
 
-        {/* Static content overlay - stays fixed across all rotations */}
+        {/* Per-slide content - crossfades in sync with the image */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center px-5 md:px-16">
           <div className="pointer-events-auto max-w-md md:max-w-xl">
-            <div className="mb-3 h-px w-12 bg-[color:var(--accent-gold)] md:mb-4 md:w-16" />
-            <h1
-              className="mb-3 text-2xl font-light leading-tight tracking-tight text-white md:mb-4 md:text-4xl lg:text-5xl"
-              style={{ textShadow: "0 2px 18px rgba(20,32,64,0.45)" }}
-            >
-              {content.headline}
-            </h1>
-            {content.subheadline && (
-              <p
-                className="mb-5 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/90 md:mb-7 md:text-lg lg:text-xl"
-                style={{ textShadow: "0 2px 14px rgba(20,32,64,0.4)" }}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`content-${idx}`}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.65, ease: EASE }}
               >
-                {content.subheadline}
-              </p>
-            )}
-            {content.cta && (
-              <Link
-                href={content.cta.href}
-                className="group inline-flex items-center gap-2 border border-[color:var(--accent-gold)] px-5 py-2.5 text-[0.72rem] font-light uppercase tracking-[0.2em] text-[color:var(--accent-gold)] transition-all duration-300 hover:bg-[color:var(--accent-gold)] hover:text-[color:var(--royal-blue-deep)] md:px-7 md:py-3 md:text-[0.78rem]"
-              >
-                {content.cta.label}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 md:h-4 md:w-4" />
-              </Link>
-            )}
+                <div className="mb-3 h-px w-12 bg-[color:var(--accent-gold)] md:mb-4 md:w-16" />
+                {active.eyebrow && (
+                  <span
+                    className="mb-3 block text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-[color:var(--accent-gold)] md:mb-4 md:text-[0.7rem]"
+                    style={{ textShadow: "0 2px 14px rgba(20,32,64,0.5)" }}
+                  >
+                    {active.eyebrow}
+                  </span>
+                )}
+                <h1
+                  className="mb-3 text-2xl font-light leading-tight tracking-tight text-white md:mb-4 md:text-4xl lg:text-5xl"
+                  style={{ textShadow: "0 2px 18px rgba(20,32,64,0.5)" }}
+                >
+                  {active.headline}
+                </h1>
+                {active.subheadline && (
+                  <p
+                    className="mb-5 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/90 md:mb-7 md:text-lg lg:text-xl"
+                    style={{ textShadow: "0 2px 14px rgba(20,32,64,0.5)" }}
+                  >
+                    {active.subheadline}
+                  </p>
+                )}
+                {cta && (
+                  <Link
+                    href={cta.href}
+                    className="group inline-flex items-center gap-2 border border-[color:var(--accent-gold)] px-5 py-2.5 text-[0.72rem] font-light uppercase tracking-[0.2em] text-[color:var(--accent-gold)] transition-all duration-300 hover:bg-[color:var(--accent-gold)] hover:text-[color:var(--royal-blue-deep)] md:px-7 md:py-3 md:text-[0.78rem]"
+                  >
+                    {cta.label}
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 md:h-4 md:w-4" />
+                  </Link>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
@@ -188,29 +170,16 @@ export default function HeroCarousel({
           {slideMap.map((_, i) => (
             <button
               key={i}
-              onClick={() => scrollTo(i)}
+              onClick={() => setIdx(i)}
               aria-label={`Show slide ${i + 1}`}
-              aria-current={i === activeIndex}
+              aria-current={i === idx}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === activeIndex
+                i === idx
                   ? "w-8 bg-[color:var(--accent-gold)]"
                   : "w-2 bg-white/40 hover:bg-white/60"
               }`}
             />
           ))}
-        </div>
-      )}
-
-      {/* Progress bar */}
-      {slideMap.length > 1 && (
-        <div
-          aria-hidden
-          className="absolute inset-x-0 bottom-0 z-20 hidden h-0.5 bg-white/10 md:block"
-        >
-          <div
-            className="h-full bg-[color:var(--accent-gold)] transition-[width] ease-linear"
-            style={{ width: `${progress}%`, transitionDuration: "100ms" }}
-          />
         </div>
       )}
     </section>

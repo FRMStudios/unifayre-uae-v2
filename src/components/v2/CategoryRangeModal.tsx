@@ -22,8 +22,12 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export type CategoryRangeCategory = {
   category: CategoryId;
   title: string;
+  /** Image used by the portfolio tile (closer to square). */
   bannerSrc: string;
   bannerAlt: string;
+  /** Optional wider image used inside the modal header. Falls back to
+   *  `bannerSrc` if not supplied. */
+  modalBannerSrc?: string;
 };
 
 export default function CategoryRangeModal({
@@ -82,15 +86,15 @@ export default function CategoryRangeModal({
               <X className="h-5 w-5" strokeWidth={2} />
             </button>
 
-            {/* Banner header */}
+            {/* Banner header - prefer the wider modal banner if supplied */}
             <div className="relative h-[180px] w-full shrink-0 overflow-hidden md:h-[240px]">
               <Image
-                src={category.bannerSrc}
+                src={category.modalBannerSrc ?? category.bannerSrc}
                 alt={category.bannerAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, 1080px"
                 className="object-cover"
-                style={{ objectPosition: "right center" }}
+                style={{ objectPosition: "center" }}
               />
               <div
                 aria-hidden

@@ -23,33 +23,55 @@ export default function VegetarianLandingPage() {
       <ScrollProgress />
       <VegLandingNav />
       <main className="flex-1">
-        {/* S1 - HERO (rotating images, static tagline overlay) */}
+        {/* S1 - HERO (Ken-Burns morph + per-slide pillar copy) */}
         <HeroCarousel
           intervalMs={5500}
-          content={{
-            headline: (
-              <>
-                Food{" "}
-                <em className="italic text-[color:var(--accent-gold)]">
-                  Re-imagined.
-                </em>
-              </>
-            ),
-            subheadline: "Manufactured at scale. Built for the world's kitchens.",
-            cta: { label: "Explore the Range", href: "#range" },
-          }}
+          cta={{ label: "Explore the Range", href: "#range" }}
           slides={[
             {
               image: "/images/veg/heroes/hero-1.png",
-              alt: "Unifayre hero banner one",
+              alt: "Reliability - Unifayre frozen food range",
+              eyebrow: "Food Re-imagined.",
+              headline: (
+                <>
+                  Reliability you can{" "}
+                  <em className="italic text-[color:var(--accent-gold)]">
+                    forecast.
+                  </em>
+                </>
+              ),
+              subheadline:
+                "Predictable lead times. On-time shipments, every consignment.",
             },
             {
               image: "/images/veg/heroes/hero-2.png",
-              alt: "Unifayre hero banner two",
+              alt: "Consistency at scale - Unifayre product lines",
+              eyebrow: "Food Re-imagined.",
+              headline: (
+                <>
+                  Consistency,{" "}
+                  <em className="italic text-[color:var(--accent-gold)]">
+                    at scale.
+                  </em>
+                </>
+              ),
+              subheadline:
+                "Same spec, every batch. Repeatable down to the gram.",
             },
             {
               image: "/images/veg/heroes/hero-3.png",
-              alt: "Unifayre hero banner three",
+              alt: "Customisation - Unifayre R&D-led builds",
+              eyebrow: "Food Re-imagined.",
+              headline: (
+                <>
+                  Customisation,{" "}
+                  <em className="italic text-[color:var(--accent-gold)]">
+                    built-in.
+                  </em>
+                </>
+              ),
+              subheadline:
+                "R&D-led recipes for your menu, region and palate.",
             },
           ]}
         />

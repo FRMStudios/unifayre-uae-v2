@@ -25,24 +25,28 @@ const BANNERS: CategoryRangeCategory[] = [
     category: "flatbreads",
     title: "Flatbreads & Tortillas",
     bannerSrc: "/images/veg/categories/flatbreads-portfolio.png",
+    modalBannerSrc: "/images/veg/categories/flatbreads-banner.png",
     bannerAlt: "Layered Malabari paratha banner",
   },
   {
     category: "snacks",
     title: "Frozen-to-Fry Snacks",
     bannerSrc: "/images/veg/categories/snacks-portfolio.png",
+    modalBannerSrc: "/images/veg/categories/snacks-banner.png",
     bannerAlt: "Falafel mid-fry frozen-to-fry snacks banner",
   },
   {
     category: "gravies",
     title: "Gravies & Pastes",
     bannerSrc: "/images/veg/categories/gravies-portfolio.png",
+    modalBannerSrc: "/images/veg/categories/gravies-banner.png",
     bannerAlt: "Makhani gravy banner",
   },
   {
     category: "rice",
     title: "Retort Rice",
     bannerSrc: "/images/veg/categories/rice-portfolio.png",
+    modalBannerSrc: "/images/veg/categories/rice-banner.png",
     bannerAlt: "Saffron rice in clay handi banner",
   },
 ];
