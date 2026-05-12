@@ -26,12 +26,16 @@ type Slide = { src: string; alt: string };
 
 const SLIDES: Slide[] = [
   {
-    src: "/plant/plant-house.jpg",
-    alt: "Plant interior - production hall",
+    src: "/images/veg/why/why-1.png",
+    alt: "Unifayre plant interior - production hall",
   },
   {
-    src: "/plant/hygenic.png",
-    alt: "Hygienic clean-room interior",
+    src: "/images/veg/why/why-2.png",
+    alt: "Unifayre plant interior - clean-room line",
+  },
+  {
+    src: "/images/veg/why/why-3.png",
+    alt: "Unifayre plant interior - process detail",
   },
 ];
 

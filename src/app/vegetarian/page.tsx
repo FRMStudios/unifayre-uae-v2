@@ -40,24 +40,16 @@ export default function VegetarianLandingPage() {
           }}
           slides={[
             {
-              image: "/images/veg/heroes/home-hero.png",
-              alt: "Unifayre vegetarian range - chef's pass compilation",
+              image: "/images/veg/heroes/hero-1.png",
+              alt: "Unifayre hero banner one",
             },
             {
-              image: "/images/veg/categories/flatbreads-banner.png",
-              alt: "Layered Malabari paratha banner",
+              image: "/images/veg/heroes/hero-2.png",
+              alt: "Unifayre hero banner two",
             },
             {
-              image: "/images/veg/categories/snacks-banner.png",
-              alt: "Falafel mid-fry frozen-to-fry snacks banner",
-            },
-            {
-              image: "/images/veg/categories/gravies-banner.png",
-              alt: "Makhani gravy banner",
-            },
-            {
-              image: "/images/veg/categories/rice-banner.png",
-              alt: "Saffron rice in clay handi banner",
+              image: "/images/veg/heroes/hero-3.png",
+              alt: "Unifayre hero banner three",
             },
           ]}
         />
@@ -86,12 +78,12 @@ export default function VegetarianLandingPage() {
         {/* S4 - OUR STORY (plant images) */}
         <ImageFeatureSection
           imageA={{
-            src: "/plant/plant-hero.png",
-            alt: "Unifayre Mohali plant - long factory banner",
+            src: "/images/veg/story/story-1.png",
+            alt: "Unifayre Mohali plant",
           }}
           imageB={{
-            src: "/plant/plant-house.jpg",
-            alt: "Plant interior - production hall",
+            src: "/images/veg/story/story-2.png",
+            alt: "Unifayre production facility",
           }}
         />
 
