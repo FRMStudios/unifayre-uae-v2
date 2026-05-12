@@ -47,16 +47,18 @@ export default function HeroCarousel({
   intervalMs = DEFAULT_INTERVAL,
 }: HeroCarouselProps) {
   const [idx, setIdx] = useState(0);
-  const [paused, setPaused] = useState(false);
   const slideMap = useMemo(() => slides, [slides]);
 
+  // Auto-advance. Runs continuously - we don't pause on hover because
+  // landing with the cursor already over the hero would silently stall
+  // the rotation. Users can still manually jump via the nav dots.
   useEffect(() => {
-    if (slideMap.length < 2 || paused) return;
+    if (slideMap.length < 2) return;
     const t = setInterval(() => {
       setIdx((i) => (i + 1) % slideMap.length);
     }, intervalMs);
     return () => clearInterval(t);
-  }, [slideMap.length, paused, intervalMs]);
+  }, [slideMap.length, intervalMs]);
 
   if (slideMap.length === 0) return null;
   const active = slideMap[idx];
@@ -65,8 +67,6 @@ export default function HeroCarousel({
     <section
       className="relative isolate overflow-hidden bg-[color:var(--royal-blue-deep)] text-white"
       aria-label="Hero"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       {/* Image stack - Ken Burns crossfade morph */}
       <div className="relative h-[56svh] w-full md:h-[68svh]">

@@ -159,7 +159,8 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-4 font-display text-3xl font-light leading-tight tracking-tight md:text-4xl lg:text-5xl"
           >
-            Four Pillars.{" "}
+            Four Promises.
+            <br />
             <em className="italic text-[color:var(--accent-gold)]">
               Delivered, Every Time.
             </em>

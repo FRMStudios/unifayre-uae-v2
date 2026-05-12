@@ -76,14 +76,15 @@ export default function WhereWeFit() {
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-[2.8rem] font-light leading-[1.08] tracking-tight text-white">
-            Six channels.{" "}
+            Multiple channels.
+            <br />
             <em className="italic text-[color:var(--accent-gold)]">
               One spec, every shipment.
             </em>
           </h2>
           <p className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/80 md:text-lg">
-            We supply across six foodservice channels - from QSR chains and
-            hotel kitchens to private-label programmes and modern-trade
+            We supply across multiple foodservice channels - from QSR chains
+            and hotel kitchens to private-label programmes and modern-trade
             freezers. Same product, same quality, every order.
           </p>
 

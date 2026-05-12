@@ -84,7 +84,7 @@ export default function Home() {
               suffix=" MT"
               label="Vegetarian Plant Capacity"
             />
-            <CapabilityStat number="194+" suffix="" label="SKUs" />
+            <CapabilityStat number="30" suffix="" label="Years of legacy" />
             <CapabilityStat
               number="5,000"
               suffix=""

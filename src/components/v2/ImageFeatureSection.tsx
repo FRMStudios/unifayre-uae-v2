@@ -42,7 +42,8 @@ export default function ImageFeatureSection({
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
-            A new plant in Mohali.{" "}
+            A new plant in Mohali.
+            <br />
             <em className="italic text-[color:var(--accent-gold-deep)]">
               Built for the world&rsquo;s kitchens.
             </em>
