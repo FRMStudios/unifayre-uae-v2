@@ -48,10 +48,9 @@ export default function ImageFeatureSection({
             </em>
           </h2>
           <p className="mt-6 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
-            Behind every consignment is a facility in Mohali. Purpose-built
-            for foodservice. Engineered for international shipment. Run by a
-            team that has quietly supplied the world&rsquo;s kitchens for
-            three decades.
+            Purpose-built for foodservice. Engineered for international
+            shipment. Run by a team that has quietly supplied the
+            world&rsquo;s kitchens for three decades.
           </p>
           <p className="mt-4 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
             Eighteen thousand metric tons. Multi-format freezing. In-house
