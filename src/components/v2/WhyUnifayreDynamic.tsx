@@ -54,7 +54,7 @@ const PILLARS: Pillar[] = [
   {
     icon: LayoutGrid,
     title: "Consistency at scale",
-    body: "Same spec, every batch, every market.",
+    body: "Same standard, every batch, every market.",
   },
   {
     icon: FlaskConical,
@@ -159,9 +159,9 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-4 font-display text-3xl font-light leading-tight tracking-tight md:text-4xl lg:text-5xl"
           >
-            The basics,{" "}
+            Earned,{" "}
             <em className="italic text-[color:var(--accent-gold)]">
-              kept.
+              not announced.
             </em>
           </motion.h2>
           <motion.p
@@ -175,8 +175,8 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/85 md:text-[1.05rem]"
           >
-            When the audit lands and the volume spikes, these are the four
-            things every order carries. The standard, not the story.
+            Four standards behind every order. Audited. Documented. Carried
+            by the team that has done this for three decades.
           </motion.p>
 
           {/* 2x2 pillar grid inside the SAME panel - no separate cards. */}

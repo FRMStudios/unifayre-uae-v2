@@ -48,7 +48,7 @@ export default function Home() {
               eyebrow: "Food Reimagined.",
               headline: (
                 <>
-                  Same spec,{" "}
+                  Same standard,{" "}
                   <em className="italic text-[color:var(--accent-gold)]">
                     every kitchen.
                   </em>

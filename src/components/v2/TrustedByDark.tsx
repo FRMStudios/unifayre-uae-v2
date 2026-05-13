@@ -77,9 +77,9 @@ export default function TrustedByDark() {
             Trusted by 30+ QSR brands worldwide
           </span>
           <p className="max-w-xl font-display text-2xl md:text-3xl lg:text-4xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
-            Chosen for{" "}
+            Chosen, and{" "}
             <em className="italic text-[color:var(--accent-gold-deep)]">
-              the spec.
+              chosen again.
             </em>
           </p>
         </motion.div>

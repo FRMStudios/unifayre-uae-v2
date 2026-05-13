@@ -79,7 +79,7 @@ export default function WhereWeFit() {
             Many kitchens.
             <br />
             <em className="italic text-[color:var(--accent-gold)]">
-              One spec.
+              One plate.
             </em>
           </h2>
           <p className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/80 md:text-lg">
