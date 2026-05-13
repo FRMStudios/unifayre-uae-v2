@@ -74,12 +74,12 @@ export default function TrustedByDark() {
           className="mb-12 flex flex-col items-center gap-2 text-center"
         >
           <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold-deep)]">
-            Trusted by 30+ QSR brands globally
+            Trusted by 30+ QSR brands worldwide
           </span>
           <p className="max-w-xl font-display text-2xl md:text-3xl lg:text-4xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
             Chosen for{" "}
             <em className="italic text-[color:var(--accent-gold-deep)]">
-              consistency at scale.
+              the spec.
             </em>
           </p>
         </motion.div>

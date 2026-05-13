@@ -87,7 +87,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
             .
           </h2>
           <p className="mx-auto mt-4 max-w-md text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)]">
-            Our UAE desk responds within 1 working day.
+            Our UAE desk responds within one working day.
           </p>
         </motion.div>
 
@@ -122,7 +122,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                   Thank you. Received.
                 </h3>
                 <p className="max-w-sm text-base font-light text-[color:var(--text-on-light-muted)]">
-                  Our UAE desk will be in touch within 1 working day. For urgent
+                  Our UAE desk will be in touch within one working day. For urgent
                   inquiries, WhatsApp us directly.
                 </p>
                 <a

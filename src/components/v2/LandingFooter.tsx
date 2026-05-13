@@ -26,12 +26,12 @@ export default function LandingFooter() {
               </span>
             </div>
             <p className="max-w-sm font-display text-[1.4rem] font-light italic leading-snug tracking-tight text-[color:var(--accent-gold)]">
-              Food Re-imagined.
+              Food Reimagined.
             </p>
             <p className="max-w-sm text-[0.86rem] font-light leading-relaxed text-[color:var(--text-secondary)]">
-              A new frozen-foods manufacturing facility in Mohali, India.
+              A brand new manufacturing facility in Mohali, India.
               Foodservice-first, BRC + FSSC 22000 certified, halal-line.
-              Built for kitchens around the world.
+              Built to serve kitchens around the world.
             </p>
           </div>
 
@@ -99,10 +99,10 @@ export default function LandingFooter() {
       <div className="border-t border-[color:var(--border-subtle)]">
         <div className="mx-auto flex max-w-[1320px] flex-col items-start justify-between gap-3 px-5 py-6 text-[0.78rem] font-light text-[color:var(--text-secondary)] md:flex-row md:items-center md:px-10">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span>&copy; 2026 Unifayre Foods</span>
+            <span>&copy; 2026 Unifayre.</span>
             <span className="h-1 w-1 rounded-full bg-[color:var(--accent-gold)]/40" />
             <span className="font-medium tracking-wide text-[color:var(--accent-gold)]">
-              Food Re-imagined.
+              Food Reimagined.
             </span>
           </div>
           <div className="flex items-center gap-5">

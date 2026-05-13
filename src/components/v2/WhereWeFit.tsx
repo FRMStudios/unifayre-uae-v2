@@ -76,16 +76,15 @@ export default function WhereWeFit() {
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-[2.8rem] font-light leading-[1.08] tracking-tight text-white">
-            Multiple channels.
+            Many kitchens.
             <br />
             <em className="italic text-[color:var(--accent-gold)]">
-              One spec, every shipment.
+              One spec.
             </em>
           </h2>
           <p className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/80 md:text-lg">
-            We supply across multiple foodservice channels - from QSR chains
-            and hotel kitchens to private-label programmes and modern-trade
-            freezers. Same product, same quality, every order.
+            From QSR pass to five-star buffet line, cloud kitchen to airline
+            tray, the plate stays the same. That is the work.
           </p>
 
           {/* Industry list - 2-col grid of pills with icons */}

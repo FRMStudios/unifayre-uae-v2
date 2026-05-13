@@ -42,20 +42,24 @@ export default function ImageFeatureSection({
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
-            A new plant in Mohali.
-            <br />
+            A new chapter in{" "}
             <em className="italic text-[color:var(--accent-gold-deep)]">
-              Built for the world&rsquo;s kitchens.
+              Mohali.
             </em>
           </h2>
           <p className="mt-6 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
-            Unifayre is a brand-new frozen-foods manufacturing facility in
-            Mohali, India - purpose-built, foodservice-first, and engineered
-            for international volumes from day one. BRC and FSSC&nbsp;22000
-            certified lines, multi-format freezing, in-house R&amp;D and a
-            fully halal-line plant. The team behind it brings decades of
-            food manufacturing experience; the facility itself is launching
-            now.
+            Behind every consignment is a facility in Mohali. Purpose-built
+            for foodservice. Engineered for international shipment. Run by a
+            team that has quietly supplied the world&rsquo;s kitchens for
+            three decades.
+          </p>
+          <p className="mt-4 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
+            Eighteen thousand metric tons. Multi-format freezing. In-house
+            R&amp;D. A halal-only line. BRC, FSSC&nbsp;22000, ISO&nbsp;22000
+            and HACCP certified.
+          </p>
+          <p className="mt-4 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
+            The plant is the proof. We will let it speak.
           </p>
           <div className="mt-8">
             <Link

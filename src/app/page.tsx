@@ -12,9 +12,9 @@ import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export const metadata: Metadata = {
-  title: "Unifayre Foods | Food Re-imagined",
+  title: "Unifayre Foods | Food Reimagined",
   description:
-    "Food Re-imagined. A new frozen-foods manufacturing facility in Mohali - flatbreads, frozen-to-fry snacks, gravies and retort rice. BRC + FSSC 22000 certified, halal-line. Built for QSRs, hotels, catering, cloud kitchens, airlines, private label and modern trade.",
+    "Food Reimagined. Vegetarian frozen food manufactured at scale: flatbreads, frozen-to-fry snacks, base gravies and retort rice. Halal-line, BRC + FSSC 22000 certified.",
 };
 
 export default function Home() {
@@ -30,48 +30,45 @@ export default function Home() {
           slides={[
             {
               image: "/images/veg/heroes/hero-1.png",
-              alt: "Reliability - Unifayre frozen food range",
-              eyebrow: "Food Re-imagined.",
+              alt: "Vegetarian frozen products on a dark slate kitchen pass",
+              eyebrow: "Food Reimagined.",
               headline: (
                 <>
-                  Reliability you can{" "}
+                  On time,{" "}
                   <em className="italic text-[color:var(--accent-gold)]">
-                    forecast.
+                    every consignment.
                   </em>
                 </>
               ),
-              subheadline:
-                "Predictable lead times. On-time shipments, every consignment.",
+              subheadline: "Built around your forecast, not ours.",
             },
             {
               image: "/images/veg/heroes/hero-2.png",
-              alt: "Consistency at scale - Unifayre product lines",
-              eyebrow: "Food Re-imagined.",
+              alt: "Multi-category Unifayre product spread for foodservice",
+              eyebrow: "Food Reimagined.",
               headline: (
                 <>
-                  Consistency,{" "}
+                  Same spec,{" "}
                   <em className="italic text-[color:var(--accent-gold)]">
-                    at scale.
+                    every kitchen.
                   </em>
                 </>
               ),
-              subheadline:
-                "Same spec, every batch. Repeatable down to the gram.",
+              subheadline: "Dubai or Delhi, the same plate.",
             },
             {
               image: "/images/veg/heroes/hero-3.png",
-              alt: "Customisation - Unifayre R&D-led builds",
-              eyebrow: "Food Re-imagined.",
+              alt: "Custom recipe formulation in the Unifayre R&D kitchen",
+              eyebrow: "Food Reimagined.",
               headline: (
                 <>
-                  Customisation,{" "}
+                  Built to{" "}
                   <em className="italic text-[color:var(--accent-gold)]">
-                    built-in.
+                    your menu.
                   </em>
                 </>
               ),
-              subheadline:
-                "R&D-led recipes for your menu, region and palate.",
+              subheadline: "Spice, format, portion, all in-house.",
             },
           ]}
         />
@@ -80,17 +77,13 @@ export default function Home() {
         <section className="border-y border-[color:var(--accent-gold)]/20 bg-[color:var(--off-white)] py-10 md:py-12">
           <div className="mx-auto grid max-w-[1320px] grid-cols-2 gap-6 px-5 md:grid-cols-4 md:gap-10 md:px-10">
             <CapabilityStat
-              number="100"
+              number="18,000"
               suffix=" MT"
-              label="Vegetarian Plant Capacity"
+              label="Vegetarian plant capacity"
             />
-            <CapabilityStat number="30" suffix="" label="Years of legacy" />
-            <CapabilityStat
-              number="5,000"
-              suffix=""
-              label="Foodservice Outlets Served"
-            />
-            <CapabilityStat number="100%" suffix="" label="Halal Line" />
+            <CapabilityStat number="30" suffix="" label="Years in foodservice" />
+            <CapabilityStat number="5,000+" suffix="" label="Outlets served" />
+            <CapabilityStat number="100%" suffix="" label="Halal line" />
           </div>
         </section>
 

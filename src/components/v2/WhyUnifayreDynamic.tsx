@@ -49,22 +49,22 @@ const PILLARS: Pillar[] = [
   {
     icon: Clock,
     title: "Reliability",
-    body: "Predictable lead times. On-time shipments, every consignment.",
+    body: "Lead times you can forecast. Shipments that meet the calendar.",
   },
   {
     icon: LayoutGrid,
     title: "Consistency at scale",
-    body: "Same spec, every shipment. Across 5,000+ outlets served.",
+    body: "Same spec, every batch, every market.",
   },
   {
     icon: FlaskConical,
     title: "Customisation",
-    body: "R&D-led builds. Your menu, region and palate.",
+    body: "Custom builds, in-house. Your menu, your region, your palate.",
   },
   {
     icon: ShieldCheck,
     title: "Compliance & safety",
-    body: "BRC · FSSC 22000 · Halal · FDA. Audited, documented.",
+    body: "BRC, FSSC 22000, ISO 22000, HACCP. Audited, documented. Every batch.",
   },
 ];
 
@@ -159,10 +159,9 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-4 font-display text-3xl font-light leading-tight tracking-tight md:text-4xl lg:text-5xl"
           >
-            Four Promises.
-            <br />
+            The basics,{" "}
             <em className="italic text-[color:var(--accent-gold)]">
-              Delivered, Every Time.
+              kept.
             </em>
           </motion.h2>
           <motion.p
@@ -176,8 +175,8 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/85 md:text-[1.05rem]"
           >
-            When volume scales and audits land, these are the four things our
-            partners count on - and the four things we never compromise.
+            When the audit lands and the volume spikes, these are the four
+            things every order carries. The standard, not the story.
           </motion.p>
 
           {/* 2x2 pillar grid inside the SAME panel - no separate cards. */}
