@@ -42,9 +42,9 @@ export default function ImageFeatureSection({
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
-            A new chapter in{" "}
+            Unveiling our new{" "}
             <em className="italic text-[color:var(--accent-gold-deep)]">
-              Mohali.
+              Vegetarian plant.
             </em>
           </h2>
           <p className="mt-6 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">

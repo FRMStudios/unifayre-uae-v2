@@ -175,8 +175,9 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
             }}
             className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/85 md:text-[1.05rem]"
           >
-            Four standards behind every order. Audited. Documented. Carried
-            by the team that has done this for three decades.
+            Four key standards behind every order. Audited. Documented.
+            Carried by the team that has done this consistently for three
+            decades.
           </motion.p>
 
           {/* 2x2 pillar grid inside the SAME panel - no separate cards. */}

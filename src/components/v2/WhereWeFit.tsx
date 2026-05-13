@@ -84,7 +84,7 @@ export default function WhereWeFit() {
           </h2>
           <p className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/80 md:text-lg">
             From QSR pass to five-star buffet line, cloud kitchen to airline
-            tray, the plate stays the same. That is the work.
+            tray, the plate stays the same.
           </p>
 
           {/* Industry list - 2-col grid of pills with icons */}

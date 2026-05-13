@@ -72,6 +72,7 @@ export const INTEREST_CHIPS = [
   "Frozen-to-Fry Snacks",
   "Gravies & Pastes",
   "Retort Rice",
+  "HORECA",
   "White-Label",
 ];
 

@@ -29,7 +29,8 @@ export default function LandingFooter() {
               Food Reimagined.
             </p>
             <p className="max-w-sm text-[0.86rem] font-light leading-relaxed text-[color:var(--text-secondary)]">
-              A brand new manufacturing facility in Mohali, India.
+              A brand new manufacturing facility in Mohali, Dera Bassi,
+              India.
               Foodservice-first, BRC + FSSC 22000 certified, halal-line.
               Built to serve kitchens around the world.
             </p>
