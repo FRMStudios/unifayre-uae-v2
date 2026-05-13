@@ -48,13 +48,14 @@ export default function VegetarianLandingPage() {
               eyebrow: "Food Reimagined.",
               headline: (
                 <>
-                  Same standard,{" "}
+                  Identical.{" "}
                   <em className="italic text-[color:var(--accent-gold)]">
-                    every kitchen.
+                    Every order.
                   </em>
                 </>
               ),
-              subheadline: "Dubai or Delhi, the same plate.",
+              subheadline:
+                "Every batch leaves the line to the same standard.",
             },
             {
               image: "/images/veg/heroes/hero-3.png",
