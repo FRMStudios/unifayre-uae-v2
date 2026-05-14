@@ -39,7 +39,7 @@ export default function Footer() {
               Frozen food, built for the Gulf&rsquo;s best kitchens.
             </p>
             <p className="max-w-sm text-[0.86rem] leading-relaxed text-[color:var(--text-secondary)]">
-              Unifayre Foods is the export identity of Chatha Foods Limited.
+              Unifayre is the export identity of Chatha Foods Limited.
               Over 30 years of frozen food manufacturing from Mohali, India.
             </p>
           </div>
@@ -86,7 +86,7 @@ export default function Footer() {
       <div className="border-t border-[color:var(--border-subtle)]">
         <div className="mx-auto flex max-w-[1320px] flex-col items-start justify-between gap-4 px-5 py-6 text-[0.78rem] text-[color:var(--text-secondary)] md:flex-row md:items-center md:px-10">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span>&copy; 2026 Unifayre Foods</span>
+            <span>&copy; 2026 Unifayre</span>
             <span className="h-1 w-1 rounded-full bg-[color:var(--accent-gold)]/40" />
             <span>A Chatha Foods Limited brand</span>
             <span className="h-1 w-1 rounded-full bg-[color:var(--accent-gold)]/40" />

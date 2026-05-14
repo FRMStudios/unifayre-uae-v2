@@ -53,9 +53,8 @@ export default function ImageFeatureSection({
             world&rsquo;s kitchens for three decades.
           </p>
           <p className="mt-4 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
-            Eighteen thousand metric tons. Multi-format freezing. In-house
-            R&amp;D. A halal-only line. BRC, FSSC&nbsp;22000, ISO&nbsp;22000
-            and HACCP certified.
+            18,000 MT. Multi-format freezing. In-house R&amp;D. A halal-only
+            line. BRC, FSSC&nbsp;22000, ISO&nbsp;22000 and HACCP certified.
           </p>
           <p className="mt-4 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
             The plant is the proof. We will let it speak.

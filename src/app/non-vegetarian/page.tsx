@@ -8,7 +8,7 @@ import CategorySection from "@/components/ui/CategorySection";
 import { PRODUCTS, productsByScope } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Non-Vegetarian Range | Unifayre Foods",
+  title: "Non-Vegetarian Range | Unifayre",
   description:
     "Halal-certified non-vegetarian SKUs. Chicken, meat and frozen-to-fry snacks engineered for repeatable consistency at scale.",
 };

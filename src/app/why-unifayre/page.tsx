@@ -6,7 +6,7 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import CinematicHero from "@/components/ui/CinematicHero";
 
 export const metadata: Metadata = {
-  title: "Why Unifayre | Unifayre Foods",
+  title: "Why Unifayre | Unifayre",
   description:
     "Reliability. Consistency at scale. Customisation. Compliance. Four non-negotiables tuned over 30+ years of frozen food manufacturing.",
 };

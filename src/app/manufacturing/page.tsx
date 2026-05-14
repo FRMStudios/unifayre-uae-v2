@@ -6,7 +6,7 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import CinematicHero from "@/components/ui/CinematicHero";
 
 export const metadata: Metadata = {
-  title: "Manufacturing | Unifayre Foods",
+  title: "Manufacturing | Unifayre",
   description:
     "State-of-the-art technology, BRC-certified lines and 18,000 MT veg capacity. A look inside Unifayre's manufacturing scale.",
 };

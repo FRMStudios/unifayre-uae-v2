@@ -6,7 +6,7 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import CinematicHero from "@/components/ui/CinematicHero";
 
 export const metadata: Metadata = {
-  title: "For the UAE & Gulf | Unifayre Foods",
+  title: "For the UAE & Gulf | Unifayre",
   description:
     "Halal-first compliance, cold-chain ready, white-label capable. Manufacturing calibrated for UAE & Gulf distribution, HoReCa, and modern trade.",
 };

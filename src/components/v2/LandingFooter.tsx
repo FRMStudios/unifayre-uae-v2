@@ -21,9 +21,6 @@ export default function LandingFooter() {
               <span className="font-display text-[1.7rem] font-semibold tracking-[-0.02em]">
                 Unifayre
               </span>
-              <span className="rounded-full border border-[color:var(--border-subtle)] px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[color:var(--accent-gold)]">
-                Foods
-              </span>
             </div>
             <p className="max-w-sm font-display text-[1.4rem] font-light italic leading-snug tracking-tight text-[color:var(--accent-gold)]">
               Food Reimagined.

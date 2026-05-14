@@ -51,9 +51,6 @@ export default function VegLandingNav() {
           <span className="font-display text-[1.7rem] font-semibold tracking-[-0.02em] text-[color:var(--text-primary)]">
             Unifayre
           </span>
-          <span className="hidden rounded-full border border-[color:var(--border-subtle)] px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[color:var(--accent-gold)] sm:inline">
-            Foods
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

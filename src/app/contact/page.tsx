@@ -7,7 +7,7 @@ import CinematicHero from "@/components/ui/CinematicHero";
 import LeadForm from "@/components/sections/LeadForm";
 
 export const metadata: Metadata = {
-  title: "Contact | Unifayre Foods",
+  title: "Contact | Unifayre",
   description:
     "Request your Partnership Kit. Our UAE desk responds within 1 working day.",
 };

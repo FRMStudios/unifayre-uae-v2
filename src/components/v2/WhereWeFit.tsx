@@ -76,15 +76,16 @@ export default function WhereWeFit() {
             </span>
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-[2.8rem] font-light leading-[1.08] tracking-tight text-white">
-            Many kitchens.
+            Built for every format
             <br />
             <em className="italic text-[color:var(--accent-gold)]">
-              One plate.
+              foodservice moves through.
             </em>
           </h2>
           <p className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/80 md:text-lg">
-            From QSR pass to five-star buffet line, cloud kitchen to airline
-            tray, the plate stays the same.
+            Our range is designed for businesses that need speed,
+            standardization and supply confidence across multiple foodservice
+            and retail environments.
           </p>
 
           {/* Industry list - 2-col grid of pills with icons */}

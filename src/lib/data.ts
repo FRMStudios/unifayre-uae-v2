@@ -68,7 +68,6 @@ export const PRODUCT_CATEGORIES = [
 export const INTEREST_CHIPS = [
   "Flatbreads",
   "Roti Canai",
-  "Tortillas",
   "Frozen-to-Fry Snacks",
   "Gravies & Pastes",
   "Retort Rice",

@@ -18,11 +18,11 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Unifayre Foods | Frozen Food Partner for the UAE & Gulf",
+  title: "Unifayre | Frozen Food Partner for the UAE & Gulf",
   description:
-    "Unifayre Foods, the export identity of Chatha Foods Limited. Over 30 years of frozen flatbreads, tortillas, Roti Canai, frozen-to-fry snacks, gravies, and retort rice. Now partnering with importers, QSR chains, HoReCa and cloud kitchens across the UAE and Gulf.",
+    "Unifayre, the export identity of Chatha Foods Limited. Over 30 years of frozen flatbreads, tortillas, Roti Canai, frozen-to-fry snacks, gravies, and retort rice. Now partnering with importers, QSR chains, HoReCa and cloud kitchens across the UAE and Gulf.",
   keywords: [
-    "Unifayre Foods",
+    "Unifayre",
     "Chatha Foods",
     "frozen food UAE",
     "Roti Canai",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Halal frozen food",
   ],
   openGraph: {
-    title: "Unifayre Foods | Frozen Food Partner for the UAE & Gulf",
+    title: "Unifayre | Frozen Food Partner for the UAE & Gulf",
     description:
       "Restaurant-grade frozen food manufacturing. Over 30 years heritage. Now serving the UAE and Gulf.",
     type: "website",

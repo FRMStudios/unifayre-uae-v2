@@ -12,7 +12,7 @@ import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export const metadata: Metadata = {
-  title: "Unifayre Foods | Food Reimagined",
+  title: "Unifayre | Food Reimagined",
   description:
     "Food Reimagined. Vegetarian frozen food manufactured at scale: flatbreads, frozen-to-fry snacks, base gravies and retort rice. Halal-line, BRC + FSSC 22000 certified.",
 };
