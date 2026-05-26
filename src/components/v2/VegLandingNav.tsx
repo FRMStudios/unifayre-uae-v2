@@ -5,6 +5,7 @@
  * one-pager. All links scroll within the page; no route-out links.
  */
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -41,16 +42,20 @@ export default function VegLandingNav() {
       >
         <Link
           href="#top"
-          className={`flex origin-left items-center gap-2.5 transition-transform duration-300 ease-out ${
+          aria-label="Unifayre - home"
+          className={`flex origin-left items-center transition-transform duration-300 ease-out ${
             scrolled ? "scale-90" : "scale-100"
           }`}
         >
-          <span className="relative inline-flex h-3 w-3 items-center justify-center rounded-full bg-[color:var(--accent-gold)]">
-            <span className="absolute inset-[3px] rounded-full bg-[color:var(--bg-deep)]" />
-          </span>
-          <span className="font-display text-[1.7rem] font-semibold tracking-[-0.02em] text-[color:var(--text-primary)]">
-            Unifayre
-          </span>
+          <Image
+            src="/brand/unifayre-logo-dark.svg"
+            alt="Unifayre"
+            width={444}
+            height={180}
+            priority
+            unoptimized
+            className="h-9 w-auto md:h-10"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
