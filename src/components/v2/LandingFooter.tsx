@@ -14,11 +14,13 @@ export default function LandingFooter() {
       <div className="mx-auto max-w-[1320px] px-5 py-14 md:px-10 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] md:gap-14">
           <div className="flex flex-col gap-4">
+            {/* self-start prevents the column-flex parent from stretching
+                the img horizontally and pulling the height up with it. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/unifayre-logo-dark.png"
               alt="Unifayre"
-              className="block h-11 w-auto max-w-none"
+              className="block h-11 w-auto self-start"
             />
             <p className="max-w-sm font-display text-[1.4rem] font-light italic leading-snug tracking-tight text-[color:var(--accent-gold)]">
               Food Reimagined.

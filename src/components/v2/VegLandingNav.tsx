@@ -46,12 +46,11 @@ export default function VegLandingNav() {
             scrolled ? "scale-90" : "scale-100"
           }`}
         >
-          {/* PNG version of the new wordmark - SVG was clipping. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/unifayre-logo-dark.png"
             alt="Unifayre"
-            className="block h-9 w-auto max-w-none md:h-10"
+            className="block h-9 w-auto md:h-10"
           />
         </Link>
 
