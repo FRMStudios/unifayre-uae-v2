@@ -16,9 +16,9 @@ export default function LandingFooter() {
           <div className="flex flex-col gap-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/brand/unifayre-logo-dark.svg"
+              src="/brand/unifayre-logo-dark.png"
               alt="Unifayre"
-              className="block h-11 w-auto"
+              className="block h-11 w-auto max-w-none"
             />
             <p className="max-w-sm font-display text-[1.4rem] font-light italic leading-snug tracking-tight text-[color:var(--accent-gold)]">
               Food Reimagined.
