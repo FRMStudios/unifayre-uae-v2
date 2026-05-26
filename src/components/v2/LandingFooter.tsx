@@ -3,7 +3,6 @@
  * No route-out links. Brand mark, tagline, UAE desk contact, copyright only.
  */
 
-import Image from "next/image";
 import { WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/data";
 import { MessageCircle } from "lucide-react";
 
@@ -15,13 +14,11 @@ export default function LandingFooter() {
       <div className="mx-auto max-w-[1320px] px-5 py-14 md:px-10 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] md:gap-14">
           <div className="flex flex-col gap-4">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/brand/unifayre-logo-dark.svg"
               alt="Unifayre"
-              width={444}
-              height={180}
-              unoptimized
-              className="h-11 w-auto"
+              className="block h-11 w-auto"
             />
             <p className="max-w-sm font-display text-[1.4rem] font-light italic leading-snug tracking-tight text-[color:var(--accent-gold)]">
               Food Reimagined.

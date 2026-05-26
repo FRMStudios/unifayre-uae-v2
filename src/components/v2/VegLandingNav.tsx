@@ -5,7 +5,6 @@
  * one-pager. All links scroll within the page; no route-out links.
  */
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -47,14 +46,13 @@ export default function VegLandingNav() {
             scrolled ? "scale-90" : "scale-100"
           }`}
         >
-          <Image
+          {/* Plain <img> preserves the SVG's intrinsic viewBox aspect ratio
+              cleanly; next/image was clipping the right edge. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/brand/unifayre-logo-dark.svg"
             alt="Unifayre"
-            width={444}
-            height={180}
-            priority
-            unoptimized
-            className="h-9 w-auto md:h-10"
+            className="block h-9 w-auto md:h-10"
           />
         </Link>
 
