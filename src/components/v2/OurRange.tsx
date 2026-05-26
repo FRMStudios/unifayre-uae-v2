@@ -124,29 +124,39 @@ function BannerTile({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.7, ease: EASE, delay: index * 0.08 }}
-      className="group relative h-[320px] w-full overflow-hidden bg-[color:var(--royal-blue-deep)] text-left md:h-[380px] lg:h-[420px]"
+      className="group block w-full text-left"
     >
-      <Image
-        src={banner.bannerSrc}
-        alt={banner.bannerAlt}
-        fill
-        sizes="(max-width: 768px) 100vw, 25vw"
-        className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.06]"
-        style={{ objectPosition: "center" }}
-      />
-      {/* Soft bottom-up gradient so the title reads against any photo */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-[color:var(--royal-blue-deep)]/85 via-[color:var(--royal-blue-deep)]/15 to-transparent transition-opacity duration-500 group-hover:from-[color:var(--royal-blue-deep)]/90"
-      />
-      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 p-5 text-center md:p-7">
-        <h3
-          className="font-display text-[1.4rem] font-light leading-tight tracking-tight text-white md:text-[1.65rem] lg:text-[1.85rem]"
-          style={{ textShadow: "0 2px 14px rgba(20,32,64,0.45)" }}
-        >
-          {banner.title}
-        </h3>
-        <span className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--accent-gold)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      {/* Image area - thinner on mobile so the section fits in a single scroll */}
+      <div className="relative h-[180px] w-full overflow-hidden bg-[color:var(--royal-blue-deep)] md:h-[380px] lg:h-[420px]">
+        <Image
+          src={banner.bannerSrc}
+          alt={banner.bannerAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, 25vw"
+          className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.06]"
+          style={{ objectPosition: "center" }}
+        />
+        {/* Soft bottom-up gradient so the title reads against any photo */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-[color:var(--royal-blue-deep)]/85 via-[color:var(--royal-blue-deep)]/15 to-transparent transition-opacity duration-500 group-hover:from-[color:var(--royal-blue-deep)]/90"
+        />
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 p-4 text-center md:p-7">
+          <h3
+            className="font-display text-[1.1rem] font-light leading-tight tracking-tight text-white md:text-[1.65rem] lg:text-[1.85rem]"
+            style={{ textShadow: "0 2px 14px rgba(20,32,64,0.45)" }}
+          >
+            {banner.title}
+          </h3>
+          {/* Desktop-only hover hint */}
+          <span className="hidden text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--accent-gold)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:inline-block">
+            View Range &rarr;
+          </span>
+        </div>
+      </div>
+      {/* Mobile-only caption strip below the image */}
+      <div className="bg-[color:var(--off-white-deep)] py-2 text-center md:hidden">
+        <span className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--accent-gold-deep)]">
           View Range &rarr;
         </span>
       </div>

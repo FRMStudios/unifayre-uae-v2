@@ -60,8 +60,8 @@ const FRAMES: Frame[] = [
 
 export default function WhereWeFit() {
   return (
-    <section className="relative overflow-hidden bg-[color:var(--bg-deep)] py-20 md:py-28">
-      <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-5 md:grid-cols-2 md:gap-14 md:px-10 lg:gap-20">
+    <section className="relative overflow-hidden bg-[color:var(--bg-deep)] py-12 md:py-28">
+      <div className="mx-auto grid max-w-[1320px] items-center gap-7 px-5 md:grid-cols-2 md:gap-14 md:px-10 lg:gap-20">
         {/* LEFT - copy + industry list */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -75,21 +75,21 @@ export default function WhereWeFit() {
               Where We Fit
             </span>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-[2.8rem] font-light leading-[1.08] tracking-tight text-white">
+          <h2 className="font-display text-[1.65rem] md:text-4xl lg:text-[2.8rem] font-light leading-[1.1] tracking-tight text-white">
             Built for every format
             <br />
             <em className="italic text-[color:var(--accent-gold)]">
               foodservice moves through.
             </em>
           </h2>
-          <p className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/80 md:text-lg">
+          <p className="mt-3 max-w-[34rem] text-[0.86rem] font-light leading-relaxed text-white/80 md:mt-5 md:text-lg">
             Our range is designed for businesses that need speed,
             standardization and supply confidence across multiple foodservice
             and retail environments.
           </p>
 
-          {/* Industry list - 2-col grid of pills with icons */}
-          <ul className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {/* Industry list - compact 2-col chips on mobile, larger on desktop */}
+          <ul className="mt-5 grid grid-cols-2 gap-1.5 md:mt-8 md:gap-2">
             {INDUSTRIES.map((ind, i) => (
               <motion.li
                 key={ind.label}
@@ -101,15 +101,15 @@ export default function WhereWeFit() {
                   ease: EASE,
                   delay: 0.05 * i,
                 }}
-                className="group flex items-center gap-3 rounded-xl border border-[color:var(--border-subtle)] bg-white/[0.03] px-3.5 py-2.5 backdrop-blur-sm transition-all hover:border-[color:var(--accent-gold)]/55 hover:bg-white/[0.06]"
+                className="group flex items-center gap-2 rounded-lg border border-[color:var(--border-subtle)] bg-white/[0.03] px-2.5 py-1.5 backdrop-blur-sm transition-all hover:border-[color:var(--accent-gold)]/55 hover:bg-white/[0.06] md:gap-3 md:rounded-xl md:px-3.5 md:py-2.5"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[color:var(--accent-gold)]/35 bg-[color:var(--bg-deep)]/60">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[color:var(--accent-gold)]/35 bg-[color:var(--bg-deep)]/60 md:h-8 md:w-8">
                   <ind.icon
-                    className="h-4 w-4 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110"
+                    className="h-3 w-3 text-[color:var(--accent-gold)] transition-transform duration-300 group-hover:scale-110 md:h-4 md:w-4"
                     strokeWidth={1.7}
                   />
                 </span>
-                <span className="text-[0.92rem] font-medium tracking-tight text-white/90">
+                <span className="text-[0.72rem] font-medium leading-tight tracking-tight text-white/90 md:text-[0.92rem]">
                   {ind.label}
                 </span>
               </motion.li>
@@ -123,7 +123,7 @@ export default function WhereWeFit() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-          className="grid h-full min-h-[460px] grid-cols-2 grid-rows-2 gap-3 md:min-h-[560px] md:gap-4"
+          className="grid h-full min-h-[260px] grid-cols-2 grid-rows-2 gap-2 md:min-h-[560px] md:gap-4"
         >
           {FRAMES.map((f, i) => (
             <motion.figure

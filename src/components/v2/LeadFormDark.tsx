@@ -62,7 +62,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative bg-white py-24"
+      className="relative bg-white py-12 md:py-24"
     >
       {/* Thin gold lines framing the section */}
       <div className="gold-line absolute inset-x-0 top-0" aria-hidden />
@@ -74,19 +74,19 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="mb-10 text-center md:mb-12"
+          className="mb-5 text-center md:mb-12"
         >
-          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold-deep)]">
+          <span className="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold-deep)] md:text-[0.7rem]">
             Partnership desk
           </span>
-          <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
+          <h2 className="mt-2 font-display text-[1.7rem] md:mt-4 md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-[color:var(--royal-blue)]">
             Request your{" "}
             <em className="italic text-[color:var(--accent-gold-deep)]">
               Partnership Kit
             </em>
             .
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)]">
+          <p className="mx-auto mt-2 max-w-md text-[0.84rem] font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:mt-4 md:text-base">
             Our UAE desk responds within one working day.
           </p>
         </motion.div>
@@ -96,7 +96,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
-          className="relative overflow-hidden rounded-[24px] border border-[color:var(--royal-blue)]/15 bg-white p-6 shadow-[0_24px_60px_-30px_rgba(30,58,138,0.18)] md:p-10"
+          className="relative overflow-hidden rounded-[20px] border border-[color:var(--royal-blue)]/15 bg-white p-4 shadow-[0_24px_60px_-30px_rgba(30,58,138,0.18)] md:rounded-[24px] md:p-10"
         >
           <AnimatePresence mode="wait">
             {status === "success" ? (
@@ -141,7 +141,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onSubmit={onSubmit}
-                className="grid grid-cols-1 gap-5 md:grid-cols-2"
+                className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5"
               >
                 <Field
                   label="Full Name"
@@ -185,10 +185,10 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                 />
 
                 <div className="md:col-span-2">
-                  <label className="mb-3 block text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-gold-deep)]">
+                  <label className="mb-2 block text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--accent-gold-deep)] md:mb-3 md:text-[0.7rem] md:tracking-[0.2em]">
                     Interested in (select any)
                   </label>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 md:gap-2">
                     {INTEREST_CHIPS.map((chip) => {
                       const active = interests.includes(chip);
                       return (
@@ -202,14 +202,14 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                             stiffness: 380,
                             damping: 22,
                           }}
-                          className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[0.82rem] font-medium transition-all ${
+                          className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1.5 text-[0.72rem] font-medium transition-all md:gap-1.5 md:px-3.5 md:py-2 md:text-[0.82rem] ${
                             active
                               ? "border-[color:var(--accent-gold)] bg-[color:var(--accent-gold)] text-[color:var(--royal-blue-deep)]"
                               : "border-[color:var(--royal-blue)]/15 bg-[color:var(--off-white)] text-[color:var(--text-on-light-muted)] hover:border-[color:var(--accent-gold)] hover:text-[color:var(--royal-blue)]"
                           }`}
                         >
                           {active && (
-                            <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                            <Check className="h-3 w-3 md:h-3.5 md:w-3.5" strokeWidth={3} />
                           )}
                           {chip}
                         </motion.button>
@@ -222,7 +222,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="btn-gold group inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-[0.95rem] font-semibold shadow-[0_14px_36px_-12px_rgba(201,169,97,0.5)] disabled:cursor-not-allowed disabled:opacity-70"
+                    className="btn-gold group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-[0.88rem] font-semibold shadow-[0_14px_36px_-12px_rgba(201,169,97,0.5)] disabled:cursor-not-allowed disabled:opacity-70 md:px-6 md:py-4 md:text-[0.95rem]"
                   >
                     {status === "loading" ? (
                       <>
@@ -279,10 +279,10 @@ function Field({
   placeholder?: string;
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1 md:gap-2">
       <label
         htmlFor={name}
-        className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--royal-blue)]"
+        className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--royal-blue)] md:text-[0.7rem] md:tracking-[0.2em]"
       >
         {label}
         {required && <span className="text-[color:var(--accent-gold-deep)]"> *</span>}
@@ -293,7 +293,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="h-12 rounded-xl border border-[color:var(--royal-blue)]/15 bg-transparent px-4 text-[0.95rem] text-[color:var(--royal-blue)] placeholder:text-[color:var(--text-on-light-muted)] transition-colors focus:border-[color:var(--accent-gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-gold)]/25"
+        className="h-10 rounded-lg border border-[color:var(--royal-blue)]/15 bg-transparent px-3 text-[0.88rem] text-[color:var(--royal-blue)] placeholder:text-[color:var(--text-on-light-muted)] transition-colors focus:border-[color:var(--accent-gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-gold)]/25 md:h-12 md:rounded-xl md:px-4 md:text-[0.95rem]"
       />
     </div>
   );
@@ -311,10 +311,10 @@ function SelectField({
   options: string[];
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1 md:gap-2">
       <label
         htmlFor={name}
-        className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--royal-blue)]"
+        className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[color:var(--royal-blue)] md:text-[0.7rem] md:tracking-[0.2em]"
       >
         {label}
         {required && <span className="text-[color:var(--accent-gold-deep)]"> *</span>}
@@ -324,7 +324,7 @@ function SelectField({
         name={name}
         required={required}
         defaultValue=""
-        className="h-12 appearance-none rounded-xl border border-[color:var(--royal-blue)]/15 bg-transparent bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 fill=%22%23B89653%22><path fill-rule=%22evenodd%22 d=%22M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z%22 clip-rule=%22evenodd%22/></svg>')] bg-[length:1.1rem_1.1rem] bg-[right_1rem_center] bg-no-repeat px-4 pr-10 text-[0.95rem] text-[color:var(--royal-blue)] transition-colors focus:border-[color:var(--accent-gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-gold)]/25"
+        className="h-10 appearance-none rounded-lg border border-[color:var(--royal-blue)]/15 bg-transparent bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 fill=%22%23B89653%22><path fill-rule=%22evenodd%22 d=%22M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z%22 clip-rule=%22evenodd%22/></svg>')] bg-[length:1.1rem_1.1rem] bg-[right_0.75rem_center] bg-no-repeat px-3 pr-9 text-[0.88rem] text-[color:var(--royal-blue)] transition-colors focus:border-[color:var(--accent-gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-gold)]/25 md:h-12 md:rounded-xl md:bg-[right_1rem_center] md:px-4 md:pr-10 md:text-[0.95rem]"
       >
         <option value="" disabled className="bg-white">
           Select...

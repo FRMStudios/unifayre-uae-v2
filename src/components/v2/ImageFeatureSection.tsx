@@ -78,7 +78,7 @@ export default function ImageFeatureSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-          className="relative h-[440px] md:h-[520px]"
+          className="relative h-[300px] md:h-[520px]"
         >
           {/* Larger image - top right (rounded rectangle, NOT circle) */}
           <div className="absolute right-0 top-0 h-[60%] w-[68%] overflow-hidden rounded-3xl border border-[color:var(--accent-gold)]/20 bg-[color:var(--off-white-deep)] shadow-[0_18px_36px_-18px_rgba(30,58,138,0.18)]">

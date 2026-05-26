@@ -115,8 +115,8 @@ export default function HeroCarousel({
           );
         })}
 
-        {/* Per-slide content - crossfades in sync with the image */}
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-center px-5 md:px-16">
+        {/* Per-slide content - centred on mobile, left-aligned on desktop */}
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-5 text-center md:justify-start md:px-16 md:text-left">
           <div className="pointer-events-auto max-w-md md:max-w-xl">
             <AnimatePresence mode="wait">
               <motion.div
@@ -126,7 +126,7 @@ export default function HeroCarousel({
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.65, ease: EASE }}
               >
-                <div className="mb-3 h-px w-12 bg-[color:var(--accent-gold)] md:mb-4 md:w-16" />
+                <div className="mx-auto mb-3 h-px w-12 bg-[color:var(--accent-gold)] md:mx-0 md:mb-4 md:w-16" />
                 {active.eyebrow && (
                   <span
                     className="mb-3 block text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-[color:var(--accent-gold)] md:mb-4 md:text-[0.7rem]"
