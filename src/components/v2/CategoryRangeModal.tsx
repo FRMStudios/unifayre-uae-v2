@@ -24,6 +24,9 @@ export type CategoryRangeCategory = {
   title: string;
   /** Image used by the portfolio tile (closer to square). */
   bannerSrc: string;
+  /** Optional mobile-specific portfolio tile image; swapped in below
+   *  768px via <picture><source>. */
+  bannerSrcMobile?: string;
   bannerAlt: string;
   /** Optional wider image used inside the modal header. Falls back to
    *  `bannerSrc` if not supplied. */

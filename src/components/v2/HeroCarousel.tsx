@@ -12,7 +12,6 @@
  * No horizontal slide, no Embla - it's all CSS opacity + transform.
  */
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -20,6 +19,9 @@ import { useEffect, useMemo, useState } from "react";
 
 export type HeroSlide = {
   image: string;
+  /** Optional mobile-specific image. Browsers will pick this below the
+   *  768px breakpoint via a <picture><source> swap. */
+  mobileImage?: string;
   /** Optional looping MP4/WEBM. When present, renders the video in place
    *  of the still image (image stays as poster for first-paint). */
   video?: string;
@@ -102,21 +104,30 @@ export default function HeroCarousel({
                   className="absolute inset-0 h-full w-full object-cover object-center"
                 />
               ) : (
-                <Image
-                  src={slide.image}
-                  alt={slide.alt}
-                  fill
-                  priority={i === 0}
-                  sizes="100vw"
-                  className="object-cover object-center"
-                />
+                /* <picture> swaps source at the md breakpoint so the
+                   browser only downloads the right asset. */
+                <picture>
+                  <source
+                    media="(min-width: 768px)"
+                    srcSet={slide.image}
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={slide.mobileImage ?? slide.image}
+                    alt={slide.alt}
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    loading={i === 0 ? "eager" : "lazy"}
+                    fetchPriority={i === 0 ? "high" : "auto"}
+                  />
+                </picture>
               )}
             </motion.div>
           );
         })}
 
-        {/* Per-slide content - centred on mobile, left-aligned on desktop */}
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-5 text-center md:justify-start md:px-16 md:text-left">
+        {/* Per-slide content - anchored to the TOP half of the banner.
+            Centred horizontally on mobile, left-aligned on desktop. */}
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-start justify-center px-5 pt-12 text-center md:justify-start md:px-16 md:pt-20 md:text-left">
           <div className="pointer-events-auto max-w-md md:max-w-xl">
             <AnimatePresence mode="wait">
               <motion.div

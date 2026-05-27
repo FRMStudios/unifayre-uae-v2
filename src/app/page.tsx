@@ -30,6 +30,7 @@ export default function Home() {
           slides={[
             {
               image: "/images/veg/heroes/hero-1.png",
+              mobileImage: "/images/veg/heroes/hero-1-mobile.png",
               alt: "Vegetarian frozen products on a dark slate kitchen pass",
               eyebrow: "Food Reimagined.",
               headline: (
@@ -44,6 +45,7 @@ export default function Home() {
             },
             {
               image: "/images/veg/heroes/hero-2.png",
+              mobileImage: "/images/veg/heroes/hero-2-mobile.png",
               alt: "Multi-category Unifayre product spread for foodservice",
               eyebrow: "Food Reimagined.",
               headline: (
@@ -59,6 +61,7 @@ export default function Home() {
             },
             {
               image: "/images/veg/heroes/hero-3.png",
+              mobileImage: "/images/veg/heroes/hero-3-mobile.png",
               alt: "Custom recipe formulation in the Unifayre R&D kitchen",
               eyebrow: "Food Reimagined.",
               headline: (

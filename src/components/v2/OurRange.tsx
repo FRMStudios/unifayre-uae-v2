@@ -9,7 +9,6 @@
  * to open the existing ProductLightbox with full detail.
  */
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import type { Product } from "@/lib/products";
@@ -25,6 +24,7 @@ const BANNERS: CategoryRangeCategory[] = [
     category: "flatbreads",
     title: "Flatbreads & Tortillas",
     bannerSrc: "/images/veg/categories/flatbreads-portfolio.png",
+    bannerSrcMobile: "/images/veg/categories/flatbreads-portfolio-mobile.png",
     modalBannerSrc: "/images/veg/categories/flatbreads-banner.png",
     bannerAlt: "Layered Malabari paratha banner",
   },
@@ -32,6 +32,7 @@ const BANNERS: CategoryRangeCategory[] = [
     category: "snacks",
     title: "Frozen-to-Fry Snacks",
     bannerSrc: "/images/veg/categories/snacks-portfolio.png",
+    bannerSrcMobile: "/images/veg/categories/snacks-portfolio-mobile.png",
     modalBannerSrc: "/images/veg/categories/snacks-banner.png",
     bannerAlt: "Falafel mid-fry frozen-to-fry snacks banner",
   },
@@ -39,6 +40,7 @@ const BANNERS: CategoryRangeCategory[] = [
     category: "gravies",
     title: "Gravies & Pastes",
     bannerSrc: "/images/veg/categories/gravies-portfolio.png",
+    bannerSrcMobile: "/images/veg/categories/gravies-portfolio-mobile.png",
     modalBannerSrc: "/images/veg/categories/gravies-banner.png",
     bannerAlt: "Makhani gravy banner",
   },
@@ -46,6 +48,7 @@ const BANNERS: CategoryRangeCategory[] = [
     category: "rice",
     title: "Retort Rice",
     bannerSrc: "/images/veg/categories/rice-portfolio.png",
+    bannerSrcMobile: "/images/veg/categories/rice-portfolio-mobile.png",
     modalBannerSrc: "/images/veg/categories/rice-banner.png",
     bannerAlt: "Saffron rice in clay handi banner",
   },
@@ -128,14 +131,17 @@ function BannerTile({
     >
       {/* Image area - thinner on mobile so the section fits in a single scroll */}
       <div className="relative h-[180px] w-full overflow-hidden bg-[color:var(--royal-blue-deep)] md:h-[380px] lg:h-[420px]">
-        <Image
-          src={banner.bannerSrc}
-          alt={banner.bannerAlt}
-          fill
-          sizes="(max-width: 768px) 100vw, 25vw"
-          className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.06]"
-          style={{ objectPosition: "center" }}
-        />
+        {/* <picture> swaps to the mobile-specific portfolio image below 768px. */}
+        <picture>
+          <source media="(min-width: 768px)" srcSet={banner.bannerSrc} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={banner.bannerSrcMobile ?? banner.bannerSrc}
+            alt={banner.bannerAlt}
+            className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] group-hover:scale-[1.06]"
+            loading="lazy"
+          />
+        </picture>
         {/* Soft bottom-up gradient so the title reads against any photo */}
         <div
           aria-hidden
