@@ -115,11 +115,13 @@ export default function CategoryRangeModal({
               </div>
             </div>
 
-            {/* SKU grid. flex-1 + min-h-0 lets it actually scroll inside
-                the flex-column modal instead of overflowing and being
-                clipped by the parent overflow-hidden. Cards stay the same
-                aspect-square size regardless of category SKU count. */}
-            <div className="grid min-h-0 flex-1 grid-cols-2 gap-3 overflow-y-auto p-5 sm:grid-cols-3 md:grid-cols-4 md:gap-4 md:p-7 lg:grid-cols-5">
+            {/* Scroll wrapper: the FLEX item that takes the remaining
+                column space. Putting `flex-1` on this and letting the
+                inner grid size by content prevents CSS Grid's default
+                row stretching from squishing aspect-square cards when
+                a category has more SKUs than fit in the visible area. */}
+            <div className="min-h-0 flex-1 overflow-y-auto p-5 md:p-7">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:grid-cols-5">
               {items.map((p, i) => (
                 <motion.button
                   key={p.name}
@@ -157,6 +159,7 @@ export default function CategoryRangeModal({
                   </div>
                 </motion.button>
               ))}
+              </div>
             </div>
           </motion.div>
         </motion.div>
