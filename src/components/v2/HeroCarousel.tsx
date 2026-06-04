@@ -154,7 +154,7 @@ export default function HeroCarousel({
                 </h1>
                 {active.subheadline && (
                   <p
-                    className="mb-3 max-w-md text-[0.78rem] font-light leading-snug tracking-wide text-white/90 md:mb-7 md:text-lg lg:text-xl"
+                    className="mb-3 max-w-md text-[0.72rem] font-light leading-snug tracking-wide text-white/90 md:mb-7 md:text-base lg:text-lg"
                     style={{ textShadow: "0 2px 14px rgba(20,32,64,0.5)" }}
                   >
                     {active.subheadline}

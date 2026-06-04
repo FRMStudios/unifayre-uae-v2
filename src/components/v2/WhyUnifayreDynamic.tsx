@@ -173,7 +173,7 @@ export default function WhyUnifayreDynamic({ id = "why" }: { id?: string }) {
                 transition: { duration: 0.8, ease: EASE },
               },
             }}
-            className="mt-5 max-w-[34rem] text-base font-light leading-relaxed text-white/85 md:text-[1.05rem]"
+            className="mt-5 max-w-[34rem] text-sm font-light leading-relaxed text-white/85 md:text-[0.95rem]"
           >
             Four key standards behind every order. Audited. Documented.
             Carried by the team that has done this consistently for three

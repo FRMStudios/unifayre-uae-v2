@@ -86,7 +86,7 @@ export default function LeadFormDark({ id = "contact" }: { id?: string }) {
             </em>
             .
           </h2>
-          <p className="mx-auto mt-2 max-w-md text-[0.84rem] font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:mt-4 md:text-base">
+          <p className="mx-auto mt-2 max-w-md text-[0.76rem] font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:mt-4 md:text-sm">
             Our UAE desk responds within one working day.
           </p>
         </motion.div>

@@ -47,16 +47,16 @@ export default function ImageFeatureSection({
               Vegetarian plant.
             </em>
           </h2>
-          <p className="mt-6 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
+          <p className="mt-6 max-w-[34rem] text-sm font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-base">
             Purpose-built for foodservice. Engineered for international
             shipment. Run by a team that has quietly supplied the
             world&rsquo;s kitchens for three decades.
           </p>
-          <p className="mt-4 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
+          <p className="mt-4 max-w-[34rem] text-sm font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-base">
             18,000 MT. Multi-format freezing. In-house R&amp;D. A halal-only
             line. BRC, FSSC&nbsp;22000, ISO&nbsp;22000 and HACCP certified.
           </p>
-          <p className="mt-4 max-w-[34rem] text-base font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-lg">
+          <p className="mt-4 max-w-[34rem] text-sm font-light leading-relaxed text-[color:var(--text-on-light-muted)] md:text-base">
             The plant is the proof. We will let it speak.
           </p>
           <div className="mt-8">

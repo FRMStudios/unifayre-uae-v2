@@ -82,7 +82,7 @@ export default function WhereWeFit() {
               foodservice moves through.
             </em>
           </h2>
-          <p className="mt-3 max-w-[34rem] text-[0.86rem] font-light leading-relaxed text-white/80 md:mt-5 md:text-lg">
+          <p className="mt-3 max-w-[34rem] text-[0.78rem] font-light leading-relaxed text-white/80 md:mt-5 md:text-base">
             Our range is designed for businesses that need speed,
             standardization and supply confidence across multiple foodservice
             and retail environments.
