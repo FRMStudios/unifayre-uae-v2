@@ -35,13 +35,15 @@ export default function VegetarianLandingPage() {
               eyebrow: "Food Reimagined.",
               headline: (
                 <>
-                  On time,{" "}
+                  Built in India.
+                  <br />
                   <em className="italic text-[color:var(--accent-gold)]">
-                    every consignment.
+                    Made for Global Foodservice.
                   </em>
                 </>
               ),
-              subheadline: "Built around your forecast, not ours.",
+              subheadline:
+                "Frozen food solutions serving HoReCa and White Label.",
             },
             {
               image: "/images/veg/heroes/hero-2.png",
@@ -50,14 +52,13 @@ export default function VegetarianLandingPage() {
               eyebrow: "Food Reimagined.",
               headline: (
                 <>
-                  Identical.{" "}
+                  30 Years of{" "}
                   <em className="italic text-[color:var(--accent-gold)]">
-                    Every order.
+                    Uncompromising Quality.
                   </em>
                 </>
               ),
-              subheadline:
-                "Every batch leaves the line to the same standard.",
+              subheadline: "Through excellence across every process.",
             },
             {
               image: "/images/veg/heroes/hero-3.png",
@@ -66,13 +67,14 @@ export default function VegetarianLandingPage() {
               eyebrow: "Food Reimagined.",
               headline: (
                 <>
-                  Built to{" "}
+                  On Time. On Spec.{" "}
                   <em className="italic text-[color:var(--accent-gold)]">
-                    your menu.
+                    On Promise.
                   </em>
                 </>
               ),
-              subheadline: "Spice, format, portion, all in-house.",
+              subheadline:
+                "Same standard across batches, kitchens and formats.",
             },
           ]}
         />
@@ -97,7 +99,7 @@ export default function VegetarianLandingPage() {
         {/* S4 - OUR STORY (plant images) */}
         <ImageFeatureSection
           imageA={{
-            src: "/images/veg/story/story-1.png",
+            src: "/images/veg/story/story-1.jpeg",
             alt: "Unifayre Mohali plant",
           }}
           imageB={{

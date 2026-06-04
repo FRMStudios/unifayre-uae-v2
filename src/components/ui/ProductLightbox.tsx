@@ -74,12 +74,14 @@ export default function ProductLightbox({
             </button>
 
             <div className="relative aspect-square w-full overflow-hidden bg-[color:var(--off-white-deep)] md:aspect-auto">
+              {/* Photoshoot frames have built-in padding around the
+                  product; zoom in so the plate edges crop out. */}
               <Image
                 src={product.image}
                 alt={product.name}
                 fill
                 sizes="(max-width: 768px) 100vw, 500px"
-                className="object-cover"
+                className="scale-[1.25] object-cover"
               />
               {product.tag && (
                 <div className="absolute left-4 top-4">

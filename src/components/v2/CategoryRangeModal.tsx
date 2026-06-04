@@ -137,12 +137,15 @@ export default function CategoryRangeModal({
                   className="group flex flex-col overflow-hidden rounded-xl border border-[color:var(--royal-blue)]/12 bg-white text-left transition-all hover:-translate-y-0.5 hover:border-[color:var(--accent-gold)]/55 hover:shadow-[0_18px_36px_-18px_rgba(20,32,64,0.25)]"
                 >
                   <div className="relative aspect-square w-full overflow-hidden bg-[color:var(--off-white-deep)]">
+                    {/* Source photos have generous padding around the
+                        product. Pre-scale them so the dish fills the
+                        card and the empty plate edges crop out. */}
                     <Image
                       src={p.image}
                       alt={p.name}
                       fill
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+                      className="scale-[1.35] object-cover transition-transform duration-500 group-hover:scale-[1.42]"
                     />
                     {p.tag && (
                       <div className="absolute left-2 top-2">

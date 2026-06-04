@@ -97,7 +97,10 @@ export default function OurRange({ id = "range" }: { id?: string }) {
         category={openCategory}
         onClose={() => setOpenCategory(null)}
         onSelectProduct={(p) => {
-          setOpenCategory(null);
+          // Keep the category modal open underneath. The product
+          // lightbox sits at z-100, the category modal at z-90; when
+          // the user closes the product they fall back to the
+          // category range instead of dismissing the whole stack.
           setActiveProduct(p);
         }}
       />
