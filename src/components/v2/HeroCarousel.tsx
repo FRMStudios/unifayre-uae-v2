@@ -127,7 +127,7 @@ export default function HeroCarousel({
 
         {/* Per-slide content - anchored to the TOP half of the banner.
             Centred horizontally on mobile, left-aligned on desktop. */}
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-start justify-center px-5 pt-12 text-center md:justify-start md:px-16 md:pt-20 md:text-left">
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-start justify-center px-5 pt-7 text-center md:justify-start md:px-16 md:pt-20 md:text-left">
           <div className="pointer-events-auto max-w-md md:max-w-xl">
             <AnimatePresence mode="wait">
               <motion.div
@@ -137,24 +137,24 @@ export default function HeroCarousel({
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.65, ease: EASE }}
               >
-                <div className="mx-auto mb-3 h-px w-12 bg-[color:var(--accent-gold)] md:mx-0 md:mb-4 md:w-16" />
+                <div className="mx-auto mb-2 h-px w-10 bg-[color:var(--accent-gold)] md:mx-0 md:mb-4 md:w-16" />
                 {active.eyebrow && (
                   <span
-                    className="mb-3 block text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-[color:var(--accent-gold)] md:mb-4 md:text-[0.7rem]"
+                    className="mb-2 block text-[0.6rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--accent-gold)] md:mb-4 md:text-[0.7rem] md:tracking-[0.28em]"
                     style={{ textShadow: "0 2px 14px rgba(20,32,64,0.5)" }}
                   >
                     {active.eyebrow}
                   </span>
                 )}
                 <h1
-                  className="mb-3 text-2xl font-light leading-tight tracking-tight text-white md:mb-4 md:text-4xl lg:text-5xl"
+                  className="mb-2 text-[1.25rem] font-light leading-[1.15] tracking-tight text-white md:mb-4 md:text-4xl lg:text-5xl"
                   style={{ textShadow: "0 2px 18px rgba(20,32,64,0.5)" }}
                 >
                   {active.headline}
                 </h1>
                 {active.subheadline && (
                   <p
-                    className="mb-5 max-w-md text-sm font-light leading-relaxed tracking-wide text-white/90 md:mb-7 md:text-lg lg:text-xl"
+                    className="mb-3 max-w-md text-[0.78rem] font-light leading-snug tracking-wide text-white/90 md:mb-7 md:text-lg lg:text-xl"
                     style={{ textShadow: "0 2px 14px rgba(20,32,64,0.5)" }}
                   >
                     {active.subheadline}
@@ -163,10 +163,10 @@ export default function HeroCarousel({
                 {cta && (
                   <Link
                     href={cta.href}
-                    className="group inline-flex items-center gap-2 border border-[color:var(--accent-gold)] px-5 py-2.5 text-[0.72rem] font-light uppercase tracking-[0.2em] text-[color:var(--accent-gold)] transition-all duration-300 hover:bg-[color:var(--accent-gold)] hover:text-[color:var(--royal-blue-deep)] md:px-7 md:py-3 md:text-[0.78rem]"
+                    className="group inline-flex items-center gap-1.5 border border-[color:var(--accent-gold)] px-3.5 py-2 text-[0.62rem] font-light uppercase tracking-[0.18em] text-[color:var(--accent-gold)] transition-all duration-300 hover:bg-[color:var(--accent-gold)] hover:text-[color:var(--royal-blue-deep)] md:px-7 md:py-3 md:text-[0.78rem] md:tracking-[0.2em]"
                   >
                     {cta.label}
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 md:h-4 md:w-4" />
+                    <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 md:h-4 md:w-4" />
                   </Link>
                 )}
               </motion.div>
