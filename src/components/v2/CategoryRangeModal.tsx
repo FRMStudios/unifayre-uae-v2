@@ -16,6 +16,7 @@ import {
   type CategoryId,
   type Product,
 } from "@/lib/products";
+import { useBodyScrollLock } from "@/lib/useBodyScrollLock";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -42,19 +43,17 @@ export default function CategoryRangeModal({
   onClose: () => void;
   onSelectProduct: (product: Product) => void;
 }) {
+  useBodyScrollLock(!!category);
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
     }
-    if (category) {
-      window.addEventListener("keydown", onKey);
-      const prevOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        window.removeEventListener("keydown", onKey);
-        document.body.style.overflow = prevOverflow;
-      };
-    }
+    if (!category) return;
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+    };
   }, [category, onClose]);
 
   const items = category ? productsByCategory(category.category) : [];

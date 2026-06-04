@@ -39,6 +39,11 @@ export const metadata: Metadata = {
       "Restaurant-grade frozen food manufacturing. Over 30 years heritage. Now serving the UAE and Gulf.",
     type: "website",
   },
+  icons: {
+    icon: "/brand/unifayre-favicon.png",
+    apple: "/brand/unifayre-favicon.png",
+    shortcut: "/brand/unifayre-favicon.png",
+  },
 };
 
 export default function RootLayout({

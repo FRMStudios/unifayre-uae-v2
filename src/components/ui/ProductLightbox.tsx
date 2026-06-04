@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Leaf, Drumstick, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import type { Product } from "@/lib/products";
+import { useBodyScrollLock } from "@/lib/useBodyScrollLock";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -28,19 +29,17 @@ export default function ProductLightbox({
   product: Product | null;
   onClose: () => void;
 }) {
+  useBodyScrollLock(!!product);
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
     }
-    if (product) {
-      window.addEventListener("keydown", onKey);
-      const prevOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        window.removeEventListener("keydown", onKey);
-        document.body.style.overflow = prevOverflow;
-      };
-    }
+    if (!product) return;
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+    };
   }, [product, onClose]);
 
   return (
