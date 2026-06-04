@@ -99,7 +99,7 @@ export default function VegetarianLandingPage() {
         {/* S4 - OUR STORY (plant images) */}
         <ImageFeatureSection
           imageA={{
-            src: "/images/veg/story/story-1.jpeg",
+            src: "/images/veg/story/story-1.png",
             alt: "Unifayre Mohali plant",
           }}
           imageB={{
