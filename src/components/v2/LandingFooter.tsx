@@ -25,11 +25,6 @@ export default function LandingFooter() {
             <p className="max-w-sm font-display text-[1.4rem] font-light italic leading-snug tracking-tight text-[color:var(--accent-gold)]">
               Food Reimagined.
             </p>
-            <p className="max-w-sm text-[0.86rem] font-light leading-relaxed text-[color:var(--text-secondary)]">
-              A brand new manufacturing facility in Dera Bassi, India.
-              Foodservice-first, BRC + FSSC 22000 certified, halal-line.
-              Built to serve kitchens around the world.
-            </p>
           </div>
 
           <div>

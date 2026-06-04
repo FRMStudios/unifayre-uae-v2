@@ -64,7 +64,7 @@ const PILLARS: Pillar[] = [
   {
     icon: ShieldCheck,
     title: "Compliance & safety",
-    body: "BRC, FSSC 22000, ISO 22000, HACCP. Audited, documented. Every batch.",
+    body: "Compliance and safety upheld to the highest global standards.",
   },
 ];
 
