@@ -119,9 +119,8 @@ export default function ProductLightbox({
               </div>
 
               <p className="text-[0.92rem] leading-relaxed text-[color:var(--text-on-light-muted)]">
-                Manufactured at commercial scale across India, available for
-                export to the UAE, Gulf and global markets. Customisable spec,
-                pack size and regional flavour profile.
+                {product.description ??
+                  "Manufactured at commercial scale across India, available for export to the UAE, Gulf and global markets. Customisable spec, pack size and regional flavour profile."}
               </p>
 
               <a
